@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Slider by Juan Ioo</title>
+    <link rel="stylesheet" href="{{asset ('Css/reset.css')}}">
+    <link rel="stylesheet" href="{{asset ('Css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset ('Css/component.css')}}">
+
+
+
+    <link rel="stylesheet" href="{{asset ('Css/lightslider.css')}}" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!--JQUERY-->
+    <script type="text/javascript" src="{{asset ('Js/JQuery3.3.1.js')}}"></script>
+    <script type="text/javascript" src="{{asset ('Js/lightslider.js')}}"></script>
+    <script src="{{asset ('Js/modernizr.custom.js')}}"></script>
+
+</head>
+
+<body>
+
+<script src="{{asset ('Js/classie.js')}}"></script>
+
+
+<div class="view">
+
+    <section class="grid">
+
+        <div class="container">
+
+
+            <!---SLIDER-->
+            <ul id="autoWidth" class="cs-hidden">
+                {% if app.session.get('panier') %}
+                    {% for  element in dataPanier.products %}
+
+                        <li class="item-a">
+                            <!--SLIDER BOX-->
+
+                            <div class="box">
+
+
+                                <div class="product">
+
+                                    <div class="product__info">
+
+                                        <div class="imgbx">
+                                          {{ element.product.nomT }}
+                                        </div>
+
+                                        <img class="product__image" />
+                                    </div>
+
+
+                                </div>
+                                <div class="content">
+
+                                    <button class="btn btn--right" onclick="window.location.href='{{ path('deletef', {'id_t': element.product.id_t})}}'">delete </button>
+
+                                </div>
+
+
+                            </div>
+
+                        </li>
+                    {% endfor %}
+
+                {% else %}
+
+
+                    <tr>
+                        <td colspan="5" class="text-center">Votre panier est vide</td>
+                    </tr>
+                {% endif %}
+            </ul>
+
+        </div>
+    </section>
+</div>
+
+
+<script src="{{asset ('Js/classie.js')}}"></script>
+<script src="{{asset ('Js/az.js')}}"></script>
+<script src="{{asset ('Js/main.js')}}"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+<section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+    <div class="container">
+        <div class="section-wrapper text-center text-uppercase">
+            <h2 class="pageheader-title">Tournament By Maps </h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="{{ path('app_gameFJoin') }}" >Back</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Maps</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+        <div class="content-wrapper center-block">
+            <div id="div_chart"></div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+
+                {{ gc_draw(Geochart, 'div_chart') }}
+                
+            </script>
+            {{dump(Geochart)}}
+
+        </div>
+
+    {% endblock %}

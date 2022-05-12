@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+        <section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+            <div class="container">
+                <div class="section-wrapper text-center text-uppercase">
+                    <h2 class="pageheader-title">Tournament Calendar </h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center mb-0">
+                            <li class="breadcrumb-item"><a href="{{ path('app_gameFJoin') }}" >Back</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
+              integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"
+                integrity="sha256-YicH/8aE660iEnJtgll3vT54dJApy3XkYmqNfGVFEzA=" crossorigin="anonymous"></script>
+        <style>
+            #calender{
+                width: 50%;
+                margin: auto;
+                margin-top: 20px;
+            }
+        </style>
+        <!--dump(data)-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h3 align="center">les Dates Des Tournois </h3>
+                </div>
+            </div>
+        </div>
+        <div id="calender" >
+        </div>
+        <br>
+        <script>
+            window.onload = () =>{
+                let calendarEl = document.getElementById('calender');
+                let calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth' ,
+                        headerToolbar:{
+                            start:'prev,next today' ,
+                            center:'title',
+                            end:'dayGridMonth'
+                        },
+                        events: {{ data|raw }}
+                    }
+
+                );
+                calendar.render();
+            }
+        </script>
+    {% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<body>
+<!-- preloader start here -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- preloader ending here -->
+
+<!-- scrollToTop start here -->
+<a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
+<!-- scrollToTop ending here -->
+
+<!-- ==========shape image Starts Here========== -->
+<div class="body-shape">
+    <img src="assets/images/shape/body-shape.png" alt="shape">
+</div>
+<!-- ==========shape image end Here========== -->
+
+
+
+
+
+
+<!-- ===========PageHeader Section Start Here========== -->
+<section class="pageheader-section" style="background-image: url(assets/images/pageheader/bg.jpg);">
+    <div class="container">
+        <div class="section-wrapper text-center text-uppercase">
+            <h2 class="pageheader-title">Our Tournament</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">matche</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+<!-- ===========PageHeader Section Ends Here========== -->
+
+
+<!-- ===========Collection Section Start Here========== -->
+<section class="collection-section padding-top padding-bottom">
+    <div class="container">
+        <div class="section-wrapper">
+            <ul class="collection-filter-button-group common-filter-button-group d-flex flex-wrap justify-content-center mb-5 text-uppercase">
+                <li class="is-checked" data-filter="*">Choose Your Tournament Type</li>
+
+            </ul>
+            <div class="row g-5 justify-content-center collection-grid">
+                <div class="col-lg-4 col-md-4 col-sm-6 gameListItem collection-one">
+                    <div class="game-item item-layer">
+                        <div class="game-item-inner bg-1">
+                            <div class="game-thumb">
+                                <img src="assets/images/game/01.png" alt="game-img">
+                            </div>
+                            <div class="game-overlay">
+                                <h4><a href="{{ path('app_gameFChoose') }}">Tournament Sportif</a> </h4>
+                                <ul class="rating-star d-flex flex-wrap justify-content-center align-items-center">
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 gameListItem collection-two">
+                    <div class="game-item item-layer">
+                        <div class="game-item-inner bg-2">
+                            <div class="game-thumb">
+                                <img src="assets/images/game/02.png" alt="game-img">
+                            </div>
+                            <div class="game-overlay">
+                                <h4><a href="{{ path('app_gameFChoose') }}">Tournament Virtuelle</a> </h4>
+                                <ul class="rating-star d-flex flex-wrap justify-content-center align-items-center">
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                    <li class="li"><i class="icofont-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===========Collection Section Ends Here========== -->
+
+
+</body>
+{% endblock %}
+
