@@ -16,8 +16,8 @@ import { CoreConfig } from '@core/types';
 // prettier-ignore
 export const coreConfig: CoreConfig = {
   app: {
-    appName     : 'Vuexy',                                        // App Name
-    appTitle    : 'Vuexy - Angular 13+ Bootstrap Admin Template', // App Title
+    appName     : 'Ebuild',                                        // App Name
+    appTitle    : 'Ebuild', // App Title
     appLogoImage: 'assets/images/logo/logo.svg',                  // App Logo
     appLanguage : 'en',                                           // App Default Language (en, fr, de, pt etc..)
   },
@@ -44,7 +44,7 @@ export const coreConfig: CoreConfig = {
       customBackgroundColor: false,           // Boolean: true, false
       backgroundColor      : ''               // BS color i.e bg-primary, bg-success
     },
-    enableLocalStorage: true,
+    enableLocalStorage: false,
     customizer  : false,                       // Boolean: true, false (Enable theme customizer)
     scrollTop   : false,                       // Boolean: true, false (Enable scroll to top button)
     buyNow      : false                        // Boolean: true, false (Set false in real project, For demo purpose only)

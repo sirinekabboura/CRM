@@ -2,7 +2,7 @@
   <div class="auth-inner row m-0">
     <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
       <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" height="28" />
-      <h2 class="brand-text text-primary ml-1">Vuexy</h2></a
+     </a
     >
     <!-- /Brand logo-->
     <!-- Left Text-->
@@ -13,7 +13,7 @@
           [src]="
             coreConfig.layout.skin === 'dark'
               ? 'assets/images/pages/login-v2-dark.svg'
-              : 'assets/images/pages/login-v2.svg'
+              : 'assets/images/pages/login-v2.png'
           "
           alt="Login V2"
         />
@@ -23,7 +23,7 @@
     <!-- Login-->
     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
       <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-        <h2 class="card-title font-weight-bold mb-1">Welcome to Vuexy! 👋</h2>
+        <h2 class="card-title font-weight-bold mb-1">Welcome to Ebuild 👋</h2>
         <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
 
         <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
@@ -40,7 +40,7 @@
               formControlName="email"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-              placeholder="admin@demo.com"
+              placeholder="admin@ebuild.com"
               aria-describedby="login-email"
               autofocus=""
               tabindex="1"
@@ -96,16 +96,20 @@
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in
           </button>
         </form>
+<!--
         <p class="text-center mt-2">
           <span>New on our platform?</span
           ><a routerLink="/pages/authentication/register-v2"><span>&nbsp;Create an account</span></a>
         </p>
+        
+-->
+        
         <div class="divider my-2">
           <div class="divider-text">or</div>
         </div>
         <div class="auth-footer-btn d-flex justify-content-center">
           <a class="btn btn-facebook" href="javascript:void(0)"><i data-feather="facebook"></i></a
-          ><a class="btn btn-twitter white" href="javascript:void(0)"><i data-feather="twitter"></i></a
+          ><a class="btn btn-instagram white" href="javascript:void(0)"><i data-feather="instagram"></i></a
           ><a class="btn btn-google" href="javascript:void(0)"><i data-feather="mail"></i></a
           ><a class="btn btn-github" href="javascript:void(0)"><i data-feather="github"></i></a>
         </div>
