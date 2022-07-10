@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
+import { UserService } from 'app/Services/user.service';
 
 @Component({
   selector: 'app-auth-login-v2',
@@ -31,6 +32,7 @@ export class AuthLoginV2Component implements OnInit {
    * @param {CoreConfigService} _coreConfigService
    */
   constructor(
+    private userservice:UserService,
     private _coreConfigService: CoreConfigService,
     private _formBuilder: FormBuilder,
     private _route: ActivatedRoute,
@@ -67,7 +69,32 @@ export class AuthLoginV2Component implements OnInit {
   togglePasswordTextType() {
     this.passwordTextType = !this.passwordTextType;
   }
+/**
+ *   onSubmit(email,password) {
+    this.submitted = true;
 
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    // Login
+    this.loading = true;
+    //Login API
+    this.userservice.Login(email,password).subscribe((data)=>{
+      this.loggeduser=data
+      console.log(this.loggeduser)
+      // redirect to home page
+      setTimeout(() => {
+      this._router.navigate(['/']);
+      }, 100);
+      },
+      (error)=>{
+        console.log(error)
+      })
+
+  }
+ */
   onSubmit() {
     this.submitted = true;
 
