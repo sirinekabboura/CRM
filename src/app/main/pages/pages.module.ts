@@ -10,9 +10,13 @@ import { ContentHeaderModule } from 'app/layout/components/content-header/conten
 
 import { AuthenticationModule } from './authentication/authentication.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+    ForgotpasswordComponent
+  ],
   imports: [
     CommonModule,
     CoreCommonModule,
