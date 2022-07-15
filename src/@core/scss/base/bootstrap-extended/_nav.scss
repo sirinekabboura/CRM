@@ -84,8 +84,8 @@
     border: 1px solid transparent;
     color: $headings-color;
     &.active {
-      border-color: $nav-pills-link-active-bg;
-      box-shadow: 0 4px 18px -4px rgba($nav-pills-link-active-bg, 0.65);
+      border-color: #da1226;
+      box-shadow: 0 4px 18px -4px rgba(#da1226, 0.65);
     }
     &.disabled {
       color: $nav-link-disabled-color;

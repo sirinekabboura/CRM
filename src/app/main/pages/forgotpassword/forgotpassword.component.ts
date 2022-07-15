@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
-import { UserService } from 'app/auth/service';
+import { UserService } from 'app/auth/services';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

@@ -42,7 +42,7 @@
   // other tags
   a {
     &:hover {
-      color: $primary;
+      color: #da1226;
     }
   }
 
@@ -338,7 +338,7 @@
     }
 
     .collapse-toggle-icon {
-      color: $primary !important;
+      color: #da1226 !important;
     }
   }
 
@@ -599,7 +599,7 @@
 
   .btn-group-toggle {
     label[class*='btn-outline-'] {
-      color: $primary !important;
+      color: #da1226 !important;
     }
   }
 
@@ -617,7 +617,7 @@
       &:hover,
       &:focus {
         background: $dropdown-link-hover-bg;
-        color: $dropdown-link-hover-color;
+        color: #da1226;
       }
       &:active,
       &.active {
@@ -667,7 +667,7 @@
           background-color: $theme-dark-pagination-bg;
 
           .page-link {
-            background-color: $primary;
+            background-color: #da1226;
 
             &:hover {
               color: $white;
@@ -680,7 +680,7 @@
           color: $theme-dark-body-color;
 
           &:hover {
-            color: $primary;
+            color: #da1226;
           }
         }
 
@@ -780,7 +780,7 @@
         color: $theme-dark-headings-color;
         &.active {
           background-color: $theme-dark-card-bg;
-          color: $primary;
+          color: #da1226;
         }
 
         &.disabled {
@@ -801,7 +801,7 @@
       .nav-link {
         &.active {
           color: $white;
-          background-color: $primary;
+          background-color: #da1226;
         }
       }
     }
@@ -897,7 +897,7 @@
         }
         &.active,
         &:active {
-          background-color: $primary;
+          background-color: #da1226;
           color: $white;
         }
       }
@@ -1202,7 +1202,7 @@
       opacity: 0.5;
     }
     &:focus {
-      border-color: $primary;
+      border-color: #da1226;
     }
   }
 
@@ -1262,7 +1262,7 @@
     &:focus-within {
       .form-control,
       .input-group-text {
-        border-color: $primary;
+        border-color: #da1226;
         box-shadow: none;
       }
     }
@@ -1417,7 +1417,7 @@
       .dt-button-collection [class*='buttons-'] {
         background-color: $theme-dark-body-bg !important;
         &:active {
-          background-color: $primary !important;
+          background-color: #da1226 !important;
           color: $white;
         }
       }
@@ -1552,7 +1552,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: $primary;
+      background: #da1226;
     }
   }
 
@@ -1661,7 +1661,7 @@
             }
 
             &.selected-row-bg {
-              background-color: rgba($primary, 0.06);
+              background-color: rgba(#da1226, 0.06);
               border-color: $theme-dark-border-color;
             }
           }
@@ -2281,7 +2281,7 @@
   // Users Application
   .app-user-view {
     .plan-card {
-      border-color: $primary !important;
+      border-color: #da1226 !important;
     }
   }
   .app-user-edit {
@@ -2404,7 +2404,7 @@
               background: $theme-dark-body-bg !important;
               color: $theme-dark-body-color;
               &:hover {
-                color: $primary !important;
+                color: #da1226 !important;
               }
             }
           }

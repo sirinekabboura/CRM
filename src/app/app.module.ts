@@ -18,6 +18,7 @@ import { coreConfig } from 'app/app-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
+import { ProjectsComponent } from './main/pages/projects/projects.component';
 
 const appRoutes: Routes = [
   {
@@ -28,6 +29,11 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent,
+    data: { animation: 'projects' }
   },
   {
     path: '**',
