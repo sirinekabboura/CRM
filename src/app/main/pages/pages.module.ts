@@ -12,12 +12,14 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ProjectslistComponent } from './projectslist/projectslist.component';
 
 @NgModule({
   declarations: [
   
     ForgotpasswordComponent,
-       ProjectsComponent
+       ProjectsComponent,
+       ProjectslistComponent
   ],
   imports: [
     CommonModule,
