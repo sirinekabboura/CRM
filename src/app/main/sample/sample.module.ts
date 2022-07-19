@@ -17,6 +17,9 @@ import { NewPersonnelSidebarComponent } from './personnels/new-personnel-sidebar
 import { PersonnelsEditComponent } from './personnels/personnels-edit/personnels-edit.component';
 import { NgModule } from '@angular/core';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClientComponent } from './client/client.component';
+import { ClientEditComponent } from './client/client-edit/client-edit.component';
+import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
 
 const routes = [
   {
@@ -39,11 +42,21 @@ const routes = [
     component: PersonnelsEditComponent,
     data: { animation: 'personnels-edit' }
   },
+  {
+    path: 'client',
+    component: ClientComponent,
+    data: { animation: 'client' }
+  },
+  {
+    path: 'client-edit',
+    component: ClientEditComponent,
+    data: { animation: 'client-edit' }
+  }
   
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),

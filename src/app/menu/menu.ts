@@ -26,6 +26,14 @@ export const menu: CoreMenu[] = [
     url: 'personnels'
   },
   {
+    id: 'client',
+    title: 'client',
+    translate: 'Client',
+    type: 'item',
+    icon: 'users',
+    url: 'client'
+  },
+  {
     id: 'projects',
     title: 'projects',
     translate: 'Projects',

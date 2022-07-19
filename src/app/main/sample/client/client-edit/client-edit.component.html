@@ -1,0 +1,108 @@
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <!-- users edit start -->
+    <section class="app-user-edit">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+            <li ngbNavItem>
+              <a ngbNavLink class="d-flex align-items-center">
+                <i data-feather="info" class="mr-sm-50"></i><span class="d-none d-sm-block">Information</span></a
+              >
+              <ng-template ngbNavContent>
+                <!-- Information Tab starts -->
+                <div class="tab-pane" id="information" aria-labelledby="information-tab" role="tabpanel">
+                  <!-- users edit Info form start  -->
+                  <form class="form-validate">
+                    <div class="row mt-1">
+                      <div class="modal-body flex-grow-1">
+                          <div class="col-md-8">
+                          <div class="form-group">
+                              <label>Full name</label>
+                              <input type="text" formControlName="firstName"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                  <div *ngIf="f.firstName.errors.required">This field is required!</div>
+                              </div>
+                          </div>
+                          </div>
+                          <div class="col-md-8">
+                          <div class="form-group">
+                              <label>Email</label>
+                              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                  <div *ngIf="f.email.errors.required">This field is required!</div>
+                                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                              </div>
+                          </div>
+                          </div>
+                          <div class="form-group col-8">
+                              <label>Phone number</label>
+                              <input type="number" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                  <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                                  <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-8">
+                            <label>Address</label>
+                            <textarea
+                            formControlName="title" 
+                            class="form-control" 
+                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                            id="customer-address"
+                            cols="2"
+                            rows="2"
+                            placeholder="1307 Lady Bug Drive New York"
+                          ></textarea>
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                            </div>
+                        </div>
+                          <div class="form-group col-8">
+                              <label>Social reason</label>
+                              <input type="text" formControlName="RS" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.RS.errors }" placeholder=""/>
+                              <div *ngIf="submitted && f.RS.errors" class="invalid-feedback">
+                                  <div *ngIf="f.RS.errors.required">This field is required!</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-6">
+                              <fieldset>
+                              <label>Physical person
+                              </label>
+                              <div >
+                                  <input type="radio" id="homme" formControlName="personnePhysique" value="homme"  [ngClass]="{ 'is-invalid': submitted && f.personnePhysique.errors }">&nbsp;&nbsp;
+                                  <label for="femme">   Homme   </label>   
+                              </div>
+                                  <div>
+                                  <input type="radio" id="femme" formControlName="personnePhysique" value="femme"  [ngClass]="{ 'is-invalid': submitted && f.personnePhysique.errors }">&nbsp;&nbsp;
+                                  <label for="femme">   Femme   </label>
+                                </div>                   
+                          </fieldset>
+                          <div *ngIf="submitted && f.personnePhysique.errors" class="invalid-feedback">
+                              <div *ngIf="f.personnePhysique.errors.required">This field is required!</div>
+                          </div>
+                          </div>                     
+                      <div class="text-center">
+                          <button class="btn btn-primary mr-1" (click)="onSubmit()" >Save changes</button>
+                      </div>
+                      </div>
+                      <div class="col-6" style="margin-top: 50px;">
+                          <h4 class="mb-1">
+                            <img src="assets/images/pages/calendar-illustration.png" class="col-10"/>
+                          </h4>
+                        </div>
+                      </div>
+                    </form>
+                    <!-- users edit Info form ends -->
+                  </div>
+                  <!-- Information Tab ends -->
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+          </div>
+        </div>
+      </section>
+      <!-- users edit ends -->
+    </div>
+  </div>
