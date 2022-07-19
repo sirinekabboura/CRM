@@ -59,7 +59,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-outline-success">Enregistrer</button>
-                <a class="btn btn-outline-danger" href="{{ route('equipes.index') }}"> Back</a>
+                <a class="btn btn-outline-danger" href="{{ route('equipes.index') }}"> Retour</a>
         </div>
     </div>
    
