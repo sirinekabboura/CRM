@@ -1,0 +1,99 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- users edit start -->
+      <section class="app-user-edit">
+        <div class="card">
+          <div class="card-body">
+            <ul ngbNav #nav="ngbNav" class="nav nav-pills">
+              <li ngbNavItem>
+                <a ngbNavLink class="d-flex align-items-center">
+                  <i data-feather="info" class="mr-sm-50"></i><span class="d-none d-sm-block">Information</span></a
+                >
+                <ng-template ngbNavContent>
+                  <!-- Information Tab starts -->
+                  <div class="tab-pane" id="information" aria-labelledby="information-tab" role="tabpanel">
+                    <!-- users edit Info form start  -->
+                    <form class="form-validate">
+                      <div class="row mt-1">
+                        <div class="modal-body flex-grow-1">
+                          <div class="form-group col-6">
+                              <label>Full name</label>
+                              <input type="text" formControlName="firstName"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                  <div *ngIf="f.firstName.errors.required">This field is required!</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-6">
+                              <label>Email</label>
+                              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                  <div *ngIf="f.email.errors.required">This field is required!</div>
+                                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-6">
+                              <label>Phone number</label>
+                              <input type="number" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                  <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                                  <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-6">
+                              <label>Role</label>
+                              <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                                  <option value=""></option>
+                                  <option value="administrateur">Administrator</option>
+                                  <option value="Developpeur Front">developer Front
+                                  </option>
+                                  <option value="Developpeur Back">developer Back</option>
+                                  <option value="Developpeur Full stack">developer Full stack</option>
+                              </select>
+                              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                  <div *ngIf="f.title.errors.required">Ce champ est obligatoire!</div>
+                              </div>
+                          </div>
+          
+                          <div class="form-group mb-2 col-6">
+                              <label class="form-label">Subcontracting</label>
+                          <div class="custom-control custom-control-primary custom-switch">
+                              <input id="systemNotification" type="checkbox" class="custom-control-input">
+                              <label for="systemNotification" class="custom-control-label">
+                              </label>
+                          </div>
+                            </div>
+                          
+                          <div class="form-group col-6">
+                              <label>Salary</label>
+                              <input type="number" formControlName="salaire" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.salaire.errors }" />
+                              <div *ngIf="submitted && f.salaire.errors" class="invalid-feedback">
+                                  <div *ngIf="f.salaire.errors.required">This field is required!</div>
+                              </div>
+                          </div>
+                      
+                      <div class="text-center col-4">
+                          <button class="btn btn-primary mr-1" (click)="onSubmit()" >Save changes</button>
+                      </div>
+                  </div>
+                        <div class="col-6">
+                          <h4 class="mb-1">
+                            <img src="assets/images/pages/newpersonel.png" class="col-10"/>
+                          </h4>
+                        </div>
+                        
+                      </div>
+                    </form>
+                    <!-- users edit Info form ends -->
+                  </div>
+                  <!-- Information Tab ends -->
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="mt-2"></div>
+          </div>
+        </div>
+      </section>
+      <!-- users edit ends -->
+    </div>
+  </div>
+  

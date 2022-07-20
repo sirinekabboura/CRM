@@ -1,0 +1,17 @@
+@import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
+@import '@core/scss/base/pages/page-auth.scss';
+
+.auth-help-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.btn-instagram{
+  background-color: #ee0001;
+  color: #fff;
+}
+.btn-instagram:hover{
+  background-color: #ee0001;
+  color: #fff;
+}
+
