@@ -16,10 +16,12 @@ import { PersonnelsComponent } from './personnels/personnels.component';
 import { NewPersonnelSidebarComponent } from './personnels/new-personnel-sidebar/new-personnel-sidebar.component';
 import { PersonnelsEditComponent } from './personnels/personnels-edit/personnels-edit.component';
 import { NgModule } from '@angular/core';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownItem, NgbDropdownMenu, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientComponent } from './client/client.component';
 import { ClientEditComponent } from './client/client-edit/client-edit.component';
 import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
+import { DevisComponent } from './devis/devis.component';
+
 
 const routes = [
   {
@@ -51,12 +53,16 @@ const routes = [
     path: 'client-edit',
     component: ClientEditComponent,
     data: { animation: 'client-edit' }
+  },
+  {
+    path: 'devis',
+    component: DevisComponent,
+    data: { animation: 'devis' }
   }
-  
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),

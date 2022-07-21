@@ -40,5 +40,13 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'folder',
     url: 'projects'
+  },
+  {
+    id: 'devis',
+    title: 'devis',
+    translate: 'Devis',
+    type: 'item',
+    icon: 'file-text',
+    url: 'devis'
   }
 ];

@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdown,  NgbDropdownItem,  NgbDropdownMenu,  NgbDropdownToggle,  NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr'; // For auth after login toast
 
@@ -62,6 +62,10 @@ const appRoutes: Routes = [
     //NgBootstrap
     NgbModule,
     ToastrModule.forRoot(),
+    /*NgbDropdownToggle,
+    NgbDropdownItem,
+    NgbDropdownMenu,
+    NgbDropdown,*/
 
     // Core modules
     CoreModule.forRoot(coreConfig),
