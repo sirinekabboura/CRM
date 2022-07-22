@@ -20,6 +20,7 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
 import { ProjectsComponent } from './main/pages/projects/projects.component';
 import { ProjectslistComponent } from './main/pages/projectslist/projectslist.component';
+import { AjouterprojectComponent } from './main/pages/ajouterproject/ajouterproject.component';
 
 const appRoutes: Routes = [
   {
@@ -39,6 +40,11 @@ const appRoutes: Routes = [
   {
     path: 'projectslist/:ProjectType',
     component: ProjectslistComponent,
+    data: { animation: 'projects' }
+  },
+  {
+    path: 'projects/ajouterproject/:ProjectType',
+    component: AjouterprojectComponent,
     data: { animation: 'projects' }
   },
   {

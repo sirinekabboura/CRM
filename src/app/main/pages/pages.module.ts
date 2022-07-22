@@ -13,13 +13,15 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectslistComponent } from './projectslist/projectslist.component';
+import { AjouterprojectComponent } from './ajouterproject/ajouterproject.component';
 
 @NgModule({
   declarations: [
   
     ForgotpasswordComponent,
        ProjectsComponent,
-       ProjectslistComponent
+       ProjectslistComponent,
+       AjouterprojectComponent
   ],
   imports: [
     CommonModule,
