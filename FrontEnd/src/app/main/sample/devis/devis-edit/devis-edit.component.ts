@@ -11,14 +11,13 @@ import {DatePipe} from '@angular/common'
 import {formatDate} from '@angular/common';
 
 //import { repeaterAnimation } from 'app/main/forms/form-repeater/form-repeater.animation';
-import { DevisAddService } from 'app/main/sample/devis/devis-add/devis-add.service';
+import { DevisEditService } from 'app/main/sample/devis/devis-edit/devis-edit.service';
 @Component({
-  selector: 'app-devis-add',
-  templateUrl: './devis-add.component.html',
-  styleUrls: ['./devis-add.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-devis-edit',
+  templateUrl: './devis-edit.component.html',
+  styleUrls: ['./devis-edit.component.scss']
 })
-export class DevisAddComponent implements OnInit, OnDestroy {
+export class DevisEditComponent implements OnInit, OnDestroy {
 // public
 //public myDate = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
 public apiData;
@@ -60,10 +59,10 @@ private _unsubscribeAll: Subject<any>;
 /**
  * Constructor
  *
- * @param {InvoiceAddService} _invoiceAddService
+ * @param {DevisEditService} _invoiceAddService
  * @param {CoreSidebarService} _coreSidebarService
  */
-constructor(private _invoiceAddService: DevisAddService, private _coreSidebarService: CoreSidebarService) {
+constructor(private _invoiceAddService: DevisEditService, private _coreSidebarService: CoreSidebarService) {
   this._unsubscribeAll = new Subject();
 }
 
@@ -115,7 +114,7 @@ toggleSidebar(name) {
  todayWithPipe = null;
  
 ngOnInit(): void {
-  this.todayWithPipe = this.pipe.transform(Date.now(), 'yyyy-MM-dd');
+  this.todayWithPipe = this.pipe.transform(Date.now(), 'dd/MM/yyyy');
   this._invoiceAddService.onInvoicAddChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
     let responseData = response;
     this.apiData = responseData.slice(5, 10);
@@ -132,7 +131,5 @@ ngOnDestroy(): void {
   this._unsubscribeAll.next();
   this._unsubscribeAll.complete();
 }
-
-
 
 }

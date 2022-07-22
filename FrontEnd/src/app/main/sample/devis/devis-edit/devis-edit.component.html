@@ -36,9 +36,10 @@
                         />
                       </div>
                     </div>
-                    <div class="d-flex align-items-center mb-1 col-6">
-                      <span>Date:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <input type="date" value="{{todayWithPipe}}" class="form-control flat-picker flatpickr-input"/>
+                    <div class="d-flex align-items-center mb-25">
+                      <span class="title">Date : </span>&nbsp;&nbsp;
+                     <!-- <ng2-flatpickr [config]="dateOptions" name="Date"></ng2-flatpickr>-->
+                     <input type="date" value="todayWithPipe" class="form-control flat-picker flatpickr-input"/>
                     </div>
                   </div>
                 </div>
@@ -457,7 +458,7 @@
               <div class="card-body">
                 <button class="btn btn-primary btn-block mb-75" disabled rippleEffect>Send Invoice</button>
                 <button
-                href="/devis-preview"
+                  href="/devis-preview"
                   class="btn btn-outline-primary btn-block mb-75"
                   rippleEffect
                 >

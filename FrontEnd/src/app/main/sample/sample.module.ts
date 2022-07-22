@@ -24,9 +24,12 @@ import { DevisComponent } from './devis/devis.component';
 import { DevisAddComponent } from './devis/devis-add/devis-add.component';
 import { FormsModule } from '@angular/forms';
 import { CorePipesModule } from '@core/pipes/pipes.module';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { DevisPreviewComponent } from './devis/devis-preview/devis-preview.component';
+import { DevisEditComponent } from './devis/devis-edit/devis-edit.component';
 
 
 const routes = [
@@ -69,11 +72,21 @@ const routes = [
     path: 'devis-add',
     component: DevisAddComponent,
     data: { animation: 'devis-add' }
+  },
+  {
+    path: 'devis-preview',
+    component: DevisPreviewComponent,
+    data: { animation: 'devis-preview' }
+  },
+  {
+    path: 'devis-edit',
+    component: DevisEditComponent,
+    data: { animation: 'devis-edit' }
   }
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
@@ -86,7 +99,8 @@ const routes = [
     FormsModule,
     CorePipesModule,
     NgbModule,
-    NgSelectModule
+    NgSelectModule,
+    BrowserAnimationsModule
   ],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]
 })

@@ -245,13 +245,13 @@
       // Outline buttons
       @if ($color_name != 'light' and $color_name != 'black' and $color_name != 'white') {
         .btn-outline-#{$color_name} {
-          border: 1px solid $color_value !important;
+          border: 1px solid #da1226 !important;
           background-color: transparent;
-          color: $color_value;
+          color: black;
 
           &:hover:not(.disabled):not(:disabled) {
-            background-color: rgba($color: $color_value, $alpha: 0.04);
-            color: $color_value;
+            background-color: rgba($color: #da1226, $alpha: 0.04);
+            color: #da1226;
           }
           &:not(:disabled):not(.disabled):active:focus {
             box-shadow: none;
@@ -259,8 +259,8 @@
           &:not(:disabled):not(.disabled):active,
           &:not(:disabled):not(.disabled).active,
           &:not(:disabled):not(.disabled):focus {
-            background-color: rgba($color: $color_value, $alpha: 0.2);
-            color: $color_value;
+            background-color: rgba($color: #da1226, $alpha: 0.2);
+            color: #da1226;
           }
 
           &.dropdown-toggle::after {
@@ -296,7 +296,7 @@
       @if ($color_name != 'light' and $color_name != 'black' and $color_name != 'white') {
         .bullet {
           &.bullet-#{$color_name} {
-            background-color: $color_value;
+            background-color: #da1226;
           }
         }
       }
@@ -307,10 +307,10 @@
           &.modal-#{$color_name} {
             .modal-header {
               .modal-title {
-                color: $color_value;
+                color: #da1226;
               }
               .close {
-                color: $color_value !important;
+                color: #da1226 !important;
               }
             }
           }
@@ -323,7 +323,7 @@
           .page-item {
             &.active {
               .page-link {
-                background: $color-value !important;
+                background: #da1226 !important;
                 color: $white;
 
                 &:hover {
@@ -334,14 +334,14 @@
 
             .page-link {
               &:hover {
-                color: $color_value;
+                color: #da1226;
               }
             }
 
             &.prev-item,
             &.next-item {
               .page-link:hover {
-                background: $color_value;
+                background:#da1226;
                 color: $white;
               }
             }
