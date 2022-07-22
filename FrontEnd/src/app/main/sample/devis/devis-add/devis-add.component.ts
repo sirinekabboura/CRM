@@ -34,7 +34,7 @@ public paymentDetails = {
   swiftCode: 'BR91905'
 };
 
-public items = [{ itemId: '', itemName: '', itemQuantity: '', itemCost: '' }];
+public items = [{ itemId: '', itemName: '',  itemCost: '' }];
 
 public item = {
   itemName: '',
@@ -50,13 +50,7 @@ public dateOptions = {
   defaultDate: ['2020-05-01'],
   altFormat: 'Y-n-j'
 };
-public dueDateOptions = {
-  altInput: true,
-  mode: 'single',
-  altInputClass: 'form-control flat-picker flatpickr-input invoice-edit-input',
-  defaultDate: ['2020-05-17'],
-  altFormat: 'Y-n-j'
-};
+
 public dated=new Date();
 
 
@@ -83,7 +77,6 @@ addItem() {
   this.items.push({
     itemId: '',
     itemName: '',
-    itemQuantity: '',
     itemCost: ''
   });
 }
