@@ -16,11 +16,17 @@ import { PersonnelsComponent } from './personnels/personnels.component';
 import { NewPersonnelSidebarComponent } from './personnels/new-personnel-sidebar/new-personnel-sidebar.component';
 import { PersonnelsEditComponent } from './personnels/personnels-edit/personnels-edit.component';
 import { NgModule } from '@angular/core';
-import { NgbDropdownItem, NgbDropdownMenu, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownItem, NgbDropdownMenu, NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientComponent } from './client/client.component';
 import { ClientEditComponent } from './client/client-edit/client-edit.component';
 import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
 import { DevisComponent } from './devis/devis.component';
+import { DevisAddComponent } from './devis/devis-add/devis-add.component';
+import { FormsModule } from '@angular/forms';
+import { CorePipesModule } from '@core/pipes/pipes.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
 
 
 const routes = [
@@ -58,17 +64,30 @@ const routes = [
     path: 'devis',
     component: DevisComponent,
     data: { animation: 'devis' }
+  },
+  {
+    path: 'devis-add',
+    component: DevisAddComponent,
+    data: { animation: 'devis-add' }
   }
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
     CoreSidebarModule,
     CoreThemeCustomizerModule,
-    CardSnippetModule],
+    CardSnippetModule,
+    CardSnippetModule,
+    Ng2FlatpickrModule,
+    NgxDatatableModule,
+    FormsModule,
+    CorePipesModule,
+    NgbModule,
+    NgSelectModule
+  ],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]
 })
 export class SampleModule {}
