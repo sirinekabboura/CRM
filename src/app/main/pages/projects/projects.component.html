@@ -10,7 +10,7 @@
       <div class="card-body">
         <h2 class="text-primary">Browse Projects according to their type</h2>
         <div class="custom-control custom-control-danger custom-switch float-left" > 
-          <input type="checkbox" checked class="custom-control-input" [(ngModel)]="ShowType" (click)="Switch()" id="customSwitch3"/>
+          <input type="checkbox" checked class="custom-control-input" [(ngModel)]="ShowType" (click)="ShowAll()" id="customSwitch3"/>
           <label class="custom-control-label" for="customSwitch3"></label>  Choose Project Type
         </div>
       </div>
@@ -125,25 +125,6 @@
   <!-- no result -->
 </div>
 </section>
-<ng-container>
-  <div class="row">
-    <div class="col-md-3 col-sm-5 col-9 kb-search-content">
-      <div> 
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-12 kb-search-content" (click)="ShowAll()">
-      <div class="card">
-        <a >
-          <img src="../../../../assets/images/pages/All.jpg" class="card-img-top" alt="knowledge-base-image">
-          <div class="card-body text-center">
-            <h4>Show All Projects</h4>
-            <p class="text-body mt-1 mb-0">Browse All The Projects in one Page.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  </ng-container>
 <!-- Knowledge base ends -->
 
       </div>

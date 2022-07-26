@@ -50,7 +50,7 @@
             "stylePreprocessorOptions": {
               "includePaths": ["node_modules", "src/assets/"]
             },
-            "scripts": ["./node_modules/katex/dist/katex.min.js", "./node_modules/quill/dist/quill.min.js"],
+            "scripts": ["./node_modules/katex/dist/katex.min.js", "./node_modules/quill/dist/quill.min.js","./src/assets/js/modal-create-app.min.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
