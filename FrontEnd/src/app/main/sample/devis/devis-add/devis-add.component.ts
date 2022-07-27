@@ -12,6 +12,7 @@ import {formatDate} from '@angular/common';
 
 //import { repeaterAnimation } from 'app/main/forms/form-repeater/form-repeater.animation';
 import { DevisAddService } from 'app/main/sample/devis/devis-add/devis-add.service';
+import { Console } from 'console';
 @Component({
   selector: 'app-devis-add',
   templateUrl: './devis-add.component.html',
@@ -122,6 +123,7 @@ ngOnInit(): void {
   });
   this.invoiceSelect = this.apiData;
   this.invoiceSelected = this.invoiceSelect;
+
 }
 
 /**
@@ -132,6 +134,12 @@ ngOnDestroy(): void {
   this._unsubscribeAll.next();
   this._unsubscribeAll.complete();
 }
+SelectedDevis:any;
+devis(e){
+  console.log(e.target.value);
+  this.SelectedDevis=e.target.value;
+}
+
 
 
 }
