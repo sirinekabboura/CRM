@@ -19,7 +19,13 @@ import { ItemsList } from '@ng-select/ng-select/lib/items-list';
   styleUrls: ['./devis.component.scss']
 })
 export class DevisComponent implements OnInit {
+  public items = [{ itemId: '', itemName: '',  itemCost: '' }];
 
+  public item = {
+    itemName: '',
+    itemQuantity: '',
+    itemCost: ''
+  };
   personnels: any;
   public sidebarToggleRef = false;
   private _unsubscribeAll: Subject<any>;
@@ -70,6 +76,7 @@ this._unsubscribeAll.next();
 this._unsubscribeAll.complete();
 }
 
+eEditable= -1; //-1 by default. It doesn't match any $index from ng-repeat
 
 
 }
