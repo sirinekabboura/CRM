@@ -1,0 +1,88 @@
+<div class="slideout-content">
+    <div class="modalsd modal-slide-in sdfade new-user-modal" id="modals-slide-in">
+      <div class="modal-dialog">
+        <form [formGroup]="registerForm" class="add-new-user modal-content pt-0" (ngSubmit)="add()">
+            <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="toggleSidebar('new-client-sidebar')"
+          >
+            ×
+          </button>
+          <div class="modal-header mb-1">
+            <h6 class="modal-title" id="exampleModalLabel">New client</h6>
+          </div>
+          <div class="modal-body flex-grow-1">
+                <div class="form-group">
+                    <label>Full name</label>
+                    <input type="text" formControlName="firstName"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="E-build"/>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">This field is required!</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="E-build@gmail.com"/>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">This field is required!</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea
+                    formControlName="title" 
+                    class="form-control" 
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                    id="customer-address"
+                    cols="2"
+                    rows="2"
+                    placeholder="1307 Lady Bug Drive New York"
+                  ></textarea>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Phone number</label>
+                    <input type="number" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="12 345 678"/>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                        <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Social reason</label>
+                    <input type="text" formControlName="RS" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.RS.errors }" placeholder=""/>
+                    <div *ngIf="submitted && f.RS.errors" class="invalid-feedback">
+                        <div *ngIf="f.RS.errors.required">This field is required!</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                    <label>Physical person
+                    </label>
+                    <div >
+                        <input type="radio" id="homme" formControlName="personnePhysique" value="homme"  [ngClass]="{ 'is-invalid': submitted && f.personnePhysique.errors }">&nbsp;&nbsp;
+                        <label for="femme">   Homme   </label>   
+                    </div>
+                        <div>
+                        <input type="radio" id="femme" formControlName="personnePhysique" value="femme"  [ngClass]="{ 'is-invalid': submitted && f.personnePhysique.errors }">&nbsp;&nbsp;
+                        <label for="femme">   Femme   </label>
+                      </div>                   
+                </fieldset>
+                <div *ngIf="submitted && f.personnePhysique.errors" class="invalid-feedback">
+                    <div *ngIf="f.personnePhysique.errors.required">This field is required!</div>
+                </div>
+                </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" (click)="add()" >Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>

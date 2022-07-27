@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AuthenticationService } from 'app/auth/service';
+import { AuthenticationService } from 'app/auth/services';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 import { CoreConfigService } from '@core/services/config.service';
 import { CoreMediaService } from '@core/services/media.service';
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public currentUser: User;
 
-  public languageOptions: any;
+  public languageOptions: any; 
   public navigation: any;
   public selectedLanguage: any;
 

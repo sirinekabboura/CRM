@@ -8,12 +8,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreCommonModule } from '@core/common.module';
 
 import { AuthLoginV2Component } from 'app/main/pages/authentication/auth-login-v2/auth-login-v2.component';
+import { ForgotpasswordComponent } from '../forgotpassword/forgotpassword.component';
 
 // routing
 const routes: Routes = [
   {
     path: 'authentication/login-v2',
     component: AuthLoginV2Component,
+    data: { animation: 'auth' }
+  },
+  {
+    path: 'authentication/forgotpassword',
+    component: ForgotpasswordComponent,
     data: { animation: 'auth' }
   }
 ];

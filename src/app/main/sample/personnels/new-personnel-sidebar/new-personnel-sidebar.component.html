@@ -1,0 +1,81 @@
+<div class="slideout-content">
+    <div class="modalsd modal-slide-in sdfade new-user-modal" id="modals-slide-in">
+      <div class="modal-dialog">
+        <form [formGroup]="registerForm" class="add-new-user modal-content pt-0" (ngSubmit)="add()">
+            <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="toggleSidebar('new-personnel-sidebar')"
+          >
+            ×
+          </button>
+          <div class="modal-header mb-1">
+            <h5 class="modal-title" id="exampleModalLabel">new personnal</h5>
+          </div>
+          <div class="modal-body flex-grow-1">
+                <div class="form-group">
+                    <label>Full name</label>
+                    <input type="text" formControlName="firstName"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="E-build"/>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">This field is required!</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="E-build@gmail.com"/>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">This field is required!</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Phone number</label>
+                    <input type="number" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="12 345 678"/>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">This field is required!</div>
+                        <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                        <option value=""></option>
+                        <option value="administrateur">Administrator</option>
+                        <option value="Developpeur Front">developer Front
+                        </option>
+                        <option value="Developpeur Back">developer Back</option>
+                        <option value="Developpeur Full stack">developer Full stack</option>
+                    </select>
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Ce champ est obligatoire!</div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label class="form-label">Subcontracting</label>
+                <div class="custom-control custom-control-primary custom-switch">
+                    <input id="systemNotification" type="checkbox" class="custom-control-input">
+                    <label for="systemNotification" class="custom-control-label">
+                    </label>
+                </div>
+                  </div>
+                
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="number" formControlName="salaire" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.salaire.errors }" placeholder="000 DT"/>
+                    <div *ngIf="submitted && f.salaire.errors" class="invalid-feedback">
+                        <div *ngIf="f.salaire.errors.required">This field is required!</div>
+                    </div>
+                </div>
+            
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" (click)="add()" >Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</div>
