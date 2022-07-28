@@ -45,7 +45,7 @@
         <label>RNE</label></br>
         <input type="text" name="RNE" id="RNE" value="{{$clients->RNE}}" class="form-control"></br>
         <label>Personnephysique</label></br>
-        <input type="text" name="Personnephysique" id="Personnephysique" value="{{$clients->Personnephysique}}" class="form-control"></br>
+        <input type="text" name="Personnephysique" id="Personnephysique" value="{{$clients->PersonnePhysique}}" class="form-control"></br>
         <label>Adresse</label></br>
         <input type="text" name="Adresse" id="Adresse" value="{{$clients->Adresse}}" class="form-control"></br>
         <input type="submit" value="Update" class="btn btn-success"></br>

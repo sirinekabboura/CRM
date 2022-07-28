@@ -16,9 +16,7 @@
                         <option  value="True" > True </option> 
                         <option  value="False" > False </option> 
                     </select>
-       <!-- <label>Etats</label></br>
-        <input type="text" name="Etats" id="Etats" value="{{$clients->Etats}}" class="form-control"></br>
-        !-->
+    
 
         <div class="form-group" >
           <label for="Role[]" value="{{$personnels->Role}}">Role</label></br>

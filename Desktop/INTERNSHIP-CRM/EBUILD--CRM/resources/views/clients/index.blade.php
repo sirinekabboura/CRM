@@ -26,7 +26,7 @@
                                         <th>Logo</th>
                                         <th>Etats</th>
                                         <th>RNE</th>
-                                        <th>Personnephysique</th>
+                                        <th>PersonnePhysique</th>
                                         <th>Adresse</th>
                                         <th>Actions</th>
                                     </tr>
@@ -40,7 +40,7 @@
                                         <td> <img src="{{ asset($item->Logo) }}" width= '50' height='50' class="img img-responsive" /> </td>                                 
                                         <td>{{ $item->Etats }}</td>
                                         <td>{{ $item->RNE }}</td>
-                                        <td>{{ $item->Personnephysique }}</td>
+                                        <td>{{ $item->PersonnePhysique }}</td>
                                         <td>{{ $item->Adresse }}</td>
 
  
