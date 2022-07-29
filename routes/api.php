@@ -2,6 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Client;
+use App\Models\Personnel;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PersonnelController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +20,24 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+////////////////////////////////////////////////////////////////////////////// Client API SERVICE
+
+Route :: get('/Clients/show/{id}', [ClientController :: class, 'show']);
+Route :: get('/Clients/index', [ClientController :: class, 'index']);
+Route :: get('/Clients', [ClientController :: class, 'store']);
+Route :: put('/Clients/{id}', [ClientController :: class, 'update']);
+Route :: delete('/Clients/delete/{id}', [ClientController :: class, 'destroy']);
+
+////////////////////////////////////////////////////////////////////////////// Personnel API SERVICE
+
+Route :: get('/Personnels/show/{id}', [PersonnelController :: class, 'show']);
+Route :: get('/Personnels/index', [PersonnelController :: class, 'index']);
+Route :: get('/Personnels', [PersonnelController :: class, 'store']);
+Route :: put('/Personnels/{id}', [PersonnelController :: class, 'update']);
+Route :: delete('/Personnels/delete/{id}', [PersonnelController :: class, 'destroy']);
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
