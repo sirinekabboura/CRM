@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil,first } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+
 import { CoreConfigService } from '@core/services/config.service';
 import { UserService } from 'app/Services/user.service';
+import { AuthenticationService } from 'app/auth/services';
 
 @Component({
   selector: 'app-auth-login-v2',
@@ -25,6 +27,7 @@ export class AuthLoginV2Component implements OnInit {
 
   // Private
   private _unsubscribeAll: Subject<any>;
+  loggeduser: any;
 
   /**
    * Constructor
@@ -36,7 +39,8 @@ export class AuthLoginV2Component implements OnInit {
     private _coreConfigService: CoreConfigService,
     private _formBuilder: FormBuilder,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _authenticationService: AuthenticationService
   ) {
     this._unsubscribeAll = new Subject();
 
@@ -68,33 +72,7 @@ export class AuthLoginV2Component implements OnInit {
    */
   togglePasswordTextType() {
     this.passwordTextType = !this.passwordTextType;
-  }
-/**
- *   onSubmit(email,password) {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    // Login
-    this.loading = true;
-    //Login API
-    this.userservice.Login(email,password).subscribe((data)=>{
-      this.loggeduser=data
-      console.log(this.loggeduser)
-      // redirect to home page
-      setTimeout(() => {
-      this._router.navigate(['/']);
-      }, 100);
-      },
-      (error)=>{
-        console.log(error)
-      })
-
-  }
- */
+  }/*
   onSubmit() {
     this.submitted = true;
 
@@ -105,11 +83,42 @@ export class AuthLoginV2Component implements OnInit {
 
     // Login
     this.loading = true;
+    this._authenticationService
+      .login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this._router.navigate(['/home']);
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+        }
+      );
+  }*/
+  onSubmit() {
+    this.submitted = true;
 
-    // redirect to home page
-    setTimeout(() => {
-      this._router.navigate(['/']);
-    }, 100);
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    // Login
+    this.loading = true;
+    this._authenticationService
+      .login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data)
+          this._router.navigate(['/home']);
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+        }
+      );
   }
 
   // Lifecycle Hooks
@@ -120,8 +129,8 @@ export class AuthLoginV2Component implements OnInit {
    */
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      email: ['email', [Validators.required, Validators.email]],
+      password: ['password', Validators.required]
     });
 
     // get return url from route parameters or default to '/'

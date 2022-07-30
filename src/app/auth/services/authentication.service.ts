@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AuthenticationService {
   //public
   public currentUser: Observable<User>;
+  private BackEndUrl='http://127.0.0.1:8000/api/'
 
   //private
   private currentUserSubject: BehaviorSubject<User>;
@@ -51,23 +52,27 @@ export class AuthenticationService {
    * @param password
    * @returns user
    */
+  
+  test(){
+    //return this._http.get<any>(this.BackEndUrl+'/user/loginuser',{email,password});
+  }
   login(email: string, password: string) {
     return this._http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, { email, password })
+      .post<any>(this.BackEndUrl+'user/loginuser', { email, password })
       .pipe(
         map(user => {
           // login successful if there's a jwt token in the response
-          if (user && user.token) {
+          if (user) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem('currentUser', JSON.stringify(user.User));
 
             // Display welcome toast!
             setTimeout(() => {
               this._toastrService.success(
                 'You have successfully logged in as an ' +
-                  user.role +
-                  ' user to Vuexy. Now you can start to explore. Enjoy! 🎉',
-                '👋 Welcome, ' + user.firstName + '!',
+                  user.name +
+                  ' user to EBuild. Now you can start to explore. Enjoy! 🎉',
+                '👋 Welcome, ' + user.name + '!',
                 { toastClass: 'toast ngx-toastr', closeButton: true }
               );
             }, 2500);
