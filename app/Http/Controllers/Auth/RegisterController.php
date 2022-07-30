@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
 
 class RegisterController extends Controller
 {
@@ -63,8 +65,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function create(Request $request)
     {
+        /*
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -72,5 +81,10 @@ class RegisterController extends Controller
             'Numtelephone' => $data['Numtelephone'],
 
         ]);
+        */
+        User::create($request->all()); 
+        return response()->json([
+            'success' => 'User  Ajouté avec succès '
+            ], 200);
     }
 }

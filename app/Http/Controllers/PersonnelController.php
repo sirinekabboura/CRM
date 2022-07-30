@@ -27,7 +27,11 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        Personnel::create($request->all());        
+        Personnel::create($request->all());    
+        User::create($request->all()); 
+        return response()->json([
+            'success' => 'Personnel  Ajouté avec succès '
+            ], 200);    
     }
 
     /**
