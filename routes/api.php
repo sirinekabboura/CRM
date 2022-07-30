@@ -46,6 +46,9 @@ Route :: delete('/Personnels/delete/{id}', [PersonnelController :: class, 'destr
 ////////////////////////////////////////////////////////////////////////////// User  API SERVICE
 
 Route :: post('/user/register', [RegisterController :: class, 'create']);
+Route :: post('/user/loginuser',[LoginController :: class, 'LoginUser']);
+
+
 
 
 

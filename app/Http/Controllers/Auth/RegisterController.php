@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'Numtelephone' => ['required', 'string', 'min:8'],
+            'Numtelephone' => ['required', 'string', 'min:8'],          
         ]);
     }
 
@@ -82,9 +82,49 @@ class RegisterController extends Controller
 
         ]);
         */
+
+
+        try {
+            $validatoruser = Validator::make($request->all(),
+            [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+            'Numtelephone' => ['required', 'string', 'min:8'],      
+            ]);
+
+            if ($validatoruser->fails()){
+                return response()->json([
+                    'status'=> false ,
+                    'message'=>'Validation error ',
+                    'errors' => $validatoruser->errors()
+                ] , 401);
+            }
+            $user = User::create([
+                    'name' => $request['name'],
+                    'email' => $request['email'],
+                    'password' => Hash::make($request['password']),
+                    'Numtelephone' => $request['Numtelephone'],
+            ]);
+            return response()->json([
+                'status'=> True ,
+                'message'=>'User created avec sucess',
+            ] , 200);
+
+        } catch(\Throwable $th){
+            return response()->json([
+                'status'=> false ,
+                'message'=>$th->getmessage()
+            ] , 500);
+        }
+
+        /*
         User::create($request->all()); 
         return response()->json([
             'success' => 'User  Ajouté avec succès '
             ], 200);
+*/
     }
+
+    
 }
