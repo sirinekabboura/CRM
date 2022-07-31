@@ -36,7 +36,7 @@
             <td>{{ $eq->membres }}</td>
             <td>{{ $eq->projet }}</td>
             <td>{{ $eq->pseudo }}</td>
-            <td>{{ $eq->code }}</td>
+            <td>{{   $eq->id .  $eq->id   }}</td>
             <td>
                 <form action="{{ route('equipes.destroy',$eq->id) }}" method="POST">
    

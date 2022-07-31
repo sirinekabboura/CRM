@@ -1,10 +1,10 @@
-@extends('equipes.layout')
+@extends('projets.layout')
   
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Ajouter une équipe</h2>
+            <h2>Ajouter un projet</h2>
         </div>
  
     </div>
@@ -21,45 +21,45 @@
     </div>
 @endif
    
-<form action="{{ route('equipes.store') }}" method="POST">
+<form action="{{ route('projets.store') }}" method="POST">
     @csrf
   
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <strong>Nom Projet:</strong>
+                <input type="text" name="NomProjet" class="form-control" placeholder="Name">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Membres:</strong>
-                <input type="text" name="membres" class="form-control" placeholder="membres">
+                <strong>Equipe :</strong>
+                <input type="text" name="Equipe" class="form-control" placeholder="équipe">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Projet:</strong>
-                <input type="text" name="projet" class="form-control" placeholder="projet">
+                <strong>Etat:</strong>
+                <select id="etat" name="Etat">
+                     <option value="Affecté">Affecté</option>
+                    <option value="Crée">Créé</option>
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Pseudo:</strong>
-                <input type="text" name="pseudo" class="form-control" placeholder="pseudo">
+                <strong>Deadline:</strong>
+                <input type="date" name="Deadline" class="form-control" placeholder="deadline">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Code:</strong>
-                <input type="number" name="code" class="form-control" placeholder="code">
-            </div>
-        </div>
+    <br>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-outline-success">Enregistrer</button>
-                <a class="btn btn-outline-danger" href="{{ route('equipes.index') }}"> Retour</a>
+                <a class="btn btn-outline-danger" href="{{ route('projets.index') }}"> Retour</a>
         </div>
     </div>
    

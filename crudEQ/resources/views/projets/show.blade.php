@@ -1,4 +1,4 @@
-@extends('equipes.layout')
+@extends('projets.layout')
   
 @section('content')
     <div class="row">
@@ -15,30 +15,27 @@
         <table class="table table-hover table-bordered" id="sampleTable">
 							<tbody>
                                 <tr>
-									<th>Nom Equipe: </th>
-									<td>{{ $equipe->name }}</td>
+									<th>Nom Projet: </th>
+									<td>{{ $projet->NomProjet }}</td>
 								</tr>
 								<tr>
-									<th>Membres :</th>
-									<td>{{ $equipe->membres }}</td>
+									<th>Equipe :</th>
+									<td>{{ $projet->Equipe }}</td>
 								</tr>
                                 <tr>
-									<th>Projet :</th>
-									<td>{{ $equipe->projet }}</td>
+									<th>Etat :</th>
+									<td>{{ $projet->Etat }}</td>
 								</tr>
                                 <tr>
-									<th>Pseudo</th>
-									<td>{{ $equipe->pseudo }}</td>
+									<th>Deadline</th>
+									<td>{{ $projet->Deadline }}</td>
 								</tr>
-                                <tr>
-									<th>Code :</th>
-									<td>{{ $equipe->id . $equipe->id }}</td>
-								</tr>
+                              
         </table
 							
     
     </div>
     <div class="pull-right">
-                <a class="btn btn-outline-danger" href="{{ route('equipes.index') }}"> Retour</a>
+                <a class="btn btn-outline-danger" href="{{ route('projets.index') }}"> Retour</a>
             </div>
 @endsection
