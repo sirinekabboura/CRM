@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
-
 import { CoreCommonModule } from '@core/common.module';
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
@@ -15,13 +14,16 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectslistComponent } from './projectslist/projectslist.component';
 import { AjouterprojectComponent } from './ajouterproject/ajouterproject.component';
 
+
+
+
 @NgModule({
   declarations: [
   
     ForgotpasswordComponent,
        ProjectsComponent,
        ProjectslistComponent,
-       AjouterprojectComponent
+       AjouterprojectComponent,
   ],
   imports: [
     CommonModule,

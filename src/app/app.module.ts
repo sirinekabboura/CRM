@@ -50,6 +50,10 @@ const appRoutes: Routes = [
     data: { animation: 'projects' }
   },
   {
+    path: 'taches',
+    loadChildren: () => import('../app/main/pages/todo/todo.module').then(m => m.TodoModule)
+  },
+  {
     path: '**',
     redirectTo: '/pages/miscellaneous/error' //Error 404 - Page not found
   }

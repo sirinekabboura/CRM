@@ -1,0 +1,89 @@
+<div class="todo-app-list">
+  <!-- Todo search starts -->
+  <div class="app-fixed-search d-flex align-items-center">
+    <div class="sidebar-toggle d-block d-lg-none ms-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu font-medium-5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+    <div class="d-flex align-content-center justify-content-between w-100">
+      <div class="input-group input-group-merge">
+        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search text-muted"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+        <input type="text" class="form-control" id="todo-search" placeholder="Search task" aria-label="Search..." aria-describedby="todo-search">
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle hide-arrow me-1" id="todoActions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical font-medium-2 text-body"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="todoActions" style="">
+        <a class="dropdown-item sort-asc" href="#">Sort A - Z</a>
+        <a class="dropdown-item sort-desc" href="#">Sort Z - A</a>
+        <a class="dropdown-item" href="#">Sort Assignee</a>
+        <a class="dropdown-item" href="#">Sort Due Date</a>
+        <a class="dropdown-item" href="#">Sort Today</a>
+        <a class="dropdown-item" href="#">Sort 1 Week</a>
+        <a class="dropdown-item" href="#">Sort 1 Month</a>
+      </div>
+    </div>
+  </div>
+  <!-- Todo search ends -->
+
+  <!-- Todo List starts -->
+  <div class="todo-task-list-wrapper list-group ps ps--active-y">
+    <ul class="todo-task-list media-list" id="todo-task-list">
+      <li class="todo-item completed" >
+        <div class="todo-title-wrapper">
+          <div class="todo-title-area" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+            <div class="title-wrapper">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheck14" checked="">
+                <label class="form-check-label" for="customCheck14"></label>
+              </div>
+              <span class="todo-title" (click)="openTodo(1)">Test functionality of apps developed by dev team for enhancements. </span>
+            </div>
+          </div>
+          <div class="todo-item-action">
+            <div class="badge-wrapper me-1">
+              <span class="badge rounded-pill badge-light-primary">  Team</span>
+              <span class="badge rounded-pill badge-light-danger">  High</span>
+              <span class="badge rounded-pill badge-light-warning">  Medium</span>
+              <span class="badge rounded-pill badge-light-info">  Update</span>
+              <span class="badge rounded-pill badge-light-success">  Low</span>
+            </div>
+            <small class="text-nowrap text-muted me-1">Sept 07</small>
+            <div class="avatar bg-light-info">
+              <div class="avatar-content">VB</div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="todo-item completed">
+        <div class="todo-title-wrapper">
+          <div class="todo-title-area">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical drag-icon"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+            <div class="title-wrapper">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="customCheck14" checked="">
+                <label class="form-check-label" for="customCheck14"></label>
+              </div>
+              <span class="todo-title">Test functionality of apps developed by dev team for enhancements. </span>
+            </div>
+          </div>
+          <div class="todo-item-action">
+            <div class="badge-wrapper me-1">
+              <span class="badge rounded-pill badge-light-danger">High</span>
+            </div>
+            <small class="text-nowrap text-muted me-1">Sept 07</small>
+            <div class="avatar bg-light-info">
+              <div class="avatar-content">VB</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="no-results">
+      <h5>No Items Found</h5>
+    </div>
+  <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 343px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 126px;"></div></div></div>
+  <!-- Todo List ends -->
+</div>
