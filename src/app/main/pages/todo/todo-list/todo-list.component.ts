@@ -8,7 +8,9 @@ import { TodoService } from 'app/main/pages/todo//todo.service';
 
 @Component({
   selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html'
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list-component.scss']
+
 })
 export class TodoListComponent implements OnInit {
   // Public
@@ -70,7 +72,8 @@ export class TodoListComponent implements OnInit {
    */
   openTodo(idRef) {
     //this._todoService.setCurrentTodo(idRef);
-    this._coreSidebarService.getSidebarRegistry('todo-sidebar-right').toggleOpen();
+    this._coreSidebarService.getSidebarRegistry('soustache').toggleOpen();
+
   }
 
   // Lifecycle Hooks

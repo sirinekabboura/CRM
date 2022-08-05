@@ -17,6 +17,7 @@ import { TodoMainSidebarComponent } from 'app/main/pages/todo//todo-sidebars/tod
 import { TodoRightSidebarComponent } from 'app/main/pages/todo//todo-sidebars/todo-right-sidebar/todo-right-sidebar.component';
 
 import { TodoComponent } from 'app/main/pages/todo//todo.component';
+import { SoustacheComponent } from './soustache/soustache.component';
 
 // routing
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
     TodoListComponent,
     TodoMainSidebarComponent,
     TodoRightSidebarComponent,
-    TodoListItemComponent
+    TodoListItemComponent,
+    SoustacheComponent
   ],
   imports: [
     CommonModule,

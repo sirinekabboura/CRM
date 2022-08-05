@@ -8,6 +8,7 @@ import { Todo } from 'app/main/pages/todo/todo.model';
 @Component({
   selector: 'app-todo-right-sidebar',
   templateUrl: './todo-right-sidebar.component.html',
+  styleUrls: ['./todo-right-side.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class TodoRightSidebarComponent implements OnInit {
@@ -17,7 +18,9 @@ export class TodoRightSidebarComponent implements OnInit {
   public tags;
   public selectTags;
   public selectAssignee;
-
+  ajouter=true
+  commentaire=false;
+  public soustache=true;
   @ViewChild('dueDateRef') private dueDateRef: any;
 
   public dueDateOptions = {
@@ -45,7 +48,16 @@ export class TodoRightSidebarComponent implements OnInit {
   closeSidebar() {
     this._coreSidebarService.getSidebarRegistry('todo-sidebar-right').toggleOpen();
   }
-
+  //show commentaire
+  showCommentaire(){
+    this.commentaire=true;
+    this.ajouter=false;
+  }
+  //show ajouter
+  showAjouter(){
+    this.commentaire=false;
+    this.ajouter=true;
+  }
   /**
    * Update Todo
    */
@@ -103,6 +115,7 @@ export class TodoRightSidebarComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
+    this.selectAssignee=[{id:1,name:'John Doe'},{id:2,name:'Jane Doe'}];
     /*this._todoService.onCurrentTodoChange.subscribe(response => {
       if (Object.keys(response).length > 0) {
         this.todo = response;

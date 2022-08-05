@@ -1,52 +1,44 @@
 <!-- Right Sidebar -->
 <div class="modal-dialog sidebar-lg">
   <div class="modal-content p-0">
+    <button
+    (click)="closeSidebar()"
+    type="button"
+    class="close font-large-1 font-weight-normal py-0"
+    data-dismiss="modal"
+    aria-label="Close"
+  >
+    ×
+  </button>
+    
+    <ul class="nav nav-tabs tabs-line">
+      <li class="nav-item"  (click)="showAjouter()">
+        <a class="nav-link nav-link-update active" data-bs-toggle="tab">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+          <span class="align-middle">Ajouter</span>
+        </a>
+      </li>
+      <li class="nav-item" (click)="showCommentaire()">
+        <a class="nav-link nav-link-activity" data-bs-toggle="tab" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span class="align-middle">Commentaires</span>
+        </a>
+      </li>
+    <div></div></ul>
     <form
       id="form-modal-todo"
-      class="todo-modal needs-validation"
+      class="todo-modal needs-validation" 
       (ngSubmit)="(todoForm.form.valid)"
       #todoForm="ngForm"
+      *ngIf="ajouter"
     >
-      <div class="modal-header align-items-center mb-1">
-        <h5 *ngIf="isDataEmpty === true; else updateTodosRef" class="modal-title">Add Task</h5>
-        <ng-template #updateTodosRef>
-          <button
-            (click)="toggleComplete()"
-            class="btn btn-sm"
-            [ngClass]="todo.completed ? 'btn-outline-success' : 'btn-outline-secondary'"
-            rippleEffect
-          >
-            {{ todo.completed ? 'Complete' : 'Mark Complete' }}
-          </button>
-        </ng-template>
-        <div class="todo-item-action d-flex align-items-center justify-content-between ml-auto">
-          <button
-            *ngIf="isDataEmpty === false"
-            (click)="deleteTodo()"
-            type="button"
-            class="todo-item-favorite cursor-pointer mr-75 btn p-0"
-          >
-            <i data-feather="trash" [size]="18"></i>
-          </button>
-
-          <button class="todo-favorite btn pr-75 p-0" (click)="toggleImportant()">
-            <i
-              class="fa font-medium-3"
-              [ngClass]="{ 'fa-star text-warning': todo.important === true, 'fa-star-o': todo.important === false }"
-            ></i>
-          </button>
-          <button
-            (click)="closeSidebar()"
-            type="button"
-            class="close font-large-1 font-weight-normal py-0"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            ×
-          </button>
-        </div>
+    <div class="modal-header align-items-center mb-1">
+      <h5 class="modal-title">Ajouter Tache</h5>
+      <div class="todo-item-action d-flex align-items-center justify-content-between ml-auto">
+       
       </div>
-      <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
+    </div>
+      <div class="modal-body flex-grow-1 pb-sm-0 pb-3" >
         <div class="action-tags">
           <div class="form-group">
             <label for="todoTitleAdd" class="form-label">Title</label>
@@ -65,70 +57,92 @@
               <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
             </span>
           </div>
-          <div class="form-group position-relative">
-            <label for="task-assigned" class="form-label d-block">Assignee</label>
-            <ng-select [items]="selectAssignee" name="selectAssignee" [(ngModel)]="todo.assignee" bindLabel="fullName">
-              <ng-template ng-option-tmp let-item="item">
-                <div class="media align-items-center">
-                  <img
-                    class="d-block rounded-circle mr-50"
-                    [src]="item.avatar"
-                    height="26"
-                    width="26"
-                    [alt]="item.fullName"
-                  />
-                  <div class="media-body">
-                    <p class="mb-0">{{ item.fullName }}</p>
-                  </div>
-                </div>
-              </ng-template>
-            </ng-select>
-          </div>
-          <div class="form-group position-relative">
-            <label for="task-due-date" class="form-label">Due Date</label>
-            <ng2-flatpickr
-              [config]="dueDateOptions"
-              #dueDateRef
-              name="addDueDate"
-              [setDate]="todo.dueDate"
-            ></ng2-flatpickr>
+          <div class="form-group">
+            <label for="tododateAdd" class="form-label">Date Creation</label>
+            <input
+              type="date"
+              id="tododateAdd"
+              name="adddate"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+            />
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
           </div>
           <div class="form-group">
-            <label for="task-tag" class="form-label d-block">Tag</label>
-            <ng-select
-              [items]="selectTags"
-              [multiple]="true"
-              [closeOnSelect]="false"
-              [searchable]="false"
-              bindLabel="name"
-              [(ngModel)]="todo.tags"
-              name="addTag"
-            >
-            </ng-select>
+            <label for="tododeadlineAdd" class="form-label">Deadline</label>
+            <input
+              type="date"
+              id="tododeadlineAdd"
+              name="adddeadline"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+            />
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
           </div>
           <div class="form-group">
-            <label class="form-label">Description</label>
-
-            <quill-editor
+            <label for="todoCommentaire" class="form-label">Commentaire</label>
+            <textarea
+              id="todoCommentaire"
+              name="addcommentaire"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+              rows="3"
+            ></textarea>
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="todoDescription" class="form-label">Description</label>
+            <textarea
+              id="todoDescription"
               name="addDescription"
-              customToolbarPosition="'bottom'"
-              [(ngModel)]="todo.description"
-              class="border-bottom-0"
-              placeholder="Write Your Description"
-            >
-              <div quill-editor-toolbar>
-                <div class="d-flex justify-content-end desc-toolbar border-top-0">
-                  <span class="ql-formats mr-0">
-                    <button class="ql-bold"></button>
-                    <button class="ql-italic"></button>
-                    <button class="ql-underline"></button>
-                    <button class="ql-align"></button>
-                    <button class="ql-link"></button>
-                  </span>
-                </div>
-              </div>
-            </quill-editor>
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+              rows="4"
+            ></textarea>
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
           </div>
+        </div>
+        <div class="form-group">
+          <label for="todoImage" class="form-label">Image</label>
+          <input
+            type="file"
+            id="todoImage"
+            name="addImage"
+            class="new-todo-item-title form-control"
+            [(ngModel)]="todo.title"
+            required
+            rows="3"
+          >
+          <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+            <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="todoFile" class="form-label">File</label>
+          <input
+            type="file"
+            id="todoFile"
+            name="addFile"
+            class="new-todo-item-title form-control"
+            [(ngModel)]="todo.title"
+            required
+            rows="3"
+          >
+          <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+            <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+          </span>
         </div>
         <div class="form-group my-1">
           <button
@@ -161,6 +175,71 @@
         </div>
       </div>
     </form>
+    <!-- Commentaire-->
+    <div class="modal-body flex-grow-1 pb-sm-0 pb-3" *ngIf="commentaire">
+      <div class="action-tags">
+        <div class="d-flex align-items-start mb-1">
+          <div class="avatar bg-light-success my-0 ms-0 me-50">
+            <span class="avatar-content">HJ</span>
+          </div>
+          <div class="more-info">
+            <p class="mb-0"><span class="fw-bold">Jordan</span> Left the board.</p>
+            <small class="text-muted">Today 11:00 AM</small>
+          </div>
+        </div> 
+        <div class="d-flex align-items-start mb-1">
+          <div class="avatar my-0 ms-0 me-50">
+            <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="32">
+          </div>
+          <div class="more-info">
+            <p class="mb-0">
+              <span class="fw-bold">Dianna</span> mentioned <span class="fw-bold text-primary">@bruce</span> in a
+              comment.
+            </p>
+            <small class="text-muted">Today 10:20 AM</small>
+          </div>
+        </div>
+        <div class="d-flex align-items-start mb-1">
+          <div class="avatar my-0 ms-0 me-50">
+            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" height="32">
+          </div>
+          <div class="more-info">
+            <p class="mb-0"><span class="fw-bold">Barry</span> Commented on App review task.</p>
+            <small class="text-muted">Today 8:32 AM</small>
+          </div>
+        </div>
+        <form>
+          <div class="form-group">
+            <textarea
+              id="commentaire"
+              name="commentaire"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="commentaire.title"
+              required
+              rows="1"
+              placeholder="Add a comment..."
+            ></textarea>
+            <span *ngIf="commentaireForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
+          </div>
+          
+        </form>
+      <div class="form-group my-1">
+        <button
+          class="btn btn-outline-danger add-todo-item"
+          type="button"
+          (click)="closeSidebar()"
+          data-dismiss="modal"
+          rippleEffect
+        >
+          Ajouter Commentaire
+        </button>
+      </div>
+    </div>
   </div>
+  <!--Sous Taches-->
+
+</div>
 </div>
 <!--/ Right Sidebar -->
