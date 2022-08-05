@@ -8,9 +8,18 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
   ProjectType
+  ShowType
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.ShowType=true;
+  }
+  Switch(){
+    this.ShowType=!this.ShowType;
+  }
+  ShowAll(){
+    this.ProjectType='All'
+    this.router.navigateByUrl('/projectslist/'+this.ProjectType)
   }
   WebApplication(){
     this.ProjectType='Appweb'

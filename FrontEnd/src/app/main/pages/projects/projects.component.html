@@ -9,15 +9,10 @@
     <div class="card knowledge-base-bg text-center" style="background-image: url('../../../../assets/images/pages/graphic-6.png')">
       <div class="card-body">
         <h2 class="text-primary">Browse Projects according to their type</h2>
-        <p class="card-text mb-2">
-          <span>Popular searches: </span><span class="fw-bolder">Web Application, E-Commerce</span>
-        </p>
-        <form class="kb-search-input">
-          <div class="input-group input-group-merge">
-            <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-            <input type="text" class="form-control" id="searchbar" placeholder="Ask a question...">
-          </div>
-        </form>
+        <div class="custom-control custom-control-danger custom-switch float-left" > 
+          <input type="checkbox" checked class="custom-control-input" [(ngModel)]="ShowType" (click)="ShowAll()" id="customSwitch3"/>
+          <label class="custom-control-label" for="customSwitch3"></label>  Choose Project Type
+        </div>
       </div>
     </div>
   </div>
@@ -26,7 +21,7 @@
 <!--/ Knowledge base Jumbotron -->
 
 <!-- Knowledge base -->
-<section id="knowledge-base-content">
+<section id="knowledge-base-content" *ngIf="ShowType">
 <div class="row kb-search-content-info match-height">
   <!-- sales card -->
   <div class="col-md-4 col-sm-6 col-12 kb-search-content" (click)="WebApplication()">

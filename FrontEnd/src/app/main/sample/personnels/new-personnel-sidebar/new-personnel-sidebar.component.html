@@ -32,7 +32,12 @@
                 </div>
                 <div class="form-group">
                     <label>Phone number</label>
-                    <input type="number" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="12 345 678"/>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">+ 216 </span>
+                      
+                    <input type="number" formControlName="lastName" 
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" 
+                    placeholder="12 345 678"/></div>
                     <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                         <div *ngIf="f.lastName.errors.required">This field is required!</div>
                         <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>

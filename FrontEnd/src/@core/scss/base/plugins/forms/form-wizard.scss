@@ -26,7 +26,7 @@ $step-box-width: 38px;
       background-color: transparent;
       margin: 0;
       padding: 0 1.75rem;
-      color: $body-color;
+      color: #da1226;
       font-size: 1.5rem;
     }
     .step {
@@ -57,7 +57,7 @@ $step-box-width: 38px;
 
           .bs-stepper-title {
             display: inherit;
-            color: $body-color;
+            color: #da1226;
             font-weight: 600;
             line-height: 1rem;
             margin-bottom: 0rem;
@@ -78,7 +78,7 @@ $step-box-width: 38px;
       &.active {
         .step-trigger {
           .bs-stepper-box {
-            background-color: $primary;
+            background-color: #da1226;
             color: $white;
             box-shadow: 0 3px 6px 0 rgba($primary, 0.4);
           }

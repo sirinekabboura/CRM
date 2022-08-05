@@ -41,4 +41,29 @@ export const menu: CoreMenu[] = [
     icon: 'folder',
     url: 'projects'
   }
+  ,
+  {
+    id: 'taches',
+    title: 'taches',
+    translate: 'Taches',
+    type: 'item',
+    icon: 'check',
+    url: 'taches'
+  },
+  {
+    id: 'devis',
+    title: 'devis',
+    translate: 'Quotations',
+    type: 'item',
+    icon: 'file-text',
+    url: 'devis'
+  },
+  {
+    id: 'invoice',
+    title: 'invoice',
+    translate: 'Invoices',
+    type: 'item',
+    icon: 'file-plus',
+    url: 'invoice'
+  }
 ];
