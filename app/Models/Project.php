@@ -10,10 +10,10 @@ class Project extends Model
     use HasFactory;
     protected $fillable = [
         "Type",
-        "client",
         "description",
-        "CDC",
-        "equipe_id",
+        "etats",
+        "filecvc",
+        "dateCreation",
         "Deadline",
 
     ];

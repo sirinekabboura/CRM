@@ -18,7 +18,7 @@ class ProjectController extends Controller
         $project = Project::all();
         return response()->json([
             $project
-        ],200);
+        ], 200);
     }
 
     /**
@@ -30,20 +30,20 @@ class ProjectController extends Controller
     {
         try {
             $project = $request->validate([
-                'Type' =>'required|string|max:10|min:2',
-                'client'=>'required|string|max:10|min:2',
-                'description' =>'required|string|max:255|min:5',
-                'CDC' =>'required|string',
-                'equipe_id'=>'required|string',
-                'Deadline' =>'required|string|max:20|min:5',
+                'Type' => 'required|string|max:10|min:2',
+                'description' => 'required|string|max:10|min:2',
+                'etats' => 'required|string|max:255|min:5',
+                'filecvc' => 'required|string',
+                'dateCreation' => 'required|date',
+                'Deadline' => 'required|date',
 
             ]);
             Project::create($project);
             return response()->json([
-                'status' =>'success',
-                'message'=>'Porject Created',
-            ],200);
-        }catch(ValidationException $e){
+                'status' => 'success',
+                'message' => 'Porject Created',
+            ], 200);
+        } catch (ValidationException $e) {
             return response()->json([
                 "status" => "error",
                 "errors" => $e->errors()
@@ -79,9 +79,8 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
     }
 
     /**
@@ -93,7 +92,32 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        try {
+
+            $project = Project::find($id);
+            $project->Type = $request->Type;
+            $project->description = $request->description;
+            $project->etats = $request->etats;
+            $project->filecvc = $request->filecvc;
+            $project->dateCreation = $request->dateCreation;
+            $project->Deadline = $request->Deadline;
+
+
+            $project->save();
+
+            return response()->json([
+                "status" => "succes",
+                "message" => "project updated succs",
+                $project
+            ], 201);
+        } catch (ValidationException $e) {
+            return response()->json([
+                "status" => "error",
+                "errors" => $e->errors()
+            ], 400);
+        }
     }
 
     /**
@@ -105,15 +129,14 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $project = Project::find($id);
-        if ($project){
+        if ($project) {
             $msg = " Porject deleted successfully!";
             $project->delete();
-
-        }else {
+        } else {
             $msg = " Porject Not found";
         }
         return response()->json([
-            'message' =>$msg
-        ],201);
+            'message' => $msg
+        ], 201);
     }
 }

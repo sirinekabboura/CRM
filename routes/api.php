@@ -45,6 +45,8 @@ Route::group([
 ], function(){
     Route::post('create',[App\Http\Controllers\ProjectController::class,'create']);
     Route::get('index',[App\Http\Controllers\ProjectController::class,'index']);
+    Route::post('update/{id}',[App\Http\Controllers\ProjectController::class,'update']);
+    Route::post('destroy/{id}',[App\Http\Controllers\ProjectController::class,'destroy']);
    
 
 
