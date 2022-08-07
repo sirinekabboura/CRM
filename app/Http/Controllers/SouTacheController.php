@@ -18,13 +18,11 @@ class SouTacheController extends Controller
         $soutache = Soutach::All();
         return response()->json(
             [
-                'tache' => $soutache,
-                'path' => url('image/tache') . "/"
+                $soutache,
             ],
             201
         );
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,20 +31,15 @@ class SouTacheController extends Controller
     public function create(Request $request)
     {
         try {
-             $request->validate([
-                "inti_tache" => 'required|string|max:10|min:5|unique:taches',
+            $request->validate([
+                "inti_tache" => 'required|string|',
                 "Deadline" => 'required|string',
                 "assignation" => 'required|string',
-                "description" => 'required|string|max=255|min:5',
+                "description" => 'required|string|',
                 "file" => 'required|string',
-                "image" => 'required|string',
-                "tache_id" => 'required|string'
-            ]);
+                "Soutache_id" => 'required|string',
 
-            $file_extension = $request->image->getClientOriginalExtension();
-            $file_name = time() . '.' . $file_extension;
-            $path = 'image/tache';
-            $request->image->move($path, $file_name);
+            ]);
 
             $Soutache = new Soutach([
                 "inti_tache" => $request->inti_tache,
@@ -54,9 +47,9 @@ class SouTacheController extends Controller
                 "assignation" => $request->assignation,
                 "description" => $request->description,
                 "file" => $request->file,
-                "image" => $file_name,
-                "tache_id" => $request->tache_id,
+                "Soutache_id" => $request->Soutache_id,
             ]);
+
 
             return response()->json([
                 $Soutache,
@@ -115,21 +108,13 @@ class SouTacheController extends Controller
     {
         try {
 
-            $file_extension = $request->image->getClientOriginalExtension();
-            $file_name = time() . '.' . $file_extension;
-            $path = 'image/tache/';
-            $request->image->move($path, $file_name);
-
-
             $soutache = Soutach::find($id);
             $soutache->inti_tache = $request->inti_tache;
             $soutache->Deadline = $request->Deadline;
             $soutache->assignation = $request->assignation;
             $soutache->description = $request->description;
             $soutache->file = $request->file;
-            $soutache->image = $request->file_name;
-            $soutache->tache_id = $request->tache_id;
-
+            $soutache->Soutache_id = $request->Soutache_id;
             $soutache->save();
             return response()->json([
                 $soutache
@@ -151,15 +136,14 @@ class SouTacheController extends Controller
     public function destroy($id)
     {
         $soutache = Soutach::find($id);
-        if ($soutache){
+        if ($soutache) {
             $msg = " Sous tache deleted successfully!";
             $soutache->delete();
-
-        }else {
+        } else {
             $msg = " Sous Tache Not found";
         }
         return response()->json([
-            'message' =>$msg
-        ],201);
+            'message' => $msg
+        ], 201);
     }
 }

@@ -19,8 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string('description');
             $table->string('etats');
             $table->string('filecvc'); 
-            $table->date('dateCreation'); 
-            $table->date('Deadline');
+            $table->string('dateCreation'); 
+            $table->string('Deadline');
             $table->timestamps();
         });
     }

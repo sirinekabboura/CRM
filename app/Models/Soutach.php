@@ -16,7 +16,6 @@ class Soutach extends Model
         "description",
         "file",
         "image",
-        "tache_id",
 
     ];
 

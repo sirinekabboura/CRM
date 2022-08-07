@@ -32,10 +32,10 @@ class ProjectController extends Controller
             $project = $request->validate([
                 'Type' => 'required|string|max:10|min:2',
                 'description' => 'required|string|max:10|min:2',
-                'etats' => 'required|string|max:255|min:5',
+                'etats' => 'required|string|',
                 'filecvc' => 'required|string',
-                'dateCreation' => 'required|date',
-                'Deadline' => 'required|date',
+                'dateCreation' => 'required|string',
+                'Deadline' => 'required|string',
 
             ]);
             Project::create($project);

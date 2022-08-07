@@ -15,7 +15,6 @@ class Tache extends Model
         "assignation",
         "description",
         "file",
-        "image",
         "Soutache_id",
 
     ];

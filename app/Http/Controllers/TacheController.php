@@ -15,14 +15,15 @@ class TacheController extends Controller
      */
     public function index()
     {
-        $tache = Tache::All();
-        return response()->json(
-            [
-                'tache' => $tache,
-                'path' => url('image/tache') . "/"
-            ],
-            201
-        );
+        try {
+            $tache = Tache::all();
+            return response()->json([
+                $tache,
+               
+            ], 200);
+        } catch (ValidationException $e) {
+            return response()->json([], 401);
+        }
     }
 
     /**
@@ -33,35 +34,26 @@ class TacheController extends Controller
     public function create(Request $request)
     {
         try {
-             $request->validate([
-                "inti_tache" => 'required|string|max:10|min:5|unique:taches',
+            $request->validate([
+                "inti_tache" => 'required|string|',
                 "Deadline" => 'required|string',
                 "assignation" => 'required|string',
-                "description" => 'required|string|max=255|min:5',
-                "file" => 'required|string',
-                "image" => 'required|string',
+                "description" => 'required|string|',
                 "Soutache_id" => 'required|string'
             ]);
-
-            $file_extension = $request->image->getClientOriginalExtension();
-            $file_name = time() . '.' . $file_extension;
-            $path = 'image/tache';
-            $request->image->move($path, $file_name);
 
             $tache = new Tache([
                 "inti_tache" => $request->inti_tache,
                 "Deadline" => $request->Deadline,
                 "assignation" => $request->assignation,
                 "description" => $request->description,
-                "file" => $request->file,
-                "image" => $file_name,
                 "Soutache_id" => $request->Soutache_id,
             ]);
 
             return response()->json([
                 $tache,
                 "status" => "success",
-                "message" => "Tache created successfully",
+                "message" => "Tache created successfully"
             ], 201);
         } catch (ValidationException $e) {
             return response()->json([
@@ -115,19 +107,11 @@ class TacheController extends Controller
     {
         try {
 
-            $file_extension = $request->image->getClientOriginalExtension();
-            $file_name = time() . '.' . $file_extension;
-            $path = 'image/tache';
-            $request->image->move($path, $file_name);
-
-
             $tache = Tache::find($id);
             $tache->inti_tache = $request->inti_tache;
             $tache->Deadline = $request->Deadline;
             $tache->assignation = $request->assignation;
             $tache->description = $request->description;
-            $tache->file = $request->file;
-            $tache->image = $request->file_name;
             $tache->Soutache_id = $request->Soutache_id;
 
             $tache->save();
@@ -151,15 +135,14 @@ class TacheController extends Controller
     public function destroy($id)
     {
         $tache = Tache::find($id);
-        if ($tache){
+        if ($tache) {
             $msg = "tache deleted successfully!";
             $tache->delete();
-
-        }else {
+        } else {
             $msg = "Tache Not found";
         }
         return response()->json([
-            'message' =>$msg
-        ],201);
+            'message' => $msg
+        ], 201);
     }
 }
