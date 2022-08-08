@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('equipes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('idClient');
+            $table->string('nom');
             $table->string('membres');
             $table->string('projet');
             $table->string('pseudo');
             $table->integer('code');
-            $table->text('detail');
+            $table->date('dateCreation');
+
+
             $table->timestamps();
         });
     }

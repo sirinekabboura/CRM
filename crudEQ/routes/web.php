@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\EquipeController;
-use App\Http\Controllers\ProjetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +16,3 @@ use App\Http\Controllers\ProjetController;
 Route::get('/', function () {
     return view('welcome');
 });
-
- 
-Route::resource('equipes', EquipeController::class);
-Route::resource('projets', ProjetController::class);
-
