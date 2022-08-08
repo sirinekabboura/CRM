@@ -58,6 +58,26 @@ ngOnInit(): void {
       console.log(this.personnels);
     }
   );
+
+  this.contentHeader = {
+    headerTitle: 'Clients',
+    actionButton: true,
+    breadcrumb: {
+      type: '',
+      links: [
+        {
+          name: 'Home',
+          isLink: true,
+          link: '/'
+        },
+        {
+          name: 'Clients',
+          isLink: false,
+          link: '/client'
+        }
+      ]
+    }
+  };
 }
 
 /**

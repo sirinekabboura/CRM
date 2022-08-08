@@ -20,20 +20,6 @@ export class HomeComponent implements OnInit {
     this.contentHeader = {
       headerTitle: 'Home',
       actionButton: true,
-      breadcrumb: {
-        type: '',
-        links: [
-          {
-            name: 'Home',
-            isLink: true,
-            link: '/'
-          },
-          {
-            name: 'Sample',
-            isLink: false
-          }
-        ]
-      }
     }
   }
 }

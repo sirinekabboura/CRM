@@ -65,6 +65,26 @@ ngOnInit(): void {
       console.log(this.personnels);
     }
   );
+
+  this.contentHeader = {
+    headerTitle: 'Quotations',
+    actionButton: true,
+    breadcrumb: {
+      type: '',
+      links: [
+        {
+          name: 'Home',
+          isLink: true,
+          link: '/'
+        },
+        {
+          name: 'Quotations',
+          isLink: false,
+          link: '/devis'
+        }
+      ]
+    }
+  };
 }
 
 /**

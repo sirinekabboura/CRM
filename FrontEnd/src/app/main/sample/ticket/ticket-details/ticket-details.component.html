@@ -1,0 +1,83 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- content-header component -->
+      <app-content-header [contentHeader]="contentHeader"></app-content-header>
+  
+      <!-- Examples -->
+      <section id="card-demo-example" >
+        <div class="row match-height">
+      <!-- Chat Card -->
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="card chat-widget">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <div class="avatar mr-2">
+                <img src="../../../../../assets/images/avatars/2.png" alt="Avatar" width="34" height="34" />
+                <span class="avatar-status-online"></span>
+              </div>
+              <h5 class="mb-0">test</h5>
+            </div>
+            <div class="badge badge-pill badge-light-primary">E-commerce</div>
+        </div>
+          <!-- User Chat messages -->
+          <section class="chat-app-window">
+            <div class="user-chats" [perfectScrollbar] #scrollMe [scrollTop]="scrolltop">
+              <div class="chats">
+                <div
+                  class="chat"
+                >
+                  <div class="chat-body">
+                    <div class="chat-content" style="float: right;
+                    padding: 0.7rem 1rem;
+                    margin: 0 1rem 10px 0;
+                    clear: both;
+                    color: #fff;
+                    background-image: linear-gradient(80deg, #b8b8b8, #cfcece);
+                    background-repeat: repeat-x;
+                    border-radius: 0.357rem;
+                    box-shadow: 0 4px 8px 0 rgb(34 41 47 / 12%);
+                    max-width: 75%;
+                    ">
+                      <p>j'ai une réclamation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Submit Chat form -->
+            <form class="chat-app-form justify-content-between" style="height: 65px;
+            padding: 0 1rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ebe9f1;">
+              <div class="input-group input-group-merge mr-50 w-75 form-send-message">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <label for="attach-doc" class="attachment-icon mb-0">
+                      <i data-feather="image" class="cursor-pointer lighten-2 text-secondary"></i>
+                      <input type="file" id="attach-doc" hidden /> </label
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control message"
+                  placeholder="Type your message"
+                  name="chat-message"
+                
+                >
+              </div>
+              <button type="button" class="btn btn-primary send" rippleEffect >
+                <i data-feather="send" size="18"></i>
+              </button>
+            </form>
+            <!--/ Submit Chat form -->
+          </section>
+          <!-- User Chat messages -->
+        </div>
+      </div>
+      <!--/ Chat Card -->
+      </div>
+      </section>
+      </div>
+      </div>

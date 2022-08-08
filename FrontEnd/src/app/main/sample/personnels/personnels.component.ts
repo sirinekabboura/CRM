@@ -58,6 +58,25 @@ export class PersonnelsComponent implements OnInit {
           console.log(this.personnels);
         }
       );
+      this.contentHeader = {
+        headerTitle: 'Personnals',
+        actionButton: true,
+        breadcrumb: {
+          type: '',
+          links: [
+            {
+              name: 'Home',
+              isLink: true,
+              link: '/'
+            },
+            {
+              name: 'Personnals',
+              isLink: false,
+              link: '/personnels'
+            }
+          ]
+        }
+      };
   }
 
   /**

@@ -34,6 +34,9 @@ import { FactureComponent } from './facture/facture.component';
 import { FactureAddComponent } from './facture/facture-add/facture-add.component';
 import { FacturePreviewComponent } from './facture/facture-preview/facture-preview.component';
 import { FactureEditComponent } from './facture/facture-edit/facture-edit.component';
+import { TicketComponent } from './ticket/ticket.component';
+import { TicketDetailsComponent } from './ticket/ticket-details/ticket-details.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
 const routes = [
@@ -106,18 +109,28 @@ const routes = [
     path: 'facture-edit',
     component: FactureEditComponent,
     data: { animation: 'facture-edit' }
+  },
+  {
+    path: 'ticket',
+    component: TicketComponent,
+    data: { animation: 'ticket' }
+  },
+  {
+    path: 'ticket-details',
+    component: TicketDetailsComponent,
+    data: { animation: 'ticket-details' }
   }
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent, TicketComponent, TicketDetailsComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
     CoreSidebarModule,
     CoreThemeCustomizerModule,
     CardSnippetModule,
-    CardSnippetModule,
+    PerfectScrollbarModule,
     Ng2FlatpickrModule,
     NgxDatatableModule,
     FormsModule,

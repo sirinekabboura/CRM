@@ -65,5 +65,13 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'file-plus',
     url: 'invoice'
+  },
+  {
+    id: 'ticket',
+    title: 'ticket',
+    translate: 'Tickets',
+    type: 'item',
+    icon: 'bookmark',
+    url: 'ticket'
   }
 ];
