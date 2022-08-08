@@ -12,7 +12,7 @@ export class PersonnelsService {
   constructor(private http:HttpClient) { }
 
   listPersonnels(){
-    return this.http.get<any>(this.url+`/`);
+    return this.http.get<any>(this.url+`/api/Personnels/index`);
   }
 
 

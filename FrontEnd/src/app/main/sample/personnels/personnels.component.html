@@ -51,11 +51,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr *ngFor="let pers of personnels">
         <td>test</td>
         <td>Admin</td>
         <td>test</td>
-        <td>test</td>
+        <td>{{pers.Role}}</td>
         <td>
           <div class="d-flex align-items-center col-actions">
             <a class="mr-1" href="/personnels-edit" container="body" placement="top" ngbTooltip="Edit" style="color: green;"

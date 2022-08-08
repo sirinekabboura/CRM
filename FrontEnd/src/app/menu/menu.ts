@@ -71,7 +71,7 @@ export const menu: CoreMenu[] = [
     title: 'ticket',
     translate: 'Tickets',
     type: 'item',
-    icon: 'bookmark',
+    icon: 'message-square',
     url: 'ticket'
   }
 ];

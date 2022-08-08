@@ -4,10 +4,10 @@
       <app-content-header [contentHeader]="contentHeader"></app-content-header>
   
       <!-- Examples -->
-      <section id="card-demo-example" >
+      <section id="card-demo-example" style="margin-left: 200px;" >
         <div class="row match-height">
       <!-- Chat Card -->
-      <div class="col-lg-4 col-md-6 col-12">
+      <div class="col-lg-8 col-12">
         <div class="card chat-widget">
           <div class="card-header">
             <div class="d-flex align-items-center">
@@ -32,7 +32,7 @@
                     margin: 0 1rem 10px 0;
                     clear: both;
                     color: #fff;
-                    background-image: linear-gradient(80deg, #b8b8b8, #cfcece);
+                    background-image: linear-gradient(80deg, #b8b8b8, #ece7e7);
                     background-repeat: repeat-x;
                     border-radius: 0.357rem;
                     box-shadow: 0 4px 8px 0 rgb(34 41 47 / 12%);
@@ -51,7 +51,7 @@
             display: flex;
             align-items: center;
             border-top: 1px solid #ebe9f1;">
-              <div class="input-group input-group-merge mr-50 w-75 form-send-message">
+              <div class="input-group input-group-merge mr-50 w-80 form-send-message">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <label for="attach-doc" class="attachment-icon mb-0">
@@ -64,10 +64,12 @@
                   class="form-control message"
                   placeholder="Type your message"
                   name="chat-message"
+                  [(ngModel)]="chatMessage"
+                  (keydown.enter)="updateChat()"
                 
                 >
               </div>
-              <button type="button" class="btn btn-primary send" rippleEffect >
+              <button type="button" class="btn btn-primary send" rippleEffect (click)="updateChat()">
                 <i data-feather="send" size="18"></i>
               </button>
             </form>

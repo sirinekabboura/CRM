@@ -31,7 +31,7 @@ ngOnInit() {
         },
 
         {
-          name: 'Ticket',
+          name: 'Tickets',
           isLink: false,
           link: '/ticket'
         }
