@@ -56,7 +56,7 @@ const routes = [
     data: { animation: 'personnels' }
   },
   {
-    path: 'personnels-edit',
+    path: 'personnels-edit/:personnelId',
     component: PersonnelsEditComponent,
     data: { animation: 'personnels-edit' }
   },

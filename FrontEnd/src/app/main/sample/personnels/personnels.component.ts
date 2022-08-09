@@ -3,13 +3,14 @@ import {  ViewChild, ViewEncapsulation } from '@angular/core';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { first, takeUntil } from 'rxjs/operators';
 
 import { CoreConfigService } from '@core/services/config.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
 //import { PersonnelsService } from 'app/main/sample/personnels/personnels.service';
 import {PersonnelsService} from 'app/services/personnels.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-personnels',
@@ -20,6 +21,7 @@ import {PersonnelsService} from 'app/services/personnels.service';
 export class PersonnelsComponent implements OnInit {
   
       personnels: any;
+      users: any;
       public sidebarToggleRef = false;
       private _unsubscribeAll: Subject<any>;
       public contentHeader: object 
@@ -52,10 +54,18 @@ export class PersonnelsComponent implements OnInit {
  
 
   ngOnInit(): void {
-      this.personnels = this._personnelService.listPersonnels().subscribe(
+   
+    this.personnels = this._personnelService.listPersonnels().subscribe(
         personnel=>{
           this.personnels= personnel;
           console.log(this.personnels);
+        }
+      );
+      this.users= this._personnelService.listUsers().subscribe(
+        user=>{
+        
+          this.users= user;
+          console.log(this.users);
         }
       );
       this.contentHeader = {

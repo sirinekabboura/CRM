@@ -14,6 +14,9 @@ export class PersonnelsService {
   listPersonnels(){
     return this.http.get<any>(this.url+`/api/Personnels/index`);
   }
+  listUsers(){
+    return this.http.get<any>(this.url+`/api/User/index`);
+  }
 
 
   httpOptions={
@@ -24,6 +27,10 @@ export class PersonnelsService {
 
   addPersonnels(personnel: any):Observable<any>{
     return this.http.post<any>(this.url+`/`,personnel,this.httpOptions);
+  }
+
+  find(id: number):Observable<any>{
+    return this.http.get<any>(this.url+`/api/Personnels/show/`+id);
   }
   
 }

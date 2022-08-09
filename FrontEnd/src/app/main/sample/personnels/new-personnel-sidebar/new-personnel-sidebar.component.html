@@ -37,7 +37,7 @@
                       
                     <input type="number" formControlName="lastName" 
                     class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" 
-                    placeholder="12 345 678"/></div>
+                    placeholder="Enter your phone number"/></div>
                     <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                         <div *ngIf="f.lastName.errors.required">This field is required!</div>
                         <div *ngIf="f.lastName.errors.minlength">Phone number must be composed of 8 digits</div>
@@ -58,13 +58,18 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-2">
+               <!--<div class="form-group">
                     <label class="form-label">Subcontracting</label>
                 <div class="custom-control custom-control-primary custom-switch">
                     <input id="systemNotification" type="checkbox" class="custom-control-input">
                     <label for="systemNotification" class="custom-control-label">
                     </label>
                 </div>
+                  </div>--> 
+                  <div class="custom-control custom-control-danger custom-switch">
+                    <p class="mb-50">Subcontracting</p>
+                    <input type="checkbox" checked class="custom-control-input" id="customSwitch5" />
+                    <label class="custom-control-label" for="customSwitch5"></label>
                   </div>
                 
                 <div class="form-group">

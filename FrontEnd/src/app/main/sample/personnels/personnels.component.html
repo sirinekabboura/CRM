@@ -51,14 +51,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let pers of personnels">
-        <td>test</td>
-        <td>Admin</td>
-        <td>test</td>
-        <td>{{pers.Role}}</td>
-        <td>
+    <tr *ngFor="let u of users;let pers of personnels;let i=index" >
+        <td *ngIf="u.role==1">{{u.name}}</td>
+        <td *ngIf="u.role==1">{{u.email}}</td>
+        <td *ngIf="u.role==1">{{u.Numtelephone}}</td>
+        <td *ngIf="u.role==1">{{personnels[1].Role}}</td>
+        <td *ngIf="u.role==1">
           <div class="d-flex align-items-center col-actions">
-            <a class="mr-1" href="/personnels-edit" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
+            <a class="mr-1" href="/personnels-edit/{{pers.id}}" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
               ><i size="18" data-feather="edit"></i
             ></a>
             <a class="mr-1" href="javascript:void(0);" container="body" placement="top" ngbTooltip="Delete"  style="color:red;"

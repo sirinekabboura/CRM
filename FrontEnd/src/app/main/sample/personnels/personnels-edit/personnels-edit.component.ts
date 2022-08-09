@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { Subject } from 'rxjs';
@@ -8,6 +8,8 @@ import { FlatpickrOptions } from 'ng2-flatpickr';
 import { cloneDeep } from 'lodash';
 
 import { PersonnelsEditService } from 'app/main/sample/personnels/personnels-edit/personnels-edit.service';
+import { PersonnelsService } from 'app/services/personnels.service';
+import { data } from 'jquery';
 @Component({
   selector: 'app-personnels-edit',
   templateUrl: './personnels-edit.component.html',
@@ -16,6 +18,8 @@ import { PersonnelsEditService } from 'app/main/sample/personnels/personnels-edi
 export class PersonnelsEditComponent implements OnInit, OnDestroy {
  // Public
  public url = this.router.url;
+ personnelId: any;
+ personnel: any;
  public urlLastValue;
  public rows;
  public currentRow;
@@ -40,7 +44,11 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
   * @param {Router} router
   * @param {PersonnelsEditService} _userEditService
   */
- constructor(private router: Router, private _userEditService: PersonnelsEditService) {
+ constructor(
+  private route: ActivatedRoute,
+    private router: Router, 
+    private _userEditService: PersonnelsEditService,
+    private personnelsEdit: PersonnelsService) {
    this._unsubscribeAll = new Subject();
    this.urlLastValue = this.url.substr(this.url.lastIndexOf('/') + 1);
  }
@@ -89,15 +97,13 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
   * On init
   */
  ngOnInit(): void {
-   this._userEditService.onUserEditChanged.pipe(takeUntil(this._unsubscribeAll)).subscribe(response => {
-     this.rows = response;
-     this.rows.map(row => {
-       if (row.id == this.urlLastValue) {
-         this.currentRow = row;
-         this.avatarImage = this.currentRow.avatar;
-         this.tempRow = cloneDeep(row);
-       }
-     });
+  const routeParams = this.route.snapshot.paramMap;
+  this.personnelId = Number(routeParams.get('personnelId'));
+   console.log(this.personnelId); 
+  
+   this.personnelsEdit.find(this.personnelId).subscribe((data: any)=>{
+    this.personnel= data;
+    console.log(this.personnel);
    });
  }
 
