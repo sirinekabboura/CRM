@@ -26,18 +26,38 @@ export class SoustacheComponent implements OnInit {
     this._coreSidebarService.getSidebarRegistry('soustache').toggleOpen();
   }
   ngOnInit(): void {
-    $('#comments').show();
+    $('#soustaches').show();
+    $('#comments').hide();
     $('#AjouterSousTache').hide();
   }
-
-  //show commentaire
-  showCommentaire(){
+  //show commentaires
+  showCommentaires(){
     $('#comments').show();
+    $('#soustaches').hide();
     $('#AjouterSousTache').hide();
+    //
+    $('#TC').addClass('active');
+    $('#TA').removeClass('active');
+    $('#TS').removeClass('active');
+  }
+  //show soustaches
+  showSousTaches(){
+    $('#soustaches').show();
+    $('#comments').hide();
+    $('#AjouterSousTache').hide();
+    //
+    $('#TS').addClass('active');
+    $('#TC').removeClass('active');
+    $('#TA').removeClass('active');
   }
   //show ajouter
   showAjouter(){
+    $('#soustaches').hide();
     $('#comments').hide();
     $('#AjouterSousTache').show();
+    //
+    $('#TA').addClass('active');
+    $('#TC').removeClass('active');
+    $('#TS').removeClass('active');
   }
 }

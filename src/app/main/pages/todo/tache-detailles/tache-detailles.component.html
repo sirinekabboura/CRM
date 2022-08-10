@@ -1,0 +1,160 @@
+<!-- Right Sidebar -->
+<div class="modal-dialog sidebar-lg">
+    <div class="modal-content p-0">
+      <button
+      (click)="closeSidebar()"
+      type="button"
+      class="close font-large-1 font-weight-normal py-0"
+      data-dismiss="modal"
+      aria-label="Close"
+    >
+      ×
+    </button>
+      
+      <ul class="nav nav-tabs tabs-line">
+        <li class="nav-item"  (click)="showAjouter()">
+          <a class="nav-link nav-link-update active" data-bs-toggle="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span class="align-middle">Detailles Tache</span>
+          </a>
+        </li>
+      <div></div></ul>
+      <form
+        
+        class="todo-modal needs-validation" 
+        (ngSubmit)="(todoForm.form.valid)"
+        #todoForm="ngForm"
+      >
+      <div class="modal-header align-items-center mb-1">
+        <h5 class="modal-title">Ajouter Tache</h5>
+        <div class="todo-item-action d-flex align-items-center justify-content-between ml-auto">
+         
+        </div>
+      </div>
+        <div class="modal-body flex-grow-1 pb-sm-0 pb-3" >
+          <div class="action-tags">
+            <div class="form-group">
+              <label for="todoTitleAdd" class="form-label">Title</label>
+              <input
+                type="text"
+                name="addTitle"
+                class="new-todo-item-title form-control"
+                [class.error]="todoForm.submitted && TDNameRef.invalid"
+                placeholder="Title"
+                [(ngModel)]="todo.title"
+                #TDNameRef="ngModel"
+                required
+              />
+              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="tododateAdd" class="form-label">Date Creation</label>
+              <input
+                type="date"
+                name="adddate"
+                class="new-todo-item-title form-control"
+                [(ngModel)]="todo.title"
+                required
+              />
+              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="tododeadlineAdd" class="form-label">Deadline</label>
+              <input
+                type="date"
+                name="adddeadline"
+                class="new-todo-item-title form-control"
+                [(ngModel)]="todo.title"
+                required
+              />
+              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="todoCommentaire" class="form-label">Commentaire</label>
+              <textarea
+                name="addcommentaire"
+                class="new-todo-item-title form-control"
+                [(ngModel)]="todo.title"
+                required
+                rows="3"
+              ></textarea>
+              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="todoDescription" class="form-label">Description</label>
+              <textarea
+                name="addDescription"
+                class="new-todo-item-title form-control"
+                [(ngModel)]="todo.title"
+                required
+                rows="4"
+              ></textarea>
+              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="todoImage" class="form-label">Image</label>
+            <input
+              type="file"
+              name="addImage"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+              rows="3"
+            >
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="todoFile" class="form-label">File</label>
+            <input
+              type="file"
+              name="addFile"
+              class="new-todo-item-title form-control"
+              [(ngModel)]="todo.title"
+              required
+              rows="3"
+            >
+            <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
+              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+            </span>
+          </div>
+          <div class="form-group my-1">
+            <button
+              type="button"
+              class="btn btn-primary update-btn update-todo-item mr-1"
+              (click)="updateTodo()"
+              rippleEffect
+            >
+              <i class="fa fa-refresh"></i> Update
+            </button>
+            <button
+              class="btn btn-outline-secondary add-todo-item"
+              type="button"
+              (click)="closeSidebar()"
+              data-dismiss="modal"
+              rippleEffect
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </form>
+  
+    <!--Sous Taches-->
+  
+  </div>
+  </div>
+  <!--/ Right Sidebar -->
+  

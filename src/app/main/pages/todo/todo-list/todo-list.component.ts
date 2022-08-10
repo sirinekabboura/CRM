@@ -65,15 +65,14 @@ export class TodoListComponent implements OnInit {
     //this._todoService.getTodosBySearch(queryRef.target.value);
   }
 
-  /**
-   * Open Todo
-   *
-   * @param idRef
-   */
-  openTodo(idRef) {
-    //this._todoService.setCurrentTodo(idRef);
+  openDetailles() {
+    this._coreSidebarService.getSidebarRegistry('TacheDetailles').toggleOpen();
+  }
+  openComments(){
+    this._coreSidebarService.getSidebarRegistry('comments').toggleOpen();
+  }
+  openSousTaches(){
     this._coreSidebarService.getSidebarRegistry('soustache').toggleOpen();
-
   }
 
   // Lifecycle Hooks

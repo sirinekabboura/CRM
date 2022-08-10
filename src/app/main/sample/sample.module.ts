@@ -16,10 +16,25 @@ import { PersonnelsComponent } from './personnels/personnels.component';
 import { NewPersonnelSidebarComponent } from './personnels/new-personnel-sidebar/new-personnel-sidebar.component';
 import { PersonnelsEditComponent } from './personnels/personnels-edit/personnels-edit.component';
 import { NgModule } from '@angular/core';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownItem, NgbDropdownMenu, NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClientComponent } from './client/client.component';
 import { ClientEditComponent } from './client/client-edit/client-edit.component';
 import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
+import { DevisComponent } from './devis/devis.component';
+import { DevisAddComponent } from './devis/devis-add/devis-add.component';
+import { FormsModule } from '@angular/forms';
+import { CorePipesModule } from '@core/pipes/pipes.module';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2FlatpickrModule } from 'ng2-flatpickr';
+import { DevisPreviewComponent } from './devis/devis-preview/devis-preview.component';
+import { DevisEditComponent } from './devis/devis-edit/devis-edit.component';
+import { FactureComponent } from './facture/facture.component';
+import { FactureAddComponent } from './facture/facture-add/facture-add.component';
+import { FacturePreviewComponent } from './facture/facture-preview/facture-preview.component';
+import { FactureEditComponent } from './facture/facture-edit/facture-edit.component';
+
 
 const routes = [
   {
@@ -51,18 +66,66 @@ const routes = [
     path: 'client-edit',
     component: ClientEditComponent,
     data: { animation: 'client-edit' }
+  },
+  {
+    path: 'devis',
+    component: DevisComponent,
+    data: { animation: 'devis' }
+  },
+  {
+    path: 'devis-add',
+    component: DevisAddComponent,
+    data: { animation: 'devis-add' }
+  },
+  {
+    path: 'devis-preview',
+    component: DevisPreviewComponent,
+    data: { animation: 'devis-preview' }
+  },
+  {
+    path: 'devis-edit',
+    component: DevisEditComponent,
+    data: { animation: 'devis-edit' }
+  },
+  {
+    path: 'invoice',
+    component: FactureComponent,
+    data: { animation: 'invoice' }
+  },
+  {
+    path: 'facture-add',
+    component: FactureAddComponent,
+    data: { animation: 'facture-add' }
+  },
+  {
+    path: 'facture-preview',
+    component: FacturePreviewComponent,
+    data: { animation: 'facture-preview' }
+  },
+  {
+    path: 'facture-edit',
+    component: FactureEditComponent,
+    data: { animation: 'facture-edit' }
   }
-  
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent],
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent],
   imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
     CoreSidebarModule,
     CoreThemeCustomizerModule,
-    CardSnippetModule],
+    CardSnippetModule,
+    CardSnippetModule,
+    Ng2FlatpickrModule,
+    NgxDatatableModule,
+    FormsModule,
+    CorePipesModule,
+    NgbModule,
+    NgSelectModule,
+    BrowserAnimationsModule
+  ],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]
 })
 export class SampleModule {}

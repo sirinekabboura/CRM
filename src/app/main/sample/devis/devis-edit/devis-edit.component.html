@@ -1,0 +1,482 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <section class="invoice-add-wrapper">
+        <div class="row invoice-add">
+          <!-- Invoice Add Left starts -->
+          <div class="col-xl-9 col-md-8 col-12">
+            <div class="card invoice-preview-card">
+              <!-- Header starts -->
+              <div class="card-body invoice-padding pb-0">
+                <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
+                  <div>
+                    <div class="logo-wrapper">
+                      <img src="./../../../../../assets/images/logo/logo.svg" style="width: 90px;">
+                      <hr>
+                    </div>
+                    <p class="card-text mb-25"> VL2, DORRET ELBOUHAIRA </p>
+                    <p class="card-text mb-25">	 BERGE DU LAC 2, 1053 </p>
+                    <p class="card-text mb-0">+(216) 71 805 712,+(216) 24 732 382</p>
+                  </div>
+                  <div class="invoice-number-date mt-md-0 mt-2">
+                    <div class="d-flex align-items-center justify-content-md-end mb-1">
+                      <h4 class="invoice-title">Quotation
+                    </h4>
+                      <div class="input-group input-group-merge invoice-edit-input-group disabled">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i data-feather="hash"></i>
+                          </div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control invoice-edit-input"
+                          value="5037"
+                          placeholder="53634"
+                          disabled
+                        />
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-1 col-6">
+                      <span>Date:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <input type="date" value="{{todayWithPipe}}" class="form-control flat-picker flatpickr-input"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Header ends -->
+  
+              <hr class="invoice-spacing" />
+  
+              <!-- Address and Contact starts -->
+              <div class="card-body invoice-padding pt-0">
+                <div class="row row-bill-to invoice-spacing">
+                  <div class="col-xl-8 mb-lg-1 col-bill-to pl-0">
+                    <h6 class="invoice-to-title" style="margin-top: 20px;margin-left: 30px">Quotation
+                        To:</h6>
+                    <div class="invoice-customer" style="margin-top: 20px;">
+                    <button
+                          class=" btn btn-flat-success cursor-pointer rounded-0 text-left p-10 w-40"
+                          (click)="toggleSidebar('new-client-sidebar'); ">
+                          <i data-feather="plus"></i>
+                          <span class="align-middle ml-25">Add New Client</span>
+                        </button>
+                        <select  class="form-control item-details col-md-6" style="margin-left: 25px;margin-left: 30px;">
+                            <option value="null" disabled="disabled" selected="true" ></option>
+                           <option value="">sirine Kabboura</option>
+                           <option value="">Achref hamouda</option>
+                           <option value="">fedi abdelkebir</option>
+
+                        </select>
+
+                     </div>
+                  </div>
+                  <div style="margin-right: 10px;">
+                    <h6 class="mb-2" style="margin-top: 20px;">Payment Details:</h6>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td >Total Due:</td>
+                          <td><strong>$12,110.55</strong></td>
+                        </tr>
+                        <tr>
+                          <td>Bank name:</td>
+                          <td>American Bank</td>
+                        </tr>
+                        <tr>
+                          <td>Country:</td>
+                          <td>Tunisia</td>
+                        </tr>
+                        <tr>
+                          <td>IBAN:</td>
+                          <td>ETD95476213874685</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Address and Contact ends -->
+  
+              <!-- Product Details starts -->
+              <div class="card-body invoice-padding invoice-product-details" style="background-color:#fcfcfc;">
+                <form class="source-item">
+                  <div data-repeater-list="group-a">
+                    <div class="repeater-wrapper" data-repeater-item *ngFor="let item of items; let i = index" @heightIn>
+                      <div class="row" style="display: flex;flex-wrap: wrap;margin-right: 10px;margin-left: 10px;">
+                        <p class="card-text col-title mb-md-50 mb-lg-1">Item</p>
+                        <p class="card-text col-title mb-md-50 mb-lg-1" style="margin-left: 290px;">Cost</p>
+                        <p class="card-text col-title mb-md-50 mb-lg-1" style="margin-left: 160px;">Price</p>
+
+                        <div class="col-12 d-flex product-details-border position-relative pr-0" style="border: 1px solid #ebe9f1;border-radius: 0.357rem;">
+                          <div class="row w-100 pr-lg-0 pr-1 py-2">
+
+
+                            <div class="col-lg-5 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2">
+                              <input class="form-control item-details" placeholder="  Module" />
+                              <textarea class="form-control mt-2" rows="1" placeholder="Description module"></textarea>
+                            </div>
+                            <div class="col-lg-3 col-12 my-lg-0 my-2" style="margin-left: 20px;">
+                              <input
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="item.itemCost"
+                                name="itemCost{{ i }}"
+                                id="itemCost{{ i }}"
+                                placeholder="24"
+                              />
+                            </div>
+
+
+                            <div class="col-lg-2 col-12 mt-lg-0 mt-2" style="margin-left: 20px;">
+                              <p class="card-text">$24.00</p>
+                            </div>
+
+
+
+                          </div>
+                          <div
+                            class="d-flex flex-column align-items-center justify-content-between border-left invoice-product-actions py-50 px-25"
+                          >
+                            <button (click)="deleteItem(i)" class="btn p-0"  style="color: black;">
+                              <i data-feather="x" [size]="18" class="cursor-pointer"></i>
+                            </button>
+                            <div ngbDropdown class="dropdown" #discountDropdown="ngbDropdown">
+                              <button
+                                class="cursor-pointer more-options-dropdown mr-0 btn p-0 hide-arrow"
+                                id="dropdownMenuButton"
+                                role="button"
+                                type="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                ngbDropdownToggle
+                                style="color: forestgreen;"
+                              >
+                                <i data-feather="settings"></i>
+                              </button>
+                              <div
+                                ngbDropdownMenu
+                                class="dropdown-menu dropdown-menu-right item-options-menu p-1"
+                                style="width: 250px;"
+                                aria-labelledby="dropdownMenuButton"
+                              >
+                                <div class="form-group">
+                                  <label for="discount-input" class="form-label"><strong>Discount (%)</strong></label>
+                                  <input type="number" class="form-control" id="discount-input" />
+                                </div>
+                               
+                                <div class="form-row mt-50">
+                                    <div class="form-group col-md-6">
+                                        <label class="invoice-terms-title mb-0" for="clientNotes"><strong>Tax (%)</strong> </label>
+                                        <div class="custom-control custom-switch">
+                                          <input type="checkbox" class="custom-control-input"  id="clientNotes" />
+                                          <label class="custom-control-label" for="clientNotes"></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="invoice-terms-title mb-0" for="clientNotes"><strong>currencies <i size="14" data-feather="dollar-sign"></i></strong> </label>
+                                        <select  class="form-control item-details">
+                                                <option value="">--Please choose a currency--</option>
+                                                <option value="AFN">Afghan Afghani - ؋</option>
+                                                <option value="ALL">Albanian Lek - Lek</option>
+                                                <option value="DZD">Algerian Dinar - دج</option>
+                                                <option value="AOA">Angolan Kwanza - Kz</option>
+                                                <option value="ARS">Argentine Peso - $</option>
+                                                <option value="AMD">Armenian Dram - ֏</option>
+                                                <option value="AWG">Aruban Florin - ƒ</option>
+                                                <option value="AUD">Australian Dollar - $</option>
+                                                <option value="AZN">Azerbaijani Manat - m</option>
+                                                <option value="BSD">Bahamian Dollar - B$</option>
+                                                <option value="BHD">Bahraini Dinar - .د.ب</option>
+                                                <option value="BDT">Bangladeshi Taka - ৳</option>
+                                                <option value="BBD">Barbadian Dollar - Bds$</option>
+                                                <option value="BYR">Belarusian Ruble - Br</option>
+                                                <option value="BEF">Belgian Franc - fr</option>
+                                                <option value="BZD">Belize Dollar - $</option>
+                                                <option value="BMD">Bermudan Dollar - $</option>
+                                                <option value="BTN">Bhutanese Ngultrum - Nu.</option>
+                                                <option value="BTC">Bitcoin - ฿</option>
+                                                <option value="BOB">Bolivian Boliviano - Bs.</option>
+                                                <option value="BAM">Bosnia-Herzegovina Convertible Mark - KM</option>
+                                                <option value="BWP">Botswanan Pula - P</option>
+                                                <option value="BRL">Brazilian Real - R$</option>
+                                                <option value="GBP">British Pound Sterling - £</option>
+                                                <option value="BND">Brunei Dollar - B$</option>
+                                                <option value="BGN">Bulgarian Lev - Лв.</option>
+                                                <option value="BIF">Burundian Franc - FBu</option>
+                                                <option value="KHR">Cambodian Riel - KHR</option>
+                                                <option value="CAD">Canadian Dollar - $</option>
+                                                <option value="CVE">Cape Verdean Escudo - $</option>
+                                                <option value="KYD">Cayman Islands Dollar - $</option>
+                                                <option value="XOF">CFA Franc BCEAO - CFA</option>
+                                                <option value="XAF">CFA Franc BEAC - FCFA</option>
+                                                <option value="XPF">CFP Franc - ₣</option>
+                                                <option value="CLP">Chilean Peso - $</option>
+                                                <option value="CNY">Chinese Yuan - ¥</option>
+                                                <option value="COP">Colombian Peso - $</option>
+                                                <option value="KMF">Comorian Franc - CF</option>
+                                                <option value="CDF">Congolese Franc - FC</option>
+                                                <option value="CRC">Costa Rican ColÃ³n - ₡</option>
+                                                <option value="HRK">Croatian Kuna - kn</option>
+                                                <option value="CUC">Cuban Convertible Peso - $, CUC</option>
+                                                <option value="CZK">Czech Republic Koruna - Kč</option>
+                                                <option value="DKK">Danish Krone - Kr.</option>
+                                                <option value="DJF">Djiboutian Franc - Fdj</option>
+                                                <option value="DOP">Dominican Peso - $</option>
+                                                <option value="XCD">East Caribbean Dollar - $</option>
+                                                <option value="EGP">Egyptian Pound - ج.م</option>
+                                                <option value="ERN">Eritrean Nakfa - Nfk</option>
+                                                <option value="EEK">Estonian Kroon - kr</option>
+                                                <option value="ETB">Ethiopian Birr - Nkf</option>
+                                                <option value="EUR">Euro - €</option>
+                                                <option value="FKP">Falkland Islands Pound - £</option>
+                                                <option value="FJD">Fijian Dollar - FJ$</option>
+                                                <option value="GMD">Gambian Dalasi - D</option>
+                                                <option value="GEL">Georgian Lari - ლ</option>
+                                                <option value="DEM">German Mark - DM</option>
+                                                <option value="GHS">Ghanaian Cedi - GH₵</option>
+                                                <option value="GIP">Gibraltar Pound - £</option>
+                                                <option value="GRD">Greek Drachma - ₯, Δρχ, Δρ</option>
+                                                <option value="GTQ">Guatemalan Quetzal - Q</option>
+                                                <option value="GNF">Guinean Franc - FG</option>
+                                                <option value="GYD">Guyanaese Dollar - $</option>
+                                                <option value="HTG">Haitian Gourde - G</option>
+                                                <option value="HNL">Honduran Lempira - L</option>
+                                                <option value="HKD">Hong Kong Dollar - $</option>
+                                                <option value="HUF">Hungarian Forint - Ft</option>
+                                                <option value="ISK">Icelandic KrÃ³na - kr</option>
+                                                <option value="INR">Indian Rupee - ₹</option>
+                                                <option value="IDR">Indonesian Rupiah - Rp</option>
+                                                <option value="IRR">Iranian Rial - ﷼</option>
+                                                <option value="IQD">Iraqi Dinar - د.ع</option>
+                                                <option value="ILS">Israeli New Sheqel - ₪</option>
+                                                <option value="ITL">Italian Lira - L,£</option>
+                                                <option value="JMD">Jamaican Dollar - J$</option>
+                                                <option value="JPY">Japanese Yen - ¥</option>
+                                                <option value="JOD">Jordanian Dinar - ا.د</option>
+                                                <option value="KZT">Kazakhstani Tenge - лв</option>
+                                                <option value="KES">Kenyan Shilling - KSh</option>
+                                                <option value="KWD">Kuwaiti Dinar - ك.د</option>
+                                                <option value="KGS">Kyrgystani Som - лв</option>
+                                                <option value="LAK">Laotian Kip - ₭</option>
+                                                <option value="LVL">Latvian Lats - Ls</option>
+                                                <option value="LBP">Lebanese Pound - £</option>
+                                                <option value="LSL">Lesotho Loti - L</option>
+                                                <option value="LRD">Liberian Dollar - $</option>
+                                                <option value="LYD">Libyan Dinar - د.ل</option>
+                                                <option value="LTL">Lithuanian Litas - Lt</option>
+                                                <option value="MOP">Macanese Pataca - $</option>
+                                                <option value="MKD">Macedonian Denar - ден</option>
+                                                <option value="MGA">Malagasy Ariary - Ar</option>
+                                                <option value="MWK">Malawian Kwacha - MK</option>
+                                                <option value="MYR">Malaysian Ringgit - RM</option>
+                                                <option value="MVR">Maldivian Rufiyaa - Rf</option>
+                                                <option value="MRO">Mauritanian Ouguiya - MRU</option>
+                                                <option value="MUR">Mauritian Rupee - ₨</option>
+                                                <option value="MXN">Mexican Peso - $</option>
+                                                <option value="MDL">Moldovan Leu - L</option>
+                                                <option value="MNT">Mongolian Tugrik - ₮</option>
+                                                <option value="MAD">Moroccan Dirham - MAD</option>
+                                                <option value="MZM">Mozambican Metical - MT</option>
+                                                <option value="MMK">Myanmar Kyat - K</option>
+                                                <option value="NAD">Namibian Dollar - $</option>
+                                                <option value="NPR">Nepalese Rupee - ₨</option>
+                                                <option value="ANG">Netherlands Antillean Guilder - ƒ</option>
+                                                <option value="TWD">New Taiwan Dollar - $</option>
+                                                <option value="NZD">New Zealand Dollar - $</option>
+                                                <option value="NIO">Nicaraguan CÃ³rdoba - C$</option>
+                                                <option value="NGN">Nigerian Naira - ₦</option>
+                                                <option value="KPW">North Korean Won - ₩</option>
+                                                <option value="NOK">Norwegian Krone - kr</option>
+                                                <option value="OMR">Omani Rial - .ع.ر</option>
+                                                <option value="PKR">Pakistani Rupee - ₨</option>
+                                                <option value="PAB">Panamanian Balboa - B/.</option>
+                                                <option value="PGK">Papua New Guinean Kina - K</option>
+                                                <option value="PYG">Paraguayan Guarani - ₲</option>
+                                                <option value="PEN">Peruvian Nuevo Sol - S/.</option>
+                                                <option value="PHP">Philippine Peso - ₱</option>
+                                                <option value="PLN">Polish Zloty - zł</option>
+                                                <option value="QAR">Qatari Rial - ق.ر</option>
+                                                <option value="RON">Romanian Leu - lei</option>
+                                                <option value="RUB">Russian Ruble - ₽</option>
+                                                <option value="RWF">Rwandan Franc - FRw</option>
+                                                <option value="SVC">Salvadoran ColÃ³n - ₡</option>
+                                                <option value="WST">Samoan Tala - SAT</option>
+                                                <option value="SAR">Saudi Riyal - ﷼</option>
+                                                <option value="RSD">Serbian Dinar - din</option>
+                                                <option value="SCR">Seychellois Rupee - SRe</option>
+                                                <option value="SLL">Sierra Leonean Leone - Le</option>
+                                                <option value="SGD">Singapore Dollar - $</option>
+                                                <option value="SKK">Slovak Koruna - Sk</option>
+                                                <option value="SBD">Solomon Islands Dollar - Si$</option>
+                                                <option value="SOS">Somali Shilling - Sh.so.</option>
+                                                <option value="ZAR">South African Rand - R</option>
+                                                <option value="KRW">South Korean Won - ₩</option>
+                                                <option value="XDR">Special Drawing Rights - SDR</option>
+                                                <option value="LKR">Sri Lankan Rupee - Rs</option>
+                                                <option value="SHP">St. Helena Pound - £</option>
+                                                <option value="SDG">Sudanese Pound - .س.ج</option>
+                                                <option value="SRD">Surinamese Dollar - $</option>
+                                                <option value="SZL">Swazi Lilangeni - E</option>
+                                                <option value="SEK">Swedish Krona - kr</option>
+                                                <option value="CHF">Swiss Franc - CHf</option>
+                                                <option value="SYP">Syrian Pound - LS</option>
+                                                <option value="STD">São Tomé and Príncipe Dobra - Db</option>
+                                                <option value="TJS">Tajikistani Somoni - SM</option>
+                                                <option value="TZS">Tanzanian Shilling - TSh</option>
+                                                <option value="THB">Thai Baht - ฿</option>
+                                                <option value="TOP">Tongan pa'anga - $</option>
+                                                <option value="TTD">Trinidad & Tobago Dollar - $</option>
+                                                <option value="TND">Tunisian Dinar - ت.د</option>
+                                                <option value="TRY">Turkish Lira - ₺</option>
+                                                <option value="TMT">Turkmenistani Manat - T</option>
+                                                <option value="UGX">Ugandan Shilling - USh</option>
+                                                <option value="UAH">Ukrainian Hryvnia - ₴</option>
+                                                <option value="AED">United Arab Emirates Dirham - إ.د</option>
+                                                <option value="UYU">Uruguayan Peso - $</option>
+                                                <option value="USD">US Dollar - $</option>
+                                                <option value="UZS">Uzbekistan Som - лв</option>
+                                                <option value="VUV">Vanuatu Vatu - VT</option>
+                                                <option value="VEF">Venezuelan BolÃ­var - Bs</option>
+                                                <option value="VND">Vietnamese Dong - ₫</option>
+                                                <option value="YER">Yemeni Rial - ﷼</option>
+                                                <option value="ZMK">Zambian Kwacha - ZK</option>
+
+                                        </select>
+                                    </div>
+                                  </div>
+                                    
+
+
+
+
+
+                                <div class="dropdown-divider my-1"></div>
+                                <div class="d-flex justify-content-between">
+                                  <button
+                                    type="button"
+                                    (click)="discountDropdown.close()"
+                                    class="btn btn-outline-primary btn-apply-changes"
+                                    rippleEffect
+                                    
+                                  >
+                                    Apply
+                                  </button>
+                                  <button
+                                    type="button"
+                                    (click)="discountDropdown.close()"
+                                    class="btn btn-outline-secondary"
+                                    rippleEffect
+                                  >
+                                    Cancel
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-1"  style="margin-left: 10px;">
+                    <div class="col-12 px-0">
+                      <button type="button" class="btn btn-primary btn-sm btn-add-new" (click)="addItem()" rippleEffect>
+                        <i data-feather="plus" class="mr-25"></i>
+                        <span class="align-middle">Add Item</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- Product Details ends -->
+  
+              <!-- Invoice Total starts -->
+              <div class="card-body invoice-padding">
+                <div class="row invoice-sales-total-wrapper">
+                  <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
+
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end order-md-2 order-2">
+                    <div class="row row-bill-to invoice-spacing" style="margin-right: 20px;margin-top:5px">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td ><strong>Subtotal:</strong></td>
+                              <td>$1800</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Discount:</strong></td>
+                              <td>$28</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Tax:</strong></td>
+                              <td>21%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Total:</strong></td>
+                              <td>$1690</td>
+                            </tr>
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Invoice Total ends -->
+  
+              <hr class="invoice-spacing mt-0" />
+  
+              <div class="card-body invoice-padding py-0">
+                <!-- Invoice Note starts -->
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group mb-2">
+                      <label for="note" class="form-label font-weight-bold">Note:</label>
+                      <textarea class="form-control" rows="2" id="note">
+  It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance projects. Thank You!</textarea
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- Invoice Note ends -->
+              </div>
+            </div>
+          </div>
+          <!-- Invoice Add Left ends -->
+  
+          <!-- Invoice Add Right starts -->
+          <div class="col-xl-3 col-md-4 col-12 mt-md-0 mt-2">
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-primary btn-block mb-75" disabled rippleEffect>Send Invoice</button>
+                
+                <button type="button" class="btn btn-outline-primary btn-block" rippleEffect>Save</button>
+              </div>
+            </div>
+            <div class="mt-2">
+              <p class="mb-50">Accept payments via</p>
+              <select class="form-control">
+                <option value="Bank Account">Bank Account</option>
+                <option value="Cash">Cash</option>
+                <option value="Check">Check</option>
+              </select>
+              
+            </div>
+          </div>
+          <!-- Invoice Add Right ends -->
+        </div>
+      </section>
+    </div>
+  
+   <!-- New Client Sidebar -->
+   <core-sidebar
+   class="modal modal-slide-in sidebar-todo-modal fade"
+   name="new-client-sidebar"
+   overlayClass="modal-backdrop"
+ >
+   <app-new-client-sidebar></app-new-client-sidebar>
+ </core-sidebar>
+  </div>
+ 

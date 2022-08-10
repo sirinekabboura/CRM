@@ -18,12 +18,14 @@
           <span class="align-middle">Ajouter</span>
         </a>
       </li>
+    <!-- 
       <li class="nav-item" (click)="showCommentaire()">
         <a class="nav-link nav-link-activity" data-bs-toggle="tab" >
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
           <span class="align-middle">Commentaires</span>
         </a>
       </li>
+    -->
     <div></div></ul>
     <form
       id="form-modal-todo"
@@ -148,21 +150,12 @@
           <button
             type="submit"
             class="btn btn-primary add-todo-item mr-1"
-            *ngIf="isDataEmpty === true"
             (click)="addTodo(todoForm)"
             rippleEffect
           >
-            Add
+           + Ajouter Tache
           </button>
-          <button
-            type="button"
-            class="btn btn-primary update-btn update-todo-item mr-1"
-            *ngIf="isDataEmpty === false"
-            (click)="updateTodo()"
-            rippleEffect
-          >
-            Update
-          </button>
+         
           <button
             class="btn btn-outline-secondary add-todo-item"
             type="button"
@@ -175,69 +168,7 @@
         </div>
       </div>
     </form>
-    <!-- Commentaire-->
-    <div class="modal-body flex-grow-1 pb-sm-0 pb-3" *ngIf="commentaire">
-      <div class="action-tags">
-        <div class="d-flex align-items-start mb-1">
-          <div class="avatar bg-light-success my-0 ms-0 me-50">
-            <span class="avatar-content">HJ</span>
-          </div>
-          <div class="more-info">
-            <p class="mb-0"><span class="fw-bold">Jordan</span> Left the board.</p>
-            <small class="text-muted">Today 11:00 AM</small>
-          </div>
-        </div> 
-        <div class="d-flex align-items-start mb-1">
-          <div class="avatar my-0 ms-0 me-50">
-            <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="32">
-          </div>
-          <div class="more-info">
-            <p class="mb-0">
-              <span class="fw-bold">Dianna</span> mentioned <span class="fw-bold text-primary">@bruce</span> in a
-              comment.
-            </p>
-            <small class="text-muted">Today 10:20 AM</small>
-          </div>
-        </div>
-        <div class="d-flex align-items-start mb-1">
-          <div class="avatar my-0 ms-0 me-50">
-            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" height="32">
-          </div>
-          <div class="more-info">
-            <p class="mb-0"><span class="fw-bold">Barry</span> Commented on App review task.</p>
-            <small class="text-muted">Today 8:32 AM</small>
-          </div>
-        </div>
-        <form>
-          <div class="form-group">
-            <textarea
-              id="commentaire"
-              name="commentaire"
-              class="new-todo-item-title form-control"
-              [(ngModel)]="commentaire.title"
-              required
-              rows="1"
-              placeholder="Add a comment..."
-            ></textarea>
-            <span *ngIf="commentaireForm.submitted && TDNameRef.invalid" class="invalid-form">
-              <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-            </span>
-          </div>
-          
-        </form>
-      <div class="form-group my-1">
-        <button
-          class="btn btn-outline-danger add-todo-item"
-          type="button"
-          (click)="closeSidebar()"
-          data-dismiss="modal"
-          rippleEffect
-        >
-          Ajouter Commentaire
-        </button>
-      </div>
-    </div>
-  </div>
+
   <!--Sous Taches-->
 
 </div>

@@ -1,0 +1,101 @@
+<app-content-header [contentHeader]="contentHeader"></app-content-header>
+<div class="row">
+    <div class="col-md-6 col-12">
+      <div class="d-flex justify-content-between align-items-center m-1">
+        <label class="d-flex align-items-center"
+          >Show
+          <select class="form-control mx-25" >
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          </label>
+      </div>
+    </div>
+    <div class="col-md-6 col-6 d-flex justify-content-start justify-content-md-end">
+      <div class="d-flex align-items-center justify-content-end pr-1 pb-1 pb-md-0">
+        <label class="d-flex align-items-center ml-1 ml-md-0"
+          >Search:<input
+            name="searchValue"
+            type="search"
+            class="form-control ml-25"
+        /></label>
+
+
+        <button class="btn btn-primary ml-1" rippleEffect (click)="toggleSidebar('new-client-sidebar')">
+          <a routerLink="/devis-add" style="color: white;">
+          <i size="15" data-feather="plus"></i
+          >&nbsp;<span class="d-none d-sm-inline-block">Add new Quotation</span>
+        </a></button>
+      </div>
+    </div>
+  </div>
+  <br>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+            <th>
+                #&nbsp;
+                </th>
+          <th>
+            <i size="18" data-feather="trending-up"></i>&nbsp;
+            </th>
+          <th>
+            <i size="18" data-feather="user"></i>&nbsp;
+            CLIENT</th>
+          <th>
+            <i size="18" data-feather="calendar"></i>&nbsp;
+            ISSUE DATE</th>
+          <th>
+            TOTAL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+           #1
+          </td>
+          <td>
+            <div class="custom-control custom-switch custom-switch-success">
+              <input type="checkbox" class="custom-control-input" id="customSwitch111" checked />
+              <label class="custom-control-label" for="customSwitch111">
+                <span class="switch-icon-left"><i data-feather="check-circle"></i></span>
+                <span class="switch-icon-right"><i data-feather="alert-circle"></i></span>
+              </label>
+            </div>
+          
+        </td>
+            <td>
+            <img src ="assets/images/portrait/small/avatar-s-5.jpg" class="avatar pull-up my-0"  alt="Avatar" height="26" width="26" /><span
+              class="font-weight-bold" 
+              >RonnieShane</span
+            ></td>
+          <td>
+            01 Dec 2019
+          </td>
+          <td>3623	</td>
+          <td>
+                <a
+                  class="mr-1"
+                  href="/devis-preview"
+                  container="body"
+                  placement="top"
+                  ngbTooltip="Preview Quotation"
+                  style="color: black;"
+                  ><i size="18" data-feather="eye"></i
+                ></a>
+                <a href="/devis-edit"  style="color: green;" ngbTooltip="Edit Quotation"
+
+                ><i data-feather="edit" class="mr-1"></i></a
+                ><a href="javascript:void(0)"  style="color: red;" ngbTooltip="Delete Quotation"><i data-feather="trash" class="mr-1"></i></a>
+          </td>
+        </tr>
+ 
+      </tbody>
+    </table>
+  </div>
+
+

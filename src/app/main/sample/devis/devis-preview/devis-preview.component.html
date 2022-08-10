@@ -1,0 +1,211 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <section class="invoice-preview-wrapper">
+        <div class="row invoice-preview">
+          <!-- Invoice -->
+          <div class="col-xl-9 col-md-8 col-12 printRef">
+            <div class="card invoice-preview-card">
+              <div class="card-body invoice-padding pb-0">
+                <!-- Header Starts -->
+                <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
+                  <div>
+                    <div class="logo-wrapper">
+                        <img src="./../../../../../assets/images/logo/logo.svg" style="width: 90px;">
+                        <hr>
+                    </div>
+                    <p class="card-text mb-25">66 rue d'industrie charguia 1 Tunis</p>
+                    <p class="card-text mb-25">	2035 ARIANA TUNIS CARTHAGE</p>
+                    <p class="card-text mb-0">+(216) 71 805 712,+(216) 24 732 382</p>
+                  </div>
+                  <div class="mt-md-0 mt-2">
+                    <h4 class="invoice-title">
+                      Quotation
+                      <span class="invoice-number">#{{ apiData.id }}</span>
+                    </h4>
+                    <div class="invoice-date-wrapper">
+                      <p class="invoice-date-title">Due Date : {{ datedd }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Header Ends -->
+              </div>
+  
+              <hr class="invoice-spacing" />
+  
+              <!-- Address And Contact Starts -->
+              <div class="card-body invoice-padding pt-0">
+                <div class="row invoice-spacing">
+                  <div class="col-xl-8 p-0">
+                    <h6 class="mb-2">Invoice To:</h6>
+                    <h6 class="mb-25">{{ apiData.client.name }}</h6>
+                    <p class="card-text mb-25">{{ apiData.client.company }}</p>
+                    <p class="card-text mb-25">{{ apiData.client.address + ' ' + apiData.client.country }}</p>
+                    <p class="card-text mb-25">{{ apiData.client.contact }}</p>
+                    <p class="card-text mb-0">{{ apiData.client.companyEmail }}</p>
+                  </div>
+                  <div class="col-xl-4 p-0 mt-xl-0 mt-2">
+                    <h6 class="mb-2">Payment Details:</h6>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td class="pr-1">Total Due:</td>
+                          <td>
+                            <span class="font-weight-bold">{{ paymentDetails.totalDue }}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pr-1">Bank name:</td>
+                          <td>{{ paymentDetails.bankName }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-1">Country:</td>
+                          <td>{{ paymentDetails.country }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-1">IBAN:</td>
+                          <td>{{ paymentDetails.iban }}</td>
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Address And Contact Ends -->
+  
+              <!-- Invoice Description Starts -->
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="py-1">Task description</th>
+                      <th class="py-1">Rate</th>
+                      <th class="py-1">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="py-1">
+                        <p class="card-text font-weight-bold mb-25">Native App Development</p>
+                        <p class="card-text text-nowrap">
+                          Developed a full stack native app using React Native, Bootstrap & Python
+                        </p>
+                      </td>
+                      <td class="py-1">
+                        <span class="font-weight-bold">$60.00</span>
+                      </td>
+                      <td class="py-1">
+                        <span class="font-weight-bold">$1,800</span>
+                      </td>
+                    </tr>
+                    <tr class="border-bottom">
+                      <td class="py-1">
+                        <p class="card-text font-weight-bold mb-25">Ui Kit Design</p>
+                        <p class="card-text text-nowrap">
+                          Designed a UI kit for native app using Sketch, Figma & Adobe XD
+                        </p>
+                      </td>
+                      <td class="py-1">
+                        <span class="font-weight-bold">$60.00</span>
+                      </td>
+
+                      <td class="py-1">
+                        <span class="font-weight-bold">$1200</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+  
+              <div class="card-body invoice-padding pb-0">
+                <div class="row invoice-sales-total-wrapper">
+                  <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
+                    
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end order-md-2 order-2">
+                    <div class="row row-bill-to invoice-spacing" style="margin-right: 20px;margin-top:5px">
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td ><strong>Subtotal:</strong></td>
+                              <td>$1800</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Stamp:</strong></td>
+                              <td>0.6</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Tax:</strong></td>
+                              <td>21%</td>
+                            </tr>
+                            <tr>
+                              <td><strong>Total:</strong></td>
+                              <td>$1690</td>
+                            </tr>
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Invoice Description Ends -->
+  
+              <hr class="invoice-spacing" />
+  
+              <!-- Invoice Note Starts -->
+              <div class="card-body invoice-padding pt-0">
+                <div class="row">
+                  <div class="col-12">
+                    <span class="font-weight-bold">Note: </span>
+                    <span
+                      >It was a pleasure working with you and your team. We hope you will keep us in mind for future
+                      freelance projects. Thank You!</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Invoice Note Ends -->
+            </div>
+          </div>
+          <!--/ Invoice -->
+  
+          <!-- Invoice Actions -->
+          <div class="col-xl-3 col-md-4 col-12 invoice-actions mt-md-0 mt-2">
+            <div class="card">
+              <div class="card-body">
+                <button
+                  class="btn btn-primary btn-block mb-75"
+                  data-toggle="modal"
+                  data-target="#send-invoice-sidebar"
+                  (click)="toggleSidebar('invoice-sidebar')"
+                  rippleEffect
+                >
+                  Send Invoice
+                </button>
+                <button class="btn btn-outline-secondary btn-block btn-download-invoice mb-75" rippleEffect>
+                  Download
+                </button>
+                <a class="btn btn-outline-secondary btn-block mb-75" href="javascript:window.print();" rippleEffect>
+                  Print
+                </a>
+                <button
+                  class="btn btn-success btn-block"
+                  data-toggle="modal"
+                  data-target="#add-payment-sidebar"
+                  (click)="toggleSidebar('add-payment-sidebar')"
+                  rippleEffect
+                >
+                  Add Payment
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--/ Invoice Actions -->
+        </div>
+      </section>
+    </div>
+  
+   
+  </div>
+  
