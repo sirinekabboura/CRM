@@ -36,7 +36,29 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function boot(Router $router){   
+        if(Auth::check()){
+            if (Auth::user()->role == 'Admin'){
+                return $next($request);
+    
+         } elseif(Auth::user()->role == 'Client')
+          {
+            return  $redirectTo = RouteServiceProvider::CLIENT;
+
+               // return redirect('/client')->with('message','Client ');
+        }
+        } elseif(Auth::user()->role == 'Personnel'){
+            return $redirectTo = RouteServiceProvider::PERSONNEL;
+
+       // return redirect('/personnel')->with('message','Personnel ');
+    
+        } else {
+         //   return   $redirectTo = RouteServiceProvider::HOME;
+          //  return redirect('/login')->with('message','u must login to access the site ');
+        }
+return $next($request);
+}
+ //   protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.

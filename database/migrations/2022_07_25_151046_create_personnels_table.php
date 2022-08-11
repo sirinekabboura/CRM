@@ -20,6 +20,8 @@ return new class extends Migration
             $table->float('Salaire');
             $table->integer('CarteID');
             $table->String('EtatCompte');
+            $table->string('Adresse');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
             
         });

@@ -47,6 +47,8 @@
         <input type="integer" name="CarteID" id="CarteID" value="{{$personnels->CarteID}}" class="form-control"></br>
         <label>EtatCompte</label></br>
         <input type="String" name="EtatCompte" id="EtatCompte" value="{{$personnels->EtatCompte}}" class="form-control"></br>
+        <label>Adresse</label></br>
+        <input type="String" name="Adresse" id="Adresse" value="{{$personnels->Adresse}}" class="form-control"></br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
    

@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-
 class RegisterController extends Controller
 {
     /*
@@ -55,7 +54,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'Numtelephone' => ['required', 'string', 'min:8'],          
+            'Numtelephone' => ['required', 'string', 'min:8'], 
+
+         
         ]);
     }
 
@@ -73,16 +74,6 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-        /*
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'Numtelephone' => $data['Numtelephone'],
-
-        ]);
-        */
-
 
         try {
             $validatoruser = Validator::make($request->all(),
@@ -90,7 +81,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
-            'Numtelephone' => ['required', 'string', 'min:8'],      
+            'Numtelephone' => ['required', 'string', 'min:8'],  
+    
             ]);
 
             if ($validatoruser->fails()){
@@ -105,6 +97,8 @@ class RegisterController extends Controller
                     'email' => $request['email'],
                     'password' => Hash::make($request['password']),
                     'Numtelephone' => $request['Numtelephone'],
+                    'Adresse' => $request['Adresse'],
+
             ]);
             return response()->json([
                 'status'=> True ,
@@ -117,7 +111,7 @@ class RegisterController extends Controller
                 'message'=>$th->getmessage()
             ] , 500);
         }
-
+        
         /*
         User::create($request->all()); 
         return response()->json([

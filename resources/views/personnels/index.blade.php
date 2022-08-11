@@ -30,6 +30,7 @@
                                         <th>Salaire</th>
                                         <th>CarteID</th>
                                         <th>EtatCompte</th>
+                                        <th>Adresse</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -43,6 +44,8 @@
                                         <td>{{ $item->Salaire }}</td>
                                         <td>{{ $item->CarteID }}</td>
                                         <td>{{ $item->EtatCompte }}</td>
+                                        <td>{{ $item->Adresse }}</td>
+
 
  
                                        <td style="column-width: auto; padding-left: 10px; padding-right: 20px">

@@ -11,5 +11,5 @@ class Personnel extends Model
 
     protected $table='personnels';
     protected $primaryKey = 'id';
-    protected $fillable = ['Soustrait', 'Role', 'Salaire', 'CarteID', 'EtatCompte'];
+    protected $fillable = ['Soustrait', 'Role', 'Salaire', 'CarteID', 'EtatCompte','Adresse'];
 }

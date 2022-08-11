@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('RNE');
             $table->string('PersonnePhysique');
             $table->string('Adresse');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

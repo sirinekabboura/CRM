@@ -19,18 +19,19 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next){
         
             if(Auth::check()){
-                if (Auth::user()->role == '1'){
+                if (Auth::user()->role == 'Admin'){
                     return $next($request);
         
-             } else {
-                    return redirect('/home')->with('message','acces denied as u are not the Admin ');
-        
+             } elseif(Auth::user()->role == 'Client')
+              {
+                    return redirect('/client')->with('message','Client ');
             }
-        } else {
-            return redirect('/login')->with('message','u must login to access the site ');
+            } elseif(Auth::user()->role == 'Personnel'){
+            return redirect('/personnel')->with('message','Personnel ');
         
-        }
-    
+            } else {
+                return redirect('/login')->with('message','u must login to access the site ');
+            }
     return $next($request);
 }}
 

@@ -41,6 +41,8 @@
         <input type="Number" name="CarteID" id="CarteID" class="form-control"></br>
         <label>EtatCompte</label></br>
         <input type="Boolean" name="EtatCompte" id="EtatCompte" class="form-control"></br>
+        <label>Adresse</label></br>
+        <input type="String" name="Adresse" id="Adresse" class="form-control"></br>
         <input type="submit" value="Save" class="btn btn-success"></br>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ url('/personnel') }}"> Back</a>

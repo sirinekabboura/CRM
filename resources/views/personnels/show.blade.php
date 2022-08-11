@@ -13,7 +13,8 @@
         <p class="card-text">Salaire : {{ $personnels->Salaire }}</p>
         <p class="card-text">CarteID : {{ $personnels->CarteID }}</p>
         <p class="card-text">EtatCompte : {{ $personnels->EtatCompte }}</p>
-       
+        <p class="card-text">Adresse : {{ $personnels->Adresse }}</p>
+
     </div>
        
     </hr>

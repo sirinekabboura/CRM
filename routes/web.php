@@ -44,5 +44,7 @@ Route::prefix('clients')->middleware(['auth','isAdmin'])->group(function(){
 
 
 
+Route::get('/client', [App\Http\Controllers\ClientController::class, 'index'])->name('client');
+Route::get('/personnel', [App\Http\Controllers\PersonnelController::class, 'index'])->name('personnel');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -48,6 +48,8 @@
                     <input type="integer" name="CarteID" id="CarteID" class="form-control"></br>
                     <label>EtatCompte</label></br>
                     <input type="String" name="EtatCompte" id="EtatCompte" class="form-control"></br>
+                    <label>Adresse</label></br>
+                    <input type="String" name="Adresse" id="Adresse" class="form-control"></br>
                     <button type="button" class="btn btn-secondary btn btn-primary pull-right"
                         data-bs-dismiss="modal">Close</button>
                     <input type="submit" value="Save" class="btn btn-success btn btn-primary pull-right"></br>
