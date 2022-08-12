@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Soutach extends Model
+class Soustache extends Model
 {
     use HasFactory;
 
@@ -19,7 +19,7 @@ class Soutach extends Model
 
     ];
 
-    public function SouTache(){
+    public function SousTache(){
         return $this->hasOne('App\Models\Tache', 'tache_id');
     }
 }

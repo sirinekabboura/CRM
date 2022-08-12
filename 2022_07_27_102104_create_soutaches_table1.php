@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreatesoustachesTable222s extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('soustaches', function (Blueprint $table) {
             $table->id();
+            $table->string('inti_tache');
+            $table->string('Deadline');
+            $table->string('assignation');
             $table->string('description');
+            $table->string('file');
             $table->string('image');
-            $table->integer('id_user');
-            $table->integer('id_tache');
+            $table->string('tache_id');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('soustaches');
     }
 }

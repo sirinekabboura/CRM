@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSoutachesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSoutachesTable extends Migration
      */
     public function up()
     {
-        Schema::create('soutaches', function (Blueprint $table) {
+        Schema::create('soustaches', function (Blueprint $table) {
             $table->id();
             $table->string('inti_tache');
             $table->string('Deadline');
@@ -33,6 +33,6 @@ class CreateSoutachesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soutaches');
+        Schema::dropIfExists('soustaches');
     }
-}
+};

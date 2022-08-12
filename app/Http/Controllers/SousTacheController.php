@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use App\Models\Soutach;
+use App\Models\Soustache;
 
-class SouTacheController extends Controller
+class SousTacheController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class SouTacheController extends Controller
      */
     public function index()
     {
-        $soutache = Soutach::All();
+        $soustache = Soustache::All();
         return response()->json(
             [
-                $soutache,
+                $soustache,
             ],
             201
         );
@@ -37,22 +37,22 @@ class SouTacheController extends Controller
                 "assignation" => 'required|string',
                 "description" => 'required|string|',
                 "file" => 'required|string',
-                "Soutache_id" => 'required|string',
+                "soustache_id" => 'required|string',
 
             ]);
 
-            $Soutache = new Soutach([
+            $soustache = new Soustache([
                 "inti_tache" => $request->inti_tache,
                 "Deadline" => $request->Deadline,
                 "assignation" => $request->assignation,
                 "description" => $request->description,
                 "file" => $request->file,
-                "Soutache_id" => $request->Soutache_id,
+                "soustache_id" => $request->soustache_id,
             ]);
 
 
             return response()->json([
-                $Soutache,
+                $soustache,
                 "status" => "success",
                 "message" => "Tache created successfully",
             ], 201);
@@ -108,16 +108,16 @@ class SouTacheController extends Controller
     {
         try {
 
-            $soutache = Soutach::find($id);
-            $soutache->inti_tache = $request->inti_tache;
-            $soutache->Deadline = $request->Deadline;
-            $soutache->assignation = $request->assignation;
-            $soutache->description = $request->description;
-            $soutache->file = $request->file;
-            $soutache->Soutache_id = $request->Soutache_id;
-            $soutache->save();
+            $soustache = Soustache::find($id);
+            $soustache->inti_tache = $request->inti_tache;
+            $soustache->Deadline = $request->Deadline;
+            $soustache->assignation = $request->assignation;
+            $soustache->description = $request->description;
+            $soustache->file = $request->file;
+            $soustache->soustache_id = $request->soustache_id;
+            $soustache->save();
             return response()->json([
-                $soutache
+                $soustache
             ], 201);
         } catch (ValidationException $e) {
             return response()->json([
@@ -135,10 +135,10 @@ class SouTacheController extends Controller
      */
     public function destroy($id)
     {
-        $soutache = Soutach::find($id);
-        if ($soutache) {
+        $soustache = Soustache::find($id);
+        if ($soustache) {
             $msg = " Sous tache deleted successfully!";
-            $soutache->delete();
+            $soustache->delete();
         } else {
             $msg = " Sous Tache Not found";
         }

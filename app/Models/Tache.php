@@ -15,11 +15,14 @@ class Tache extends Model
         "assignation",
         "description",
         "file",
-        "Soutache_id",
+        "soustache_id",
 
     ];
 
-    public function SouTache(){
-        return $this->hasMany('App\Models\Soutache', 'Soutache_id');
+    public function SousTache(){
+        return $this->hasMany('App\Models\soustache', 'soustache_id');
+    }
+    public function comments(){
+        return $this->hasMany('App\Model\Comment', 'id_comment');
     }
 }

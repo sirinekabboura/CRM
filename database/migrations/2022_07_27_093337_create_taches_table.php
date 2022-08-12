@@ -21,7 +21,7 @@ class CreateTachesTable extends Migration
             $table->string('description');
             $table->string('file');
             $table->string('image');
-            $table->string('Soutache_id');
+            $table->string('soustache_id');
             $table->timestamps();
         });
     }
