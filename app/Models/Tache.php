@@ -23,6 +23,6 @@ class Tache extends Model
         return $this->hasMany('App\Models\soustache', 'soustache_id');
     }
     public function comments(){
-        return $this->hasMany('App\Model\Comment', 'id_comment');
+        return $this->hasMany('App\Models\Comment', 'id_comment');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Models\Comment;
+use App\Models\Tache;
 
 class CommentController extends Controller
 {
@@ -22,11 +23,21 @@ class CommentController extends Controller
     public function create(Request $request)
     {
         try {
-            $comment =  $request->validate([
-                'desc' => 'required|string',
+            $request->validate([
+                'description' => 'required|string',
+                'image' => 'required|string',
+                'id_user' => 'required|integer',
+                'id_tache' =>'required|integer'
             ]);
-            Comment::create($comment);
+
+            $comment = new Comment([
+                "description" => $request->description,
+                "image" => $request->image,
+                "id_user" => $request->id_user,
+                "id_tache" => $request->id_tache
+            ]);
             return response()->josn([
+                $comment,
                 "status" => "success",
                 "message" => "Comment created succes",
             ], 201);
@@ -42,7 +53,7 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         $comment = Comment::find($id);
-        $comment->desc = $request->desc;
+        $comment->description = $request->description;
         return response()->json([
             "status" => "success",
             "message" => "comment updated succefull",
@@ -63,4 +74,11 @@ class CommentController extends Controller
             'message' => $msg
         ], 201);
     }
+
+    public function tache($id){
+        return response()->json([
+            Comment::where("id_tache",$id_tache)->with(["tache"])->get()
+        ],201);
+    }
+    
 }

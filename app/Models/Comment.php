@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Comment extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         "description",
         "image",
@@ -16,11 +17,12 @@ class Comment extends Model
         "id_tache"
     ];
 
-    public function client(){
-        return $this->hasMany("App\Models\Client', 'equipe_id'");
-    }
+    
     public function user(){
-        return $this->hasOne("App\Model\User", "id_user");
+        return $this->hasOne("App\Models\User", "id_user");
+    }
+    public function tache(){
+        return $this->hasOne("App\Models\Tache", "id_tache");
     }
     public function createdBy(){
         return $this->belongsTo(User::class);

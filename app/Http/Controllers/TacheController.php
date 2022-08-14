@@ -41,13 +41,15 @@ class TacheController extends Controller
                 "description" => 'required|string|',
                 "soustache_id" => 'required|string'
             ]);
-
+            
             $tache = new Tache([
                 "inti_tache" => $request->inti_tache,
                 "Deadline" => $request->Deadline,
                 "assignation" => $request->assignation,
                 "description" => $request->description,
                 "soustache_id" => $request->soustache_id,
+                "id_comment"=>$request->id_comment,
+                
             ]);
 
             return response()->json([
@@ -113,6 +115,7 @@ class TacheController extends Controller
             $tache->assignation = $request->assignation;
             $tache->description = $request->description;
             $tache->soustache_id = $request->soustache_id;
+            $tache->comment_id = $request->comment_id;
 
             $tache->save();
             return response()->json([

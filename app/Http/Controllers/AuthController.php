@@ -18,7 +18,7 @@ class AuthController extends Controller
                 'access_token' => auth()->user()->createToken('authToken', ['scope'])->accessToken
             ], Response::HTTP_OK);
         }
-
+        
         return response([
             'message' => 'This User does not exist'
         ], Response::HTTP_UNAUTHORIZED);
@@ -29,7 +29,8 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'NumTelephone'=>$request->NumTelephone
         ]);
 
         return response($user, Response::HTTP_CREATED);
