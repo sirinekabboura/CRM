@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
@@ -19,7 +20,7 @@ export class TodoMainSidebarComponent implements OnInit {
    * 
    * @param {CoreSidebarService} _coreSidebarService
    */
-  constructor(private _coreSidebarService: CoreSidebarService) {}
+  constructor(private _coreSidebarService: CoreSidebarService,private router : Router) {}
 
   // Public Methods
   // -----------------------------------------------------------------------------------------------------
@@ -52,5 +53,24 @@ export class TodoMainSidebarComponent implements OnInit {
   ngOnInit(): void {
     //this._todoService.onFiltersChange.subscribe(response => (this.filters = response));
     //this._todoService.onTagsChange.subscribe(response => (this.tags = response));
+  }
+  AllTasks(){
+    this.router.navigateByUrl('taches/all')
+  }
+  //Jquery
+  Completed(){
+    $('#TC').addClass('active');
+    $('#TA').removeClass('active');
+    $('#TI').removeClass('active');
+  }
+  Important(){
+    $('#TI').addClass('active');
+    $('#TA').removeClass('active');
+    $('#TC').removeClass('active');
+  }
+  All(){
+    $('#TA').addClass('active');
+    $('#TC').removeClass('active');
+    $('#TI').removeClass('active');
   }
 }

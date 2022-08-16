@@ -29,12 +29,14 @@ export class SoustacheComponent implements OnInit {
     $('#soustaches').show();
     $('#comments').hide();
     $('#AjouterSousTache').hide();
+    $('#DetailleSousTache').hide();
   }
   //show commentaires
   showCommentaires(){
     $('#comments').show();
     $('#soustaches').hide();
     $('#AjouterSousTache').hide();
+    $('#DetailleSousTache').hide();
     //
     $('#TC').addClass('active');
     $('#TA').removeClass('active');
@@ -45,6 +47,7 @@ export class SoustacheComponent implements OnInit {
     $('#soustaches').show();
     $('#comments').hide();
     $('#AjouterSousTache').hide();
+    $('#DetailleSousTache').hide();
     //
     $('#TS').addClass('active');
     $('#TC').removeClass('active');
@@ -55,9 +58,22 @@ export class SoustacheComponent implements OnInit {
     $('#soustaches').hide();
     $('#comments').hide();
     $('#AjouterSousTache').show();
+    $('#DetailleSousTache').hide();
     //
     $('#TA').addClass('active');
     $('#TC').removeClass('active');
     $('#TS').removeClass('active');
+  }
+  showDetailleSousTache(){
+    $('#DetailleSousTache').show();
+    $('#soustaches').hide();
+    $('#comments').hide();
+    $('#AjouterSousTache').hide();
+  }
+  HideDetailleSousTache(){
+    $('#soustaches').show();
+    $('#comments').hide();
+    $('#AjouterSousTache').hide();
+    $('#DetailleSousTache').hide();
   }
 }

@@ -10,16 +10,11 @@
       </div>
       <div class="sidebar-menu-list ps">
         <div class="list-group list-group-filters">
-          <a href="#" class="list-group-item list-group-item-action active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="feather feather-mail font-medium-3 me-50">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span class="align-middle">&nbsp;My Task</span>
+          <a class="list-group-item list-group-item-action active" (click)="All()" id="TA">
+            <i class="fa fa-list"></i>
+            <span class="align-middle">&nbsp;Tasks</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action">
+          <a  class="list-group-item list-group-item-action" id="TI" (click)="Important()">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="feather feather-star font-medium-3 me-50">
@@ -28,7 +23,7 @@
               </polygon>
             </svg> <span class="align-middle">&nbsp;Important</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action">
+          <a  class="list-group-item list-group-item-action" id="TC" (click)="Completed()">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="feather feather-check font-medium-3 me-50">

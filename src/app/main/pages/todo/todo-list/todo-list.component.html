@@ -59,6 +59,8 @@
               <circle cx="12" cy="5" r="1"></circle>
               <circle cx="12" cy="19" r="1"></circle>
             </svg>
+            <span class="badge rounded-pill badge-light-success mr-1"><div class="avatar-content"><i class="fa fa-check"></i></div></span>
+            <span class="badge rounded-pill badge-light-secondary"><div class="avatar-content"><i class="fa fa-check"></i></div></span>
             <div class="title-wrapper">
               <!-- 
               <div class="custom-control custom-control-success custom-switch">
@@ -69,49 +71,19 @@
                 </label>
               </div>
               -->
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="customCheck14" checked="">
-                <label class="form-check-label" for="customCheck14"></label>
-              </div>
-              <span class="todo-title" (click)="openDetailles()">Test functionality of apps developed by dev team for
-                enhancements. </span>
+              <span class="todo-title-primary" (click)="openDetailles()"><b> Test functionality of apps developed by dev team for
+                enhancements. </b></span>
+                <span class="badge rounded-pill badge-light-danger ml-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
+                <span class="badge rounded-pill badge-light-secondary mr-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
+                <span class="badge rounded-pill badge-light-secondary mr-1"><div class="avatar-content"><i class="fa fa-paperclip"></i></div></span>
             </div>
-            
           </div>
           <div class="todo-item-action">
             <div class="badge-wrapper me-1">
+              <small class="text-nowrap text-muted mr-1"> Deadline : <b class="text-danger">Nov 29</b></small>
               <span class="badge rounded-pill badge-light-warning"><div class="avatar-content">VB</div></span>
-              <span class="badge rounded-pill badge-light-primary" (click)="openComments()"> <i class="fa fa-comment"></i> Comments</span>
-              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches()"> <i class="fa fa-check"></i> Sous-Taches</span>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="todo-item completed">
-        <div class="todo-title-wrapper">
-          <div class="todo-title-area">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="feather feather-more-vertical drag-icon">
-              <circle cx="12" cy="12" r="1"></circle>
-              <circle cx="12" cy="5" r="1"></circle>
-              <circle cx="12" cy="19" r="1"></circle>
-            </svg>
-            <div class="title-wrapper">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="customCheck14" checked="">
-                <label class="form-check-label" for="customCheck14"></label>
-              </div>
-              <span class="todo-title">Test functionality of apps developed by dev team for enhancements. </span>
-            </div>
-          </div>
-          <div class="todo-item-action">
-            <div class="badge-wrapper me-1">
-              <span class="badge rounded-pill badge-light-danger">High</span>
-            </div>
-            <small class="text-nowrap text-muted me-1">Sept 07</small>
-            <div class="avatar bg-light-info">
-              <div class="avatar-content">VB</div>
+              <span class="badge rounded-pill badge-light-primary" (click)="openComments()"> <i class="fa fa-comment"></i> </span>
+              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches()"> <i class="fa fa-list"></i></span>
             </div>
           </div>
         </div>

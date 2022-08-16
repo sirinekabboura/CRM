@@ -19,11 +19,8 @@
         <section  id="soustaches">
             <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
                 <div class="action-tags">
-                    <div class="d-flex align-items-start mb-1">
-                        <div class="avatar bg-light-success my-0 ms-0 me-50">
-                            <span class="avatar-content">HJ</span>
-                        </div>
-                        <div class="more-info">
+                    <div class="d-flex align-items-start mb-1" >
+                        <div class="more-info" (click)="showDetailleSousTache()">
                             <p class="mb-0"><span class="fw-bold"> Sous Tache 1</span></p>
                             <small class="text-muted">list des affecté</small>
                         </div>
@@ -47,6 +44,21 @@
                     <input id="titresoustache" name="titre" class="new-todo-item-title form-control"
                         [(ngModel)]="commentaire.title" required />
                 </div>
+                <div class="form-group position-relative"><label for="task-assigned" class="form-label d-block">Assignee</label><ng-select name="selectAssignee" bindlabel="fullName" ng-reflect-bind-label="fullName" ng-reflect-name="selectAssignee" ng-reflect-items="[object Object],[object Object" ng-reflect-model="[object Object]" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
+                    "ng-reflect-ng-template-outlet-context": "[object Object]"
+                  }--></div><!--bindings={
+                    "ng-reflect-ng-for-of": "[object Object]"
+                  }--><!--ng-container--><!--bindings={
+                    "ng-reflect-ng-if": "true"
+                  }--><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--><div role="combobox" aria-haspopup="listbox" class="ng-input" aria-expanded="false"><input aria-autocomplete="list" type="text" autocorrect="off" autocapitalize="none" autocomplete="aa8fb1c63ee2"></div></div><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--><span class="ng-clear-wrapper ng-star-inserted" title="Clear all"><span aria-hidden="true" class="ng-clear">×</span></span><!--bindings={
+                    "ng-reflect-ng-if": "true"
+                  }--><span class="ng-arrow-wrapper"><span class="ng-arrow"></span></span></div><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--></ng-select></div>
                 <div class="form-group">
                     <textarea id="commentaire" name="commentaire" class="new-todo-item-title form-control"
                         [(ngModel)]="commentaire.title" required rows="1" placeholder="Ajouter Details..."></textarea>
@@ -64,7 +76,54 @@
             </div>
             </form>  
         </section>
-            <!-- Commentaire-->
-  
+
+            <!-- Detailles-->
+          <section id="DetailleSousTache">
+            <form
+            class="todo-modal needs-validation" 
+            >
+            <div class="modal-body flex-grow-1 pb-sm-0 pb-3" >
+                <div class="action-tags">
+                  <div class="form-group">
+                <label for="titresoustache" class="form-label">Titre Sous-Tache</label>
+                <div class="form-group">
+                    <input id="titresoustache" name="titre" class="new-todo-item-title form-control"
+                        [(ngModel)]="commentaire.title" required />
+                </div>
+                <div class="form-group position-relative"><label for="task-assigned" class="form-label d-block">Assignee</label><ng-select name="selectAssignee" bindlabel="fullName" ng-reflect-bind-label="fullName" ng-reflect-name="selectAssignee" ng-reflect-items="[object Object],[object Object" ng-reflect-model="[object Object]" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
+                    "ng-reflect-ng-template-outlet-context": "[object Object]"
+                  }--></div><!--bindings={
+                    "ng-reflect-ng-for-of": "[object Object]"
+                  }--><!--ng-container--><!--bindings={
+                    "ng-reflect-ng-if": "true"
+                  }--><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--><div role="combobox" aria-haspopup="listbox" class="ng-input" aria-expanded="false"><input aria-autocomplete="list" type="text" autocorrect="off" autocapitalize="none" autocomplete="aa8fb1c63ee2"></div></div><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--><span class="ng-clear-wrapper ng-star-inserted" title="Clear all"><span aria-hidden="true" class="ng-clear">×</span></span><!--bindings={
+                    "ng-reflect-ng-if": "true"
+                  }--><span class="ng-arrow-wrapper"><span class="ng-arrow"></span></span></div><!--bindings={
+                    "ng-reflect-ng-if": "false"
+                  }--></ng-select></div>
+                <div class="form-group">
+                    <textarea id="commentaire" name="commentaire" class="new-todo-item-title form-control"
+                        [(ngModel)]="commentaire.title" required rows="1" placeholder="Modifier Details..."></textarea>
+                </div>
+                <div class="form-group my-1">
+                    <button class="btn btn-outline-danger add-todo-item" type="button" (click)="closeSidebar()"
+                        data-dismiss="modal" rippleEffect>
+                        
+          <i class="fa fa-refresh"></i>
+                        Update Detailles
+                    </button>
+                </div>
+                <div class="form-group my-1">
+                    <button class="btn btn-outline-secondary" (click)="HideDetailleSousTache()">Cancel</button>
+                    </div>
+            </div>
+            </div>
+            </div>
+            </form>  
+        </section>
     </div>
 </div>
