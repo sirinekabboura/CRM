@@ -91,19 +91,6 @@
               "ng-reflect-ng-if": "false"
             }--></ng-select></div>
             <div class="form-group">
-              <label for="todoCommentaire" class="form-label">Commentaire</label>
-              <textarea
-                name="addcommentaire"
-                class="new-todo-item-title form-control"
-                [(ngModel)]="todo.title"
-                required
-                rows="3"
-              ></textarea>
-              <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
-                <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-              </span>
-            </div>
-            <div class="form-group">
               <label for="todoDescription" class="form-label">Description</label>
               <textarea
                 name="addDescription"

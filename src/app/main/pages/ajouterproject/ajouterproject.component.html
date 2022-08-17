@@ -28,8 +28,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book font-medium-3"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </span>
               <span class="bs-stepper-label">
-                <span class="bs-stepper-title">Details</span>
-                <span class="bs-stepper-subtitle">Enter username</span>
+                <span class="bs-stepper-title">Type Projet</span>
+                <span class="bs-stepper-subtitle">Enter Information</span>
               </span>
             </button>
           </div>
@@ -64,8 +64,44 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card font-medium-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                 </span>
                 <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Billing</span>
-                  <span class="bs-stepper-subtitle">Payment details</span>
+                  <span class="bs-stepper-title">Description</span>
+                  <span class="bs-stepper-subtitle">Description details</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#deadline">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card font-medium-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">Deadline</span>
+                  <span class="bs-stepper-subtitle">Date</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#DateCreation">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card font-medium-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">DateCreation</span>
+                  <span class="bs-stepper-subtitle">Date</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#Etat">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card font-medium-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">Etat</span>
+                  <span class="bs-stepper-subtitle">Etat details</span>
                 </span>
               </button>
             </div>
@@ -360,6 +396,40 @@
               <div id="test-l-5" class="content text-center">
                 <div id="create-app-submit" class="content text-center dstepper-block active" role="tabpanel" aria-labelledby="create-app-submit-trigger">
                   <h3>Submit 🥳</h3>
+                  <p>Submit your app to kickstart your project.</p>
+                  <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
+                  <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                    </button>
+                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
+                      <span class="align-middle d-sm-inline-block d-none">Submit</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check align-middle ms-sm-25 ms-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="DateCreation" class="content text-center">
+                <div id="create-app-datecreation" class="content text-center dstepper-block active" role="tabpanel" aria-labelledby="create-app-submit-trigger">
+                  <h3>DateCreation 🥳</h3>
+                  <p>Submit your app to kickstart your project.</p>
+                  <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
+                  <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                    </button>
+                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
+                      <span class="align-middle d-sm-inline-block d-none">Submit</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check align-middle ms-sm-25 ms-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="deadline" class="content text-center">
+                <div id="create-app-deadline" class="content text-center dstepper-block active" role="tabpanel" aria-labelledby="create-app-submit-trigger">
+                  <h3>DeadLine 🥳</h3>
                   <p>Submit your app to kickstart your project.</p>
                   <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
                   <div class="d-flex justify-content-between mt-3">

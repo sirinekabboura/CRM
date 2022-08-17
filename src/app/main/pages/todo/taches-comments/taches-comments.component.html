@@ -20,6 +20,7 @@
                         <small class="text-muted">Today 11:00 AM</small>
                     </div>
                 </div>
+                <hr/>
                 <div class="d-flex align-items-start mb-1">
                     <div class="avatar my-0 ms-0 me-50">
                         <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="32">
@@ -33,6 +34,7 @@
                         <small class="text-muted">Today 10:20 AM</small>
                     </div>
                 </div>
+                <hr/>
                 <div class="d-flex align-items-start mb-1">
                     <div class="avatar my-0 ms-0 me-50">
                         <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" height="32">
@@ -42,20 +44,27 @@
                         <small class="text-muted">Today 8:32 AM</small>
                     </div>
                 </div>
+                <!-- Form Ajouter Commentaire-->
+                <hr/>
                 <form>
                     <div class="form-group">
                         <textarea id="commentaire" name="commentaire" class="new-todo-item-title form-control"
                             [(ngModel)]="commentaire.title" required rows="1" placeholder="Add a comment..."></textarea>
                     </div>
-
+                    <div class="form-group">
+                        <label for="todoImage" class="form-label">Image</label>
+                        <input type="file" name="addImage" class="new-todo-item-title form-control"
+                          [(ngModel)]="commentaire.Image" required rows="3">
+                      </div>
+                      <div class="form-group my-1">
+                        <button class="btn btn-outline-danger add-todo-item" type="button" (click)="closeSidebar()"
+                            data-dismiss="modal" rippleEffect>
+                            <i class="fa fa-plus"></i>
+                            Ajouter Commentaire
+                        </button>
+                    </div>
                 </form>
-                <div class="form-group my-1">
-                    <button class="btn btn-outline-danger add-todo-item" type="button" (click)="closeSidebar()"
-                        data-dismiss="modal" rippleEffect>
-                        <i class="fa fa-plus"></i>
-                        Ajouter Commentaire
-                    </button>
-                </div>
+                
             </div>
         </div>
     </div>
