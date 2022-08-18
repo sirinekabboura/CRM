@@ -70,7 +70,9 @@ export class AjouterprojectComponent implements OnInit,AfterViewInit {
     this.stepper = new Stepper(document.querySelector('#plizman'), {
       linear: false,
       animation: true
-    });/*
+    });
+  
+    /*
     this.stepper = new Stepper(document.querySelector('#steppeur'), {
       linear: false,
       animation: true
