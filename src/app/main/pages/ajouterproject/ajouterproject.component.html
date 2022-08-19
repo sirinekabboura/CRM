@@ -187,7 +187,7 @@
             </div>
           </div>
           <div class="bs-stepper-content">
-            <form>
+            <form (ngSubmit)="AjouterProject()">
               <div id="ProjectName" class="content text-center">
                 <div id="create-app-ProjectName" class="content text-center dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-submit-trigger">
@@ -198,7 +198,7 @@
                     <div class="form-group">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Project Name">
+                      <input type="text" class="form-control" placeholder="Project Name" required [(ngModel)]="project.ProjectName">
                     </div>
 
                     <div class="form-group">
@@ -218,12 +218,10 @@
                 </div>
               </div>
               <div id="test-l-1" class="content dstepper-block ">
-                <h5>Application Name</h5>
-                <input class="form-control" type="text" placeholder="Vuexy Admin">
 
                 <h5 class="mt-2 pt-1">Category</h5>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item border-0 px-0">
+                  <li class="list-group-item border-0 px-0" >
                     <label for="createAppCrm" class="d-flex cursor-pointer">
                       <span class="avatar avatar-tag bg-light-info me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -239,7 +237,7 @@
                           <span>Scales with Any Business</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppCrm" type="radio" name="categoryRadio">
+                          <input class="form-check-input" id="createAppCrm" type="radio" name="categoryRadio" [(ngModel)]="project.Type">
                         </span>
                       </span>
                     </label>
@@ -261,7 +259,7 @@
                           <span>Grow Your Business With App</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppEcommerce" type="radio" name="categoryRadio"
+                          <input class="form-check-input" id="createAppEcommerce" type="radio" name="categoryRadio" [(ngModel)]="project.Type"
                             checked="">
                         </span>
                       </span>
@@ -283,7 +281,7 @@
                           <span>Start learning today</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppOnlineLearning" type="radio"
+                          <input class="form-check-input" id="createAppOnlineLearning" type="radio"  [(ngModel)]="project.Type"
                             name="categoryRadio">
                         </span>
                       </span>
@@ -326,7 +324,7 @@
                           <span>Create truly native apps</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio">
+                          <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
                         </span>
                       </span>
                     </label>
@@ -342,7 +340,7 @@
                           <span>Most suited to your application</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio"
+                          <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework"
                             checked="">
                         </span>
                       </span>
@@ -359,7 +357,7 @@
                           <span>Progressive framework.</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio">
+                          <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
                         </span>
                       </span>
                     </label>
@@ -375,7 +373,7 @@
                           <span>PHP web framework</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio">
+                          <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
                         </span>
                       </span>
                     </label>
@@ -407,10 +405,6 @@
               <div id="test-l-3" class="content text-center">
                 <div id="create-app-database" class="content dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-database-trigger">
-                  <h5>Database Name</h5>
-
-                  <input class="form-control" type="text" name="database" placeholder="app_database">
-
                   <h5 class="mt-2 pt-1">Select Database Engine</h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0 px-0">
@@ -424,7 +418,7 @@
                             <span>Cloud Firestore</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio">
+                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio" [(ngModel)]="project.Database">
                           </span>
                         </span>
                       </label>
@@ -440,7 +434,7 @@
                             <span>Amazon Fast NoSQL Database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio"
+                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio"[(ngModel)]="project.Database"
                               checked="">
                           </span>
                         </span>
@@ -458,7 +452,7 @@
                             <span>Basic MySQL database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio">
+                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio" [(ngModel)]="project.Database">
                           </span>
                         </span>
                       </label>
@@ -491,65 +485,10 @@
               <div id="test-l-4" class="content text-center">
                 <div id="create-app-billing" class="content dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-billing-trigger">
-                  <h5 class="mb-1">Category</h5>
-
-                  <!-- form -->
-                  <form id="createAppBillingForm" class="row gy-1 gx-2" onsubmit="return false">
-                    <div class="col-12">
-                      <label class="form-label" for="cardNumberBilling">Card Number</label>
-                      <div class="input-group input-group-merge">
-                        <input id="cardNumberBilling" name="cardNumberBillingModal"
-                          class="form-control create-app-card-mask" type="text" value="5637817212901451"
-                          placeholder="1356 3215 6548 7898" aria-describedby="cardNumberBillingModal1">
-                        <span class="input-group-text cursor-pointer p-25" id="cardNumberBillingModal1">
-                          <span class="credit-app-card-type"><img
-                              src="../../../../assets/images/icons/technologies/payments/maestro-cc.png"
-                              height="24"></span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6">
-                      <label class="form-label" for="nameOnCardBilling">Name On Card</label>
-                      <input type="text" id="nameOnCardBilling" class="form-control" placeholder="John Doe">
-                    </div>
-
-                    <div class="col-6 col-md-3">
-                      <label class="form-label" for="expDateBilling">Exp. Date</label>
-                      <input type="text" id="expDateBilling" class="form-control create-app-expiry-date-mask"
-                        placeholder="MM/YY">
-                    </div>
-
-                    <div class="col-6 col-md-3">
-                      <label class="form-label" for="cvvBilling">CVV</label>
-                      <input type="text" id="cvvBilling" class="form-control create-app-cvv-code-mask" maxlength="3"
-                        placeholder="654">
-                    </div>
-
-                    <div class="col-12">
-                      <div class="d-flex align-items-center">
-                        <div class="form-check form-switch form-check-primary me-25">
-                          <input type="checkbox" class="form-check-input" id="saveCardBilling" checked="">
-                          <label class="form-check-label" for="saveCardBilling">
-                            <span class="switch-icon-left"><svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                              </svg></span>
-                            <span class="switch-icon-right"><svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                              </svg></span>
-                          </label>
-                        </div>
-                        <label class="form-check-label fw-bolder" for="saveCardBilling">
-                          Save Card for future billing?
-                        </label>
-                      </div>
-                    </div>
-                  </form>
+                  <h5 class="mb-1">Description</h5>
+                  
+                  <img src="assets/images/pages/ProjectDetails.jpg" alt="illustration" height="218">
+                  <textarea class="form-control" name="description" rows="8" placeholder="Enter description" required [(ngModel)]="project.description"></textarea>
 
                   <div class="d-flex justify-content-between mt-5 pt-1">
                     <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light"
@@ -606,8 +545,10 @@
                 <div id="create-app-datecreation" class="content text-center dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-submit-trigger">
                   <h3>DateCreation 🥳</h3>
-                  <p>Submit your app to kickstart your project.</p>
-                  <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
+                  <p>Enter DateCreation.</p>
+                  <img src="assets/images/pages/CreationDate.jpg" alt="illustration" height="218">
+                    <input type="date" name="dateCreation" class="new-todo-item-title form-control"
+                    required [(ngModel)]="project.dateCreation" required />
                   <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -618,12 +559,14 @@
                       </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
-                      <span class="align-middle d-sm-inline-block d-none">Submit</span>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-check align-middle ms-sm-25 ms-0">
-                        <polyline points="20 6 9 17 4 12"></polyline>
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </button>
                   </div>
@@ -633,8 +576,10 @@
                 <div id="create-app-deadline" class="content text-center dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-submit-trigger">
                   <h3>DeadLine 🥳</h3>
-                  <p>Submit your app to kickstart your project.</p>
-                  <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
+                  <p>Enter DeadLine</p>
+                  <img src="assets/images/pages/Deadline.jpg" alt="illustration" height="218">
+                  <input type="date" name="deadline" class="new-todo-item-title form-control"
+                  required [(ngModel)]="project.Deadline" required />
                   <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -645,12 +590,14 @@
                       </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
-                      <span class="align-middle d-sm-inline-block d-none">Submit</span>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-check align-middle ms-sm-25 ms-0">
-                        <polyline points="20 6 9 17 4 12"></polyline>
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </button>
                   </div>
@@ -659,9 +606,71 @@
               <div id="Etat" class="content text-center">
                 <div id="create-app-Etat" class="content text-center dstepper-block active" role="tabpanel"
                   aria-labelledby="create-app-submit-trigger">
-                  <h3>DeadLine 🥳</h3>
-                  <p>Submit your app to kickstart your project.</p>
-                  <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
+                  <h3>Etat 🥳</h3>
+                  <p>Enter Etat Project.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppFirebase" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-warning me-1">
+                          <i class ="fa fa-user-plus"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Affecté</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppFirebase" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-danger me-1">
+                          <i class ="fa fa-star"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Créé</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input" type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppDynamoDB" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-secondary me-1">
+                          <i class ="fa fa-refresh"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">En Cours</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio"[(ngModel)]="project.etats"
+                              checked="">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppMysql" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-info me-1">
+                          <i class ="fa fa-check"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Terminé</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
                   <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -672,12 +681,14 @@
                       </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
-                      <span class="align-middle d-sm-inline-block d-none">Submit</span>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-check align-middle ms-sm-25 ms-0">
-                        <polyline points="20 6 9 17 4 12"></polyline>
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
                     </button>
                   </div>
