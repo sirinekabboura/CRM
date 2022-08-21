@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Observable } from 'rxjs';
 import {CoreSidebarService} from "../../../../../@core/components/core-sidebar/core-sidebar.service";
 import {TeamService} from "../team.service";
+import {PersonnelsComponent} from "../../personnels/personnels.component";
+import {NewPersonnelSidebarComponent} from "../../personnels/new-personnel-sidebar/new-personnel-sidebar.component";
 
 @Component({
   selector: 'app-new-team-sidebar',
@@ -9,9 +12,8 @@ import {TeamService} from "../team.service";
   styleUrls: ['./new-team-sidebar.component.scss']
 })
 export class NewTeamSidebarComponent implements OnInit {
-  //public  datecreation;
-  public pseudo;
-  public codeTeam;
+ public pseudo;
+
   public registerSucess:boolean = false;
   registerForm: FormGroup;
   submitted = false;
@@ -29,10 +31,11 @@ export class NewTeamSidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      pseudo: ['', Validators.required],
-      teamCode: ['', [Validators.required, Validators.minLength(6)]],
-      confirmteamCode: ['', Validators.required],
+      pseudo: ['', Validators.required]
+
     });
+
+
   }
   get f() { return this.registerForm.controls; }
   add()
@@ -66,6 +69,8 @@ export class NewTeamSidebarComponent implements OnInit {
     this.registerForm.reset();
   }
 
+    public selectMulti: Observable<any[]>;
+    public selectMultiSelected = [{ name: 'Karyn Wright' }];
 
 }
 

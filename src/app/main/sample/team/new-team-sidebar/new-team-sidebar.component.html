@@ -17,50 +17,51 @@
                 <div class="modal-body flex-grow-1">
                     <div class="form-group">
                         <label>Pseudo</label>
-                        <input type="text" formControlName="pseudo"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pseudo.errors }" placeholder="E-build"/>
+                        <input type="text" formControlName="pseudo"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pseudo.errors }" placeholder="E-build pseudo"/>
                         <div *ngIf="submitted && f.pseudo.errors" class="invalid-feedback">
                             <div *ngIf="f.pseudo.errors.required">This field is required!</div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Code Team</label>
-                        <input type="number" formControlName="codeTeam" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codeTeam.errors }" placeholder="* * * * *"/>
-                        <div *ngIf="submitted && f.codeTeam.errors" class="invalid-feedback">
-                            <div *ngIf="f.codeTeam.errors.required">This field is required!</div>
-                            <div *ngIf="f.codeteam.errors.minlength">Code Team  must be composed of 5 digits</div>
-                        </div>
-                    </div>
+
+                    <!--  <div class="form-group">
+                          <label>Code Team</label>
+                          <input type="number" formControlName="codeTeam" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codeTeam.errors }" placeholder="* * * * *"/>
+                          <div *ngIf="submitted && f.codeTeam.errors" class="invalid-feedback">
+                              <div *ngIf="f.codeTeam.errors.required">This field is required!</div>
+                              <div *ngIf="f.codeteam.errors.minlength">Code Team  must be composed of 5 digits</div>
+                          </div>
+                      </div>-->
 
                     <div class="form-group">
-                        <label>Team Type</label>
-                        <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-                            <option value=""></option>
-                            <option value="Team Digital">team Digital</option>
-                            <option value="Team Front">team Front
-                            </option>
-                            <option value="Team Back">team Back</option>
-                            <option value="Team Full stack">team Full stack</option>
-                        </select>
-                        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                            <div *ngIf="f.title.errors.required">Ce champ est obligatoire!</div>
-                        </div>
+                        <ng-select
+                                [items]="selectMulti | async"
+                                [multiple]="true"
+                                [closeOnSelect]="false"
+                                [searchable]="false"
+                                bindLabel="name"
+                                placeholder="Select personnel"
+                                [(ngModel)]="selectMultiSelected"
+                        >
+                            <ng-template ng-label-tmp let-item="item" let-clear="clear">
+                                <span class="ng-value-label"> {{ item.name }}</span>
+                                <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                            </ng-template>
+                        </ng-select>
+
+                        <!--/ Basic Multi select -->
+
+
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label class="form-label">Subcontracting</label>
-                        <div class="custom-control custom-control-primary custom-switch">
-                            <input id="systemNotification" type="checkbox" class="custom-control-input">
-                            <label for="systemNotification" class="custom-control-label">
-                            </label>
-                        </div>
-                    </div>
+
+
 
 
 
                     <div class="text-center">
 
-                      <button class="btn btn-primary mr-1" (click)="add()" >Register</button>
+                        <button class="btn btn-primary mr-1" (click)="add()" >Register</button>
                         <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
                     </div>
                 </div>

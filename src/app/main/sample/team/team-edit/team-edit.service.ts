@@ -7,6 +7,9 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class TeamEditService implements Resolve<any>{
+  find(teamId: any) {
+      throw new Error('Method not implemented.');
+  }
   public apiData: any;
   public onUserEditChanged: BehaviorSubject<any>;
 

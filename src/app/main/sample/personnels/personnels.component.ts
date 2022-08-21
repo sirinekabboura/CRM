@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  ViewChild, ViewEncapsulation } from '@angular/core';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 
-import { Subject } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { CoreConfigService } from '@core/services/config.service';
@@ -69,5 +69,5 @@ export class PersonnelsComponent implements OnInit {
     this._unsubscribeAll.complete();
   }
 
-  
+
 }

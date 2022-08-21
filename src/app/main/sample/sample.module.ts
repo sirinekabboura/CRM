@@ -23,6 +23,7 @@ import { NewClientSidebarComponent } from './client/new-client-sidebar/new-clien
 import { TeamComponent } from './team/team.component';
 import { NewTeamSidebarComponent } from './team/new-team-sidebar/new-team-sidebar.component';
 import { TeamEditComponent } from './team/team-edit/team-edit.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 const routes = [
   {
@@ -70,12 +71,12 @@ const routes = [
 
 @NgModule({
   declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, TeamComponent, NewTeamSidebarComponent, TeamEditComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
-    CoreCommonModule,
-    CoreModule.forRoot(coreConfig),
-    CoreSidebarModule,
-    CoreThemeCustomizerModule,
-    CardSnippetModule],
+    imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule, NgbNavModule,
+        CoreCommonModule,
+        CoreModule.forRoot(coreConfig),
+        CoreSidebarModule,
+        CoreThemeCustomizerModule,
+        CardSnippetModule, NgSelectModule],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]
 })
 export class SampleModule {}
