@@ -30,16 +30,31 @@ class ProjectController extends Controller
     {
         try {
             $project = $request->validate([
-                'Type' => 'required|string|max:10|min:2',
-                'description' => 'required|string|max:10|min:2',
-                'etats' => 'required|string|',
+                'Type' => 'required|string',
+                'Projectname'=>'required|string',
+                'Frameworks'=>'required|string',
+                'database'=>'required|string',
+                'description' => 'required|string',
+                'etats' => 'required|string',
                 'filecvc' => 'required|string',
                 'dateCreation' => 'required|string',
-                'Deadline' => 'required|string',
+                'Deadline' => 'required|string'
 
             ]);
-            Project::create($project);
+            $project = New Project([
+                'Type' => $request->Type, 
+                "Projectname" => $request->Projectname,
+                'Frameworks'=> $request->Frameworks,
+                'database'=> $request->database,
+                'description' => $request->description,
+                'etats' => $request->etats,
+                'filecvc' => $request->filecvc,
+                'dateCreation' => $request->dateCreation,
+                'Deadline' => $request->Deadline,
+            ]);
+            $project->save();
             return response()->json([
+                $project,
                 'status' => 'success',
                 'message' => 'Porject Created',
             ], 200);
@@ -96,8 +111,11 @@ class ProjectController extends Controller
 
         try {
 
-            $project = Project::find($id);
+            $project = Project::find($id);  
             $project->Type = $request->Type;
+            $project->Projectname= $request->Projectname;
+            $project->Frameworks = $request->Frameworks;
+            $project->database = $request->database;
             $project->description = $request->description;
             $project->etats = $request->etats;
             $project->filecvc = $request->filecvc;

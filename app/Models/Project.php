@@ -11,11 +11,14 @@ class Project extends Model
     
     protected $fillable = [
         "Type",
+        "Projectname",
+        "Frameworks",
+        "database",
         "description",
         "etats",
         "filecvc",
         "dateCreation",
-        "Deadline",
+        "Deadline"
 
     ];
 }
