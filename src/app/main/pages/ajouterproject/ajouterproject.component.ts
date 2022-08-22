@@ -69,6 +69,7 @@ export class AjouterprojectComponent implements OnInit, AfterViewInit {
     });
   }
   AjouterProject() {
+    this.project.filecvc="Not Yet Ready";
     console.log(this.project)
     this.PS.save(this.project).subscribe(
       (data: any) => {
@@ -121,5 +122,84 @@ export class AjouterprojectComponent implements OnInit, AfterViewInit {
     this.next();
     this.previous();
   }
+  //project etat
+  ProjectEtat(item){
+    if(item=='Terminé'){
+      this.project.etats='Terminé';
+    }
+    else if(item=='En Cours'){
+      this.project.etats='En Cours';
+    }
+    else if(item=='Créé'){
+      this.project.etats='Créé';
+    }
+    else if(item=='Affecté'){
+      this.project.etats='Affecté';
+    }
+
+  }
+  ProjectType(item){
+    if(item=='Appweb'){
+      this.project.Type='Appweb';
+      console.log(this.project.Type)
+    }
+    else if(item=='CrossPlatforme'){
+      this.project.Type='CrossPlatforme';
+      console.log(this.project.Type)
+    }
+    else if(item=='Sitevetrine'){
+      this.project.Type='Sitevetrine';
+      console.log(this.project.Type)
+    }
+    else if(item=='Appmobile'){
+      this.project.Type='Appmobile';
+      console.log(this.project.Type)
+    }
+    else if(item=='Ecommerce'){
+      this.project.Type='Ecommerce';
+      console.log(this.project.Type)
+    }
+    else if(item=='Gestion Rsociaux'){
+      this.project.Type='Gestion Rsociaux';
+      console.log(this.project.Type)
+    }
+    else if(item=='DesigneGraphique'){
+      this.project.Type='DesigneGraphique';
+      console.log(this.project.Type)
+    }
+  }
+  Framework(item){
+    if(item=='Angular'){
+      this.project.Frameworks='Angular';
+      console.log(this.project.Frameworks)
+    }
+    else if(item=='React Native'){
+      this.project.Frameworks='React Native';
+      console.log(this.project.Frameworks)
+    }
+    else if(item=='Vue'){
+      this.project.Frameworks='Vue';
+      console.log(this.project.Frameworks)
+    }
+    else if(item=='Laravel'){
+      this.project.Frameworks='Laravel';
+      console.log(this.project.Frameworks)
+    }
+  }
+  Database(item){
+    if(item=='MySQL'){
+      this.project.database='MySQL';
+      console.log(this.project.database)
+    }
+    else if(item=='Firebase'){
+      this.project.database='Firebase';
+      console.log(this.project.database)
+    }
+    else if(item=='DynamoDB'){
+      this.project.database='DynamoDB';
+      console.log(this.project.database)
+    }
+  }
+
 }
 

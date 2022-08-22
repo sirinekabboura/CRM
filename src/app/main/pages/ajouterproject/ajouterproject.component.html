@@ -198,7 +198,7 @@
                     <div class="form-group">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Project Name" required [(ngModel)]="project.ProjectName">
+                      <input type="text" class="form-control" placeholder="Project Name" name="ProjectName" required [(ngModel)]="project.Projectname">
                     </div>
 
                     <div class="form-group">
@@ -222,7 +222,7 @@
                 <h5 class="mt-2 pt-1">Category</h5>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item border-0 px-0" >
-                    <label for="createAppCrm" class="d-flex cursor-pointer">
+                    <label for="WebApplication" class="d-flex cursor-pointer">
                       <span class="avatar avatar-tag bg-light-info me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -233,56 +233,137 @@
                       </span>
                       <span class="d-flex align-items-center justify-content-between flex-grow-1">
                         <span class="me-1">
-                          <span class="h5 d-block fw-bolder">CRM Application</span>
+                          <span class="h5 d-block fw-bolder">Web Application</span>
                           <span>Scales with Any Business</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppCrm" type="radio" name="categoryRadio" [(ngModel)]="project.Type">
+                          <input class="form-check-input" id="WebApplication" type="radio" name="categoryRadio" (click)="ProjectType('Appweb')">
                         </span>
                       </span>
                     </label>
                   </li>
-                  <li class="list-group-item border-0 px-0">
-                    <label for="createAppEcommerce" class="d-flex cursor-pointer">
-                      <span class="avatar avatar-tag bg-light-success me-1">
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="CrossPlatforme" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-shopping-cart font-medium-5">
-                          <circle cx="9" cy="21" r="1"></circle>
-                          <circle cx="20" cy="21" r="1"></circle>
-                          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                         </svg>
                       </span>
                       <span class="d-flex align-items-center justify-content-between flex-grow-1">
                         <span class="me-1">
-                          <span class="h5 d-block fw-bolder">Ecommerce Platforms</span>
-                          <span>Grow Your Business With App</span>
+                          <span class="h5 d-block fw-bolder">CrossPlatforme</span>
+                          <span>Scales with Any Business</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppEcommerce" type="radio" name="categoryRadio" [(ngModel)]="project.Type"
-                            checked="">
+                          <input class="form-check-input" id="CrossPlatforme" type="radio" name="categoryRadio" (click)="ProjectType('CrossPlatforme')">
                         </span>
                       </span>
                     </label>
                   </li>
-                  <li class="list-group-item border-0 px-0">
-                    <label for="createAppOnlineLearning" class="d-flex cursor-pointer">
-                      <span class="avatar avatar-tag bg-light-danger me-1">
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="sitevitrine" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                          class="feather feather-award font-medium-5">
-                          <circle cx="12" cy="8" r="7"></circle>
-                          <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                         </svg>
                       </span>
                       <span class="d-flex align-items-center justify-content-between flex-grow-1">
                         <span class="me-1">
-                          <span class="h5 d-block fw-bolder">Online Learning platform</span>
-                          <span>Start learning today</span>
+                          <span class="h5 d-block fw-bolder">Site Vitrine</span>
+                          <span>Scales with Any Business</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppOnlineLearning" type="radio"  [(ngModel)]="project.Type"
-                            name="categoryRadio">
+                          <input class="form-check-input" id="sitevitrine" type="radio" name="categoryRadio" (click)="ProjectType('Sitevetrine')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="ApplicationMobile" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Application Mobile</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="ApplicationMobile" type="radio" name="categoryRadio" (click)="ProjectType('Appmobile')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="ApplicationECommerce" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Application ECommerce</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="ApplicationECommerce" type="radio" name="categoryRadio" (click)="ProjectType('Ecommerce')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="GestionReseauxSociaux" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Gestion Reseaux Sociaux</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="GestionReseauxSociaux" type="radio" name="categoryRadio" (click)="ProjectType('Gestion Rsociaux')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="DesigneGraphique" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Designe Graphique</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="DesigneGraphique" type="radio" name="categoryRadio" (click)="ProjectType('DesigneGraphique')">
                         </span>
                       </span>
                     </label>
@@ -324,7 +405,7 @@
                           <span>Create truly native apps</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
+                          <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio" (click)="Framework('React Native')">
                         </span>
                       </span>
                     </label>
@@ -340,7 +421,7 @@
                           <span>Most suited to your application</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework"
+                          <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio" (click)="Framework('Angular')"
                             checked="">
                         </span>
                       </span>
@@ -357,7 +438,7 @@
                           <span>Progressive framework.</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
+                          <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio" (click)="Framework('Vue')">
                         </span>
                       </span>
                     </label>
@@ -373,7 +454,7 @@
                           <span>PHP web framework</span>
                         </span>
                         <span>
-                          <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio" [(ngModel)]="project.Framework">
+                          <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio"(click)="Framework('Laravel')">
                         </span>
                       </span>
                     </label>
@@ -418,7 +499,7 @@
                             <span>Cloud Firestore</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio" [(ngModel)]="project.Database">
+                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio" (click)="Database('Firebase')">
                           </span>
                         </span>
                       </label>
@@ -434,7 +515,7 @@
                             <span>Amazon Fast NoSQL Database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio"[(ngModel)]="project.Database"
+                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio" (click)="Database('DynamoDB')"
                               checked="">
                           </span>
                         </span>
@@ -452,7 +533,7 @@
                             <span>Basic MySQL database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio" [(ngModel)]="project.Database">
+                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio" (click)="Database('MySQL')">
                           </span>
                         </span>
                       </label>
@@ -521,7 +602,7 @@
                   <p>Submit your app to kickstart your project.</p>
                   <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
                   <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-arrow-left align-middle me-sm-25 me-0">
@@ -530,7 +611,7 @@
                       </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
+                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light" type="submit">
                       <span class="align-middle d-sm-inline-block d-none">Submit</span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -550,7 +631,7 @@
                     <input type="date" name="dateCreation" class="new-todo-item-title form-control"
                     required [(ngModel)]="project.dateCreation" required />
                   <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-arrow-left align-middle me-sm-25 me-0">
@@ -581,7 +662,7 @@
                   <input type="date" name="deadline" class="new-todo-item-title form-control"
                   required [(ngModel)]="project.Deadline" required />
                   <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-arrow-left align-middle me-sm-25 me-0">
@@ -619,7 +700,7 @@
                             <span class="h5 d-block fw-bolder">Affecté</span>
                           </span>
                           <span>
-                            <input class="form-check-input"  type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                            <input class="form-check-input"  type="radio" name="databaseRadio" (click)="ProjectEtat('Affecté')">
                           </span>
                         </span>
                       </label>
@@ -634,7 +715,7 @@
                             <span class="h5 d-block fw-bolder">Créé</span>
                           </span>
                           <span>
-                            <input class="form-check-input" type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                            <input class="form-check-input" type="radio" name="databaseRadio" (click)="ProjectEtat('Créé')">
                           </span>
                         </span>
                       </label>
@@ -649,7 +730,7 @@
                             <span class="h5 d-block fw-bolder">En Cours</span>
                           </span>
                           <span>
-                            <input class="form-check-input"  type="radio" name="databaseRadio"[(ngModel)]="project.etats"
+                            <input class="form-check-input"  type="radio" name="databaseRadio"(click)="ProjectEtat('En Cours')"
                               checked="">
                           </span>
                         </span>
@@ -665,14 +746,14 @@
                             <span class="h5 d-block fw-bolder">Terminé</span>
                           </span>
                           <span>
-                            <input class="form-check-input"  type="radio" name="databaseRadio" [(ngModel)]="project.etats">
+                            <input class="form-check-input"  type="radio" name="databaseRadio" (click)="ProjectEtat('Terminé')">
                           </span>
                         </span>
                       </label>
                     </li>
                   </ul>
                   <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-arrow-left align-middle me-sm-25 me-0">
