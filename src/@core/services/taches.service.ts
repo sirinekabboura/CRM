@@ -15,21 +15,21 @@ let httpOptions = { responseType: 'text' };
 export class TachesService {
   BackEndURL
   constructor(private http: HttpClient,private router:Router) {
-    this.BackEndURL = 'http://localhost:8089/work-mood/Taches/';
+    this.BackEndURL = 'http://127.0.0.1:8000/api/tache/';
     }
  
     /*List des Tache*/
     public FindAllTaches(): Observable<any> {
-     return this.http.get(this.BackEndURL+"Taches")
+     return this.http.get(this.BackEndURL+"index")
    }
    /*Ajouter Tache*/
    public save(tache: Taches) {
      console.log(tache);
-   return this.http.post(this.BackEndURL+"AddTache",tache,{ ...options, responseType: 'text' });
+   return this.http.post(this.BackEndURL+"create",tache,{ ...options, responseType: 'text' });
    }
    /*Supprimer Tache*/
    DeleteTache(id:number){
-       return this.http.delete(this.BackEndURL+'DeleteTache/'+id).pipe(
+       return this.http.delete(this.BackEndURL+'destroy/'+id).pipe(
          map(
            tacheData => {
              
@@ -41,7 +41,7 @@ export class TachesService {
      }
    /* Update Tache */
    UpdateTache(tache:Taches){
-        return this.http.put(this.BackEndURL+'UpdateTache',tache).pipe(
+        return this.http.put(this.BackEndURL+'update',tache).pipe(
            map(
              tacheData => {
              }

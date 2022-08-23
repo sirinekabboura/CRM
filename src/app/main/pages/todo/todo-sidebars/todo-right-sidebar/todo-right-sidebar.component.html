@@ -30,9 +30,8 @@
     <form
       id="form-modal-todo"
       class="todo-modal needs-validation" 
-      (ngSubmit)="(todoForm.form.valid)"
+      (ngSubmit)="AjouterTache()"
       #todoForm="ngForm"
-      *ngIf="ajouter"
     >
     <div class="modal-header align-items-center mb-1">
       <h5 class="modal-title">Ajouter Tache</h5>
@@ -51,7 +50,7 @@
               class="new-todo-item-title form-control"
               [class.error]="todoForm.submitted && TDNameRef.invalid"
               placeholder="Title"
-              [(ngModel)]="todo.title"
+              [(ngModel)]="tache.inti_tache"
               #TDNameRef="ngModel"
               required
             />
@@ -66,7 +65,7 @@
               id="tododateAdd"
               name="adddate"
               class="new-todo-item-title form-control"
-              [(ngModel)]="todo.title"
+              [(ngModel)]="tache.datecreation"
               required
             />
             <span *ngIf="todoForm.submitted && TDNameRef.invalid" class="invalid-form">
@@ -80,10 +79,10 @@
               id="tododeadlineAdd"
               name="adddeadline"
               class="new-todo-item-title form-control"
-              [(ngModel)]="todo.title"
+              [(ngModel)]="tache.Deadline"
               required
             />
-            <div class="form-group position-relative"><label for="task-assigned" class="form-label d-block">Assignee</label><ng-select name="selectAssignee" bindlabel="fullName" ng-reflect-bind-label="fullName" ng-reflect-name="selectAssignee" ng-reflect-items="[object Object],[object Object" ng-reflect-model="[object Object]" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
+            <div class="form-group position-relative"><label for="task-assigned" class="form-label d-block">Assignee</label><ng-select name="selectAssignee" [(ngModel)]="tache.assignation"bindLabel="name" [items]="selectAssignee" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
               "ng-reflect-ng-template-outlet-context": "[object Object]"
             }--></div><!--bindings={
               "ng-reflect-ng-for-of": "[object Object]"
@@ -108,7 +107,7 @@
               id="todoDescription"
               name="addDescription"
               class="new-todo-item-title form-control"
-              [(ngModel)]="todo.title"
+              [(ngModel)]="tache.description"
               required
               rows="4"
             ></textarea>
@@ -124,7 +123,7 @@
             id="todoImage"
             name="addImage"
             class="new-todo-item-title form-control"
-            [(ngModel)]="todo.title"
+            [(ngModel)]="tache.image"
             required
             rows="3"
           >
@@ -139,7 +138,7 @@
             id="todoFile"
             name="addFile"
             class="new-todo-item-title form-control"
-            [(ngModel)]="todo.title"
+            [(ngModel)]="tache.file"
             required
             rows="3"
           >
@@ -151,7 +150,6 @@
           <button
             type="submit"
             class="btn btn-primary add-todo-item mr-1"
-            (click)="addTodo(todoForm)"
             rippleEffect
           >
            + Ajouter Tache

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { DragulaService } from 'ng2-dragula';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
+import { TachesService } from '@core/services/taches.service';
 
 import { Todo } from 'app/main/pages/todo//todo.model';
 import { TodoService } from 'app/main/pages/todo//todo.service';
@@ -15,7 +16,7 @@ import { TodoService } from 'app/main/pages/todo//todo.service';
 export class TodoListComponent implements OnInit {
   // Public
   public todos: Todo[];
-
+  ListTaches
   /**
    * Constructor
    *
@@ -24,7 +25,7 @@ export class TodoListComponent implements OnInit {
    */
   constructor(
     //private _dragulaService: DragulaService,
-    private _coreSidebarService: CoreSidebarService
+    private _coreSidebarService: CoreSidebarService,private ts:TachesService
   ) {
     // Drag And Drop With Handle
    // _dragulaService.destroy('todo-tasks-drag-area');
@@ -74,13 +75,23 @@ export class TodoListComponent implements OnInit {
   openSousTaches(){
     this._coreSidebarService.getSidebarRegistry('soustache').toggleOpen();
   }
-
+  DeleteTache(id:number){
+    this.ts.DeleteTache(id).subscribe(data=>{
+      this.ts.FindAllTaches().subscribe(data=>{
+        this.ListTaches=data.taches;
+      })
+    }
+    )
+  }
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
   /**
    * On init
    */
   ngOnInit(): void {
+    this.ts.FindAllTaches().subscribe(data=>{
+      this.ListTaches=data.taches;
+    })
     // Subscribe Todos change
    // this._todoService.onTodoDataChange.subscribe(response => (this.todos = response));
   }
