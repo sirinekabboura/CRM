@@ -63,7 +63,7 @@
             <span class="badge rounded-pill badge-light-secondary"><div class="avatar-content"><i class="fa fa-check"></i></div></span>
             <div class="title-wrapper">
            
-              <span class="todo-title-primary" (click)="openDetailles()"><b> {{t.inti_tache}}
+              <span class="todo-title-primary" (click)="openDetailles(t.id)"><b> {{t.inti_tache}}
                 enhancements. </b></span>
                 <span class="badge rounded-pill badge-light-danger ml-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
                 <span class="badge rounded-pill badge-light-secondary mr-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
@@ -75,7 +75,7 @@
               <small class="text-nowrap text-muted mr-1"> Deadline : <b class="text-danger">{{t.Deadline}}</b></small>
               <span class="badge rounded-pill badge-light-warning"><div class="avatar-content">VB</div></span>
               <span class="badge rounded-pill badge-light-primary" (click)="openComments()"> <i class="fa fa-comment"></i> </span>
-              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches()"> <i class="fa fa-list"></i></span>
+              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches(id)"> <i class="fa fa-list"></i></span>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
                 </label>
               </div>
               -->
-              <span class="todo-title-primary" (click)="openDetailles()"><b> Test functionality of apps developed by dev team for
+              <span class="todo-title-primary" (click)="openDetailles(1)"><b> Test functionality of apps developed by dev team for
                 enhancements. </b></span>
                 <span class="badge rounded-pill badge-light-danger ml-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
                 <span class="badge rounded-pill badge-light-secondary mr-1"><div class="avatar-content"><i class="fa fa-star"></i></div></span>
@@ -115,7 +115,7 @@
               <small class="text-nowrap text-muted mr-1"> Deadline : <b class="text-danger">Nov 29</b></small>
               <span class="badge rounded-pill badge-light-warning"><div class="avatar-content">VB</div></span>
               <span class="badge rounded-pill badge-light-primary" (click)="openComments()"> <i class="fa fa-comment"></i> </span>
-              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches()"> <i class="fa fa-list"></i></span>
+              <span class="badge rounded-pill badge-light-info" (click)="openSousTaches(1)"> <i class="fa fa-list"></i></span>
             </div>
           </div>
         </div>

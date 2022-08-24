@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
+import { TachesService } from '@core/services/taches.service';
+import { Taches } from '@core/taches';
+import { AuthenticationService } from 'app/auth/services';
+import Swal from 'sweetalert2';
 import { Todo } from '../todo.model';
 
 @Component({
@@ -14,6 +19,7 @@ export class TacheDetaillesComponent implements OnInit {
  public tags;
  public selectTags;
  public selectAssignee;
+ public tache: Taches;
  ajouter=true
  commentaire=false;
  public soustache=true;
@@ -26,6 +32,7 @@ export class TacheDetaillesComponent implements OnInit {
    altFormat: 'F j, Y',
    dateFormat: 'Y-m-d'
  };
+  idtache: number;
 
  /**
   * Constructor
@@ -33,11 +40,42 @@ export class TacheDetaillesComponent implements OnInit {
   * 
   * @param {CoreSidebarService} _coreSidebarService
   */
- constructor( private _coreSidebarService: CoreSidebarService) {}
+ constructor( private _coreSidebarService: CoreSidebarService,private router:Router,private PS:TachesService,private us:AuthenticationService) {
+  this.tache=new Taches();
+ }
 
  // Public Methods
  // -----------------------------------------------------------------------------------------------------
-
+ UpdateTache() {
+  this.tache.file="Not Yet Ready";
+  this.tache.image="Not Yet Ready";
+  this.tache.soustache_id="Does Not Have Sous Tache";
+  this.tache.assignation=this.tache.assignation.id;
+  console.log(this.tache)
+  this.PS.UpdateTache(this.tache).subscribe(
+    (data: any) => {
+      Swal.fire({
+        title: '<strong>Success!</strong>',
+        icon: 'success',
+        html:
+          '<b>Congratulations !</b> You Added The Task '
+      }
+      )
+      console.log(data)
+      this.router.navigateByUrl('/taches/all')
+    },
+    (error) => {
+      Swal.fire({
+        title: '<strong>Error!</strong>',
+        icon: 'error',
+        html:
+          '<b>Something Is Wrong !</b> Check '
+      }
+      )
+      console.log(error)
+    }
+  );
+}
  /**
   * Close Sidebar
   */
@@ -89,9 +127,35 @@ export class TacheDetaillesComponent implements OnInit {
    this.todo.important = !this.todo.important;
    this.closeSidebar();
  }
+getTacheDetailles() {
+  this._coreSidebarService.currentid.subscribe((message) => {
+    this.idtache= message  
+    console.log("id de la tache"+this.idtache)
+    //FindById
+    this.FindTacheById(this.idtache)
+  }); 
+}
+FindTacheById(id){
+  this.PS.FindTacheById(id).subscribe(
+    (data: any) => {
+      this.tache=data.tache;
+      console.log(this.tache)
+    }
+  )
+}
+FindAllAssignee(){
+  this.us.FindAll().subscribe(
+    (data: any) => {
+      this.selectAssignee=data.users;
+      console.log("Liste des assignés")
+      console.log(this.selectAssignee)
+    }
+  )
+}
+ async ngOnInit() {
+   this.getTacheDetailles();
+   this.FindAllAssignee();
 
- ngOnInit(): void {
-   this.selectAssignee=[{id:1,name:'John Doe'},{id:2,name:'Jane Doe'}];
 
  }
 

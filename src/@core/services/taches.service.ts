@@ -41,7 +41,7 @@ export class TachesService {
      }
    /* Update Tache */
    UpdateTache(tache:Taches){
-        return this.http.put(this.BackEndURL+'update',tache).pipe(
+        return this.http.put(this.BackEndURL+'update/'+tache.id,tache).pipe(
            map(
              tacheData => {
              }
@@ -50,7 +50,7 @@ export class TachesService {
          );
      }
    /* Find Tache By Id*/
-   public FindTacheById(id:number): Observable<any>{
-     return this.http.get<Taches>(this.BackEndURL+'FindTache/'+id); 
+   public FindTacheById(id): Observable<any>{
+     return this.http.get<Taches>(this.BackEndURL+'FindTacheById/'+id);
    }
 }

@@ -1,4 +1,5 @@
 export class Taches {
+    id;
     inti_tache;
     datecreation;
     Deadline;

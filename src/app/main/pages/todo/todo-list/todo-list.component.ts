@@ -66,13 +66,17 @@ export class TodoListComponent implements OnInit {
     //this._todoService.getTodosBySearch(queryRef.target.value);
   }
 
-  openDetailles() {
+  openDetailles(id) {
+    this._coreSidebarService.changeMessage(id);
+    //this._coreSidebarService.Testeur('TacheDetailles',id).toggleOpen();
     this._coreSidebarService.getSidebarRegistry('TacheDetailles').toggleOpen();
   }
+  
   openComments(){
     this._coreSidebarService.getSidebarRegistry('comments').toggleOpen();
   }
-  openSousTaches(){
+  openSousTaches(id){
+    this._coreSidebarService.changeMessage(id);
     this._coreSidebarService.getSidebarRegistry('soustache').toggleOpen();
   }
   DeleteTache(id:number){

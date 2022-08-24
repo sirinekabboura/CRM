@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CoreSidebarComponent } from '@core/components/core-sidebar/core-sidebar.component';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { CoreSidebarComponent } from '@core/components/core-sidebar/core-sidebar
 export class CoreSidebarService {
   // Private
   private _registry: { [key: string]: CoreSidebarComponent } = {};
-
+  public idTache: number;
   /**
    * Get the sidebar with the given key
    *
@@ -25,7 +26,18 @@ export class CoreSidebarService {
     // Return the sidebar
     return this._registry[key];
   }
+  public editDataDetails: any = [];
+  public subject = new Subject<any>();
+  private messageSource = new  BehaviorSubject(this.editDataDetails);
+  currentid = this.messageSource.asObservable();
 
+  changeMessage(id: number) {this.messageSource.next(id)}
+  setIdTache(id){
+    this.idTache=id;
+  }
+  public getIdTache(){
+    console.log("Tache Id =>")
+  }
   /**
    * Set the sidebar to the registry
    *
@@ -46,6 +58,7 @@ export class CoreSidebarService {
     // Set to the registry
     this._registry[key] = sidebar;
   }
+
 
   /**
    * Remove the sidebar from the registry
