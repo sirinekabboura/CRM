@@ -96,4 +96,7 @@ export class AuthenticationService {
     // notify
     this.currentUserSubject.next(null);
   }
+  FindAll(){
+    return this._http.get<any>(this.BackEndUrl+'user/index');
+  }
 }

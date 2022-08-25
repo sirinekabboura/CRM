@@ -1,70 +1,159 @@
 <div class="modal-dialog sidebar-lg">
-    <div class="modal-content p-0">
-        <ul class="nav nav-tabs tabs-line">
-            <li class="nav-item" (click)="showCommentaire()">
-                <a class="nav-link nav-link-update active" data-bs-toggle="tab">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-edit">
-                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                    </svg>
-                    <span class="align-middle">List Taches</span>
-                </a>
-            </li>
-            <li class="nav-item" (click)="showAjouter()">
-                <a class="nav-link nav-link-activity" data-bs-toggle="tab">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-activity">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                    </svg>
-                    <span class="align-middle">Ajouter SousTaches</span>
-                </a>
-            </li>
-            <div></div>
-        </ul> 
-        <section  id="comments">
-            <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
-                <div class="action-tags">
-                    <div class="d-flex align-items-start mb-1">
-                        <div class="avatar bg-light-success my-0 ms-0 me-50">
-                            <span class="avatar-content">HJ</span>
-                        </div>
-                        <div class="more-info">
-                            <p class="mb-0"><span class="fw-bold">Sous Tache 1</span></p>
-                            <small class="text-muted">list des affecté</small>
-                        </div>
-                    </div>
-                </div>
+  <div class="modal-content p-0">
+    <ul class="nav nav-tabs tabs-line">
+      <li class="nav-item" (click)="showSousTaches()">
+        <a class="nav-link nav-link-update active" data-bs-toggle="tab" id="TS">
+
+          <i class="fa fa-list"></i>
+          <span class="align-middle">Sous-Taches</span>
+        </a>
+      </li>
+      <li class="nav-item" (click)="showAjouter()">
+        <a class="nav-link nav-link-activity" data-bs-toggle="tab" id="TA">
+          <i class="fa fa-plus"></i>
+          <span class="align-middle">Ajouter</span>
+        </a>
+      </li>
+      <div></div>
+    </ul>
+    <section id="soustaches">
+      <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
+        <div class="action-tags">
+          <div class="d-flex align-items-start mb-1" *ngFor="let st of SousTachesList">
+            <div class="more-info" (click)="showDetailleSousTache(st.id)">
+              <p class="mb-0"><span class="fw-bold"> {{st.description}}</span></p>
+              <small class="text-muted">list des affecté : {{st.assignation}}</small>
             </div>
-        </section>
-        <section id="AjouterSousTache">
-            <form
-            class="todo-modal needs-validation" 
-            >
-            <div class="modal-body flex-grow-1 pb-sm-0 pb-3" >
-                <div class="action-tags">
-                  <div class="form-group">
-                <label for="titresoustache" class="form-label">Titre Sous-Tache</label>
-                <div class="form-group">
-                    <input id="titresoustache" name="titre" class="new-todo-item-title form-control"
-                        [(ngModel)]="commentaire.title" required />
-                </div>
-                <div class="form-group">
-                    <textarea id="commentaire" name="commentaire" class="new-todo-item-title form-control"
-                        [(ngModel)]="commentaire.title" required rows="1" placeholder="Ajouter Details..."></textarea>
-                </div>
-                <div class="form-group my-1">
-                    <button class="btn btn-outline-danger add-todo-item" type="button" (click)="closeSidebar()"
-                        data-dismiss="modal" rippleEffect>
-                        Ajouter Detailles
-                    </button>
-                </div>
+            <div class="col-7 col-md-7 col-sm-2"></div>
+            <div class="avatar bg-light-info my-0 ms-0 me-50">
+              <span class="avatar-content"><i class="fa fa-plus"></i><i class="fa fa-user"></i></span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="AjouterSousTache">
+      <form class="todo-modal needs-validation" (ngSubmit)="AjouterSousTache()">
+        <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
+          <div class="action-tags">
+            <div class="form-group">
+              <label for="titresoustache" class="form-label">Titre Sous-Tache</label>
+              <div class="form-group">
+                <input id="titresoustache" name="titre" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustache.inti_tache" required />
+              </div>
+              <div class="form-group">
+                <label for="tododateAdd" class="form-label">Deadline</label>
+                <input type="date" name="deadline" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustache.Deadline" required />
+              </div>
+              <div class="form-group position-relative"><label for="AS_SousTaches" class="form-label d-block">Assignee</label><ng-select name="AS_SousTaches" [(ngModel)]="soustache.assignation" bindLabel="name" [items]="AS_SousTaches" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
+                "ng-reflect-ng-template-outlet-context": "[object Object]"
+              }--></div><!--bindings={
+                "ng-reflect-ng-for-of": "[object Object]"
+              }--><!--ng-container--><!--bindings={
+                "ng-reflect-ng-if": "true"
+              }--><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--><div role="combobox" aria-haspopup="listbox" class="ng-input" aria-expanded="false"><input aria-autocomplete="list" type="text" autocorrect="off" autocapitalize="none" autocomplete="aa8fb1c63ee2"></div></div><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--><span class="ng-clear-wrapper ng-star-inserted" title="Clear all"><span aria-hidden="true" class="ng-clear">×</span></span><!--bindings={
+                "ng-reflect-ng-if": "true"
+              }--><span class="ng-arrow-wrapper"><span class="ng-arrow"></span></span></div><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--></ng-select></div>
+              <div class="form-group">
+                <textarea id="commentaire" name="description" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustache.description" required rows="1" placeholder="Ajouter Details..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="todoImage" class="form-label">Image</label>
+                <input type="file" name="addImage" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustache.image" required rows="3">
+              </div>
+              <div class="form-group">
+                <label for="todoFile" class="form-label">File</label>
+                <input type="file" name="addFile" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustache.file" required rows="3">
+              </div>
+              <div class="form-group my-1">
+                <button class="btn btn-outline-danger add-todo-item" type="submit" (click)="closeSidebar()"
+                  data-dismiss="modal" rippleEffect>
+
+                  <i class="fa fa-plus"></i>
+                  Ajouter SousTache
+                </button>
+              </div>
+              <div class="form-group my-1">
+                <button class="btn btn-outline-secondary" (click)="HideDetailleSousTache()">Cancel</button>
+              </div>
             </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Detailles-->
+    <section id="DetailleSousTache">
+      <form class="todo-modal needs-validation" (ngSubmit)="UpdateTache()">
+        <div class="modal-body flex-grow-1 pb-sm-0 pb-3">
+          <div class="action-tags">
+            <div class="form-group">
+              <label for="titresoustache" class="form-label">Titre Sous-Tache</label>
+              <div class="form-group">
+                <input id="titresoustache" name="titre" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustachedetaille.inti_tache" required />
+              </div>
+              <div class="form-group">
+                <label for="tododateAdd" class="form-label">Deadline</label>
+                <input type="date" name="deadline" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustachedetaille.Deadline" required />
+              </div>
+              <div class="form-group position-relative"><label for="AS_SousTaches" class="form-label d-block">Assignee</label><ng-select name="AS_SousTaches" [(ngModel)]="soustachedetaille.assignation" bindLabel="name" [items]="AS_SousTaches" class="ng-select ng-select-single ng-select-searchable ng-select-clearable ng-pristine ng-valid ng-select-bottom ng-touched"><div class="ng-select-container ng-has-value"><div class="ng-value-container"><div class="ng-placeholder"></div><div class="ng-value ng-star-inserted" style=""><!--container--><span aria-hidden="true" class="ng-value-icon left ng-star-inserted">×</span><span class="ng-value-label ng-star-inserted" ng-reflect-ng-item-label="" ng-reflect-escape="true"></span><!--bindings={
+                "ng-reflect-ng-template-outlet-context": "[object Object]"
+              }--></div><!--bindings={
+                "ng-reflect-ng-for-of": "[object Object]"
+              }--><!--ng-container--><!--bindings={
+                "ng-reflect-ng-if": "true"
+              }--><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--><div role="combobox" aria-haspopup="listbox" class="ng-input" aria-expanded="false"><input aria-autocomplete="list" type="text" autocorrect="off" autocapitalize="none" autocomplete="aa8fb1c63ee2"></div></div><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--><span class="ng-clear-wrapper ng-star-inserted" title="Clear all"><span aria-hidden="true" class="ng-clear">×</span></span><!--bindings={
+                "ng-reflect-ng-if": "true"
+              }--><span class="ng-arrow-wrapper"><span class="ng-arrow"></span></span></div><!--bindings={
+                "ng-reflect-ng-if": "false"
+              }--></ng-select></div>
+              <div class="form-group">
+                <textarea id="commentaire" name="commentaire" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustachedetaille.description" required rows="1" placeholder="Modifier Details..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="todoImage" class="form-label">Image</label>
+                <input type="file" name="addImage" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustachedetaille.image" required rows="3">
+              </div>
+              <div class="form-group">
+                <label for="todoFile" class="form-label">File</label>
+                <input type="file" name="addFile" class="new-todo-item-title form-control"
+                  [(ngModel)]="soustachedetaille.file" required rows="3">
+              </div>
+              <div class="form-group my-1">
+                <button class="btn btn-outline-danger add-todo-item" type="submit" (click)="closeSidebar()"
+                  data-dismiss="modal" rippleEffect>
+
+                  <i class="fa fa-refresh"></i>
+                  Update Detailles
+                </button>
+              </div>
+              <div class="form-group my-1">
+                <button type="button" class="btn btn-outline-secondary" (click)="HideDetailleSousTache()">Cancel</button>
+              </div>
             </div>
-            </form>  
-        </section>
-    </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
 </div>

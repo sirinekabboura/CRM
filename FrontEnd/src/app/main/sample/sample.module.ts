@@ -7,6 +7,7 @@ import { CoreSidebarModule, CoreThemeCustomizerModule } from '@core/components';
 import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 import { coreConfig } from 'app/app-config';
 
+import { ToastrModule } from 'ngx-toastr';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
@@ -22,7 +23,7 @@ import { ClientEditComponent } from './client/client-edit/client-edit.component'
 import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
 import { DevisComponent } from './devis/devis.component';
 import { DevisAddComponent } from './devis/devis-add/devis-add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CorePipesModule } from '@core/pipes/pipes.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -34,6 +35,9 @@ import { FactureComponent } from './facture/facture.component';
 import { FactureAddComponent } from './facture/facture-add/facture-add.component';
 import { FacturePreviewComponent } from './facture/facture-preview/facture-preview.component';
 import { FactureEditComponent } from './facture/facture-edit/facture-edit.component';
+import { TicketComponent } from './ticket/ticket.component';
+import { TicketDetailsComponent } from './ticket/ticket-details/ticket-details.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
 const routes = [
@@ -53,7 +57,7 @@ const routes = [
     data: { animation: 'personnels' }
   },
   {
-    path: 'personnels-edit',
+    path: 'personnels-edit/:personnelId',
     component: PersonnelsEditComponent,
     data: { animation: 'personnels-edit' }
   },
@@ -63,7 +67,7 @@ const routes = [
     data: { animation: 'client' }
   },
   {
-    path: 'client-edit',
+    path: 'client-edit/:clientId',
     component: ClientEditComponent,
     data: { animation: 'client-edit' }
   },
@@ -106,24 +110,38 @@ const routes = [
     path: 'facture-edit',
     component: FactureEditComponent,
     data: { animation: 'facture-edit' }
+  },
+  {
+    path: 'ticket',
+    component: TicketComponent,
+    data: { animation: 'ticket' }
+  },
+  {
+    path: 'ticket-details',
+    component: TicketDetailsComponent,
+    data: { animation: 'ticket-details' }
   }
 ];
 
 @NgModule({
-  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
+  declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent, TicketComponent, TicketDetailsComponent],
+  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,ToastrModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
     CoreSidebarModule,
     CoreThemeCustomizerModule,
     CardSnippetModule,
-    CardSnippetModule,
+    PerfectScrollbarModule,
     Ng2FlatpickrModule,
     NgxDatatableModule,
+    ReactiveFormsModule,
     FormsModule,
     CorePipesModule,
+    CardSnippetModule,
+    NgSelectModule,
     NgbModule,
     NgSelectModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]

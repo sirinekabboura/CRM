@@ -10,16 +10,11 @@
       </div>
       <div class="sidebar-menu-list ps">
         <div class="list-group list-group-filters">
-          <a href="#" class="list-group-item list-group-item-action active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="feather feather-mail font-medium-3 me-50">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span class="align-middle">&nbsp;My Task</span>
+          <a class="list-group-item list-group-item-action active" (click)="All()" id="TA">
+            <i class="fa fa-list"></i>
+            <span class="align-middle">&nbsp;Tasks</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action">
+          <a  class="list-group-item list-group-item-action" id="TI" (click)="Important()">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="feather feather-star font-medium-3 me-50">
@@ -28,7 +23,7 @@
               </polygon>
             </svg> <span class="align-middle">&nbsp;Important</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action">
+          <a  class="list-group-item list-group-item-action" id="TC" (click)="Completed()">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="feather feather-check font-medium-3 me-50">
@@ -36,32 +31,6 @@
             </svg> <span class="align-middle">&nbsp;Completed</span>
           </a>
          
-        </div>
-        <div class="mt-3 px-2 d-flex justify-content-between">
-          <h6 class="section-label mb-1">Tags</h6>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-plus cursor-pointer">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-        </div>
-        <div class="list-group list-group-labels">
-          <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-            <span class="bullet bullet-sm bullet-primary me-1"></span>&nbsp;Team
-          </a>
-          <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-            <span class="bullet bullet-sm bullet-success me-1"></span>&nbsp;Low
-          </a>
-          <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-            <span class="bullet bullet-sm bullet-warning me-1"></span>&nbsp;Medium
-          </a>
-          <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-            <span class="bullet bullet-sm bullet-danger me-1"></span>&nbsp;High
-          </a>
-          <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
-            <span class="bullet bullet-sm bullet-info me-1"></span>&nbsp;Update
-          </a>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
           <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>

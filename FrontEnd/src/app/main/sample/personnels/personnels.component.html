@@ -1,4 +1,7 @@
-<app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+<div class="content-wrapper container-xxl p-0">
+  <div class="content-body">
+    <app-content-header [contentHeader]="contentHeader"></app-content-header>
 <div class="row">
     <div class="col-md-6 col-12">
       <div class="d-flex justify-content-between align-items-center m-1">
@@ -47,18 +50,18 @@
       <th scope="col">Actions</th>
     </tr>
     </thead>
-    <tbody>
-    <tr>
-        <td>test</td>
-        <td>Admin</td>
-        <td>test</td>
-        <td>test</td>
+    <tbody *ngIf="personnels.length">
+    <tr *ngFor="let pers of personnels">
+        <td>{{pers.user.name}}</td>
+        <td>{{pers.user.email}}</td>
+        <td>{{pers.user.Numtelephone}}</td>
+        <td>{{pers.Role}}</td>
         <td>
           <div class="d-flex align-items-center col-actions">
-            <a class="mr-1" href="/personnels-edit" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
+            <a class="mr-1" href="/personnels-edit/{{pers.id}}" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
               ><i size="18" data-feather="edit"></i
             ></a>
-            <a class="mr-1" href="javascript:void(0);" container="body" placement="top" ngbTooltip="Delete"  style="color:red;"
+            <a class="mr-1" container="body" placement="top" ngbTooltip="Delete" (click)="delete(pers.id)" style="color:red;"
               ><i size="18" data-feather="trash"></i
             ></a>
           </div>
@@ -77,3 +80,5 @@
    <app-new-personnel-sidebar></app-new-personnel-sidebar>
  </core-sidebar>
  <!--/ New User Sidebar -->
+</div>
+</div>

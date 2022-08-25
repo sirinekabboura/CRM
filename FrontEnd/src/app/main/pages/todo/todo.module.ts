@@ -18,6 +18,8 @@ import { TodoRightSidebarComponent } from 'app/main/pages/todo//todo-sidebars/to
 
 import { TodoComponent } from 'app/main/pages/todo//todo.component';
 import { SoustacheComponent } from './soustache/soustache.component';
+import { TachesCommentsComponent } from './taches-comments/taches-comments.component';
+import { TacheDetaillesComponent } from './tache-detailles/tache-detailles.component';
 
 // routing
 const routes: Routes = [
@@ -47,7 +49,9 @@ const routes: Routes = [
     TodoMainSidebarComponent,
     TodoRightSidebarComponent,
     TodoListItemComponent,
-    SoustacheComponent
+    SoustacheComponent,
+    TachesCommentsComponent,
+    TacheDetaillesComponent
   ],
   imports: [
     CommonModule,

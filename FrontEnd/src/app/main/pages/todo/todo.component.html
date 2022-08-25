@@ -30,6 +30,15 @@
           
         </core-sidebar>
         <core-sidebar
+        class="modal modal-slide-in sidebar-todo-modal fade"
+        name="TacheDetailles"
+        overlayClass="modal-backdrop"
+        hideOnEsc="true"
+      >
+        <app-tache-detailles></app-tache-detailles>
+        
+      </core-sidebar>
+        <core-sidebar
           class="modal modal-slide-in sidebar-todo-modal fade"
           name="soustache"
           overlayClass="modal-backdrop"
@@ -37,6 +46,14 @@
         >
        <app-soustache></app-soustache>
       </core-sidebar>
+      <core-sidebar
+      class="modal modal-slide-in sidebar-todo-modal fade"
+      name="comments"
+      overlayClass="modal-backdrop"
+      hideOnEsc="true"
+    >
+    <app-taches-comments></app-taches-comments>
+  </core-sidebar>
         <!--/ Todo Right Sidebar -->
       </div>
     </div>

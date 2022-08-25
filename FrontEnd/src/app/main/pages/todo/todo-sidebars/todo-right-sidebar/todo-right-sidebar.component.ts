@@ -1,8 +1,15 @@
 import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
+import { TachesService } from '@core/services/taches.service';
+import { Taches } from '@core/taches';
+import { AuthenticationService } from 'app/auth/services';
 
 import { Todo } from 'app/main/pages/todo/todo.model';
+import { Console } from 'console';
+import Swal from 'sweetalert2';
+import { TacheDetaillesComponent } from '../../tache-detailles/tache-detailles.component';
 //import { TodoService } from 'app/main/pages/todo/todo.service';
 
 @Component({
@@ -15,6 +22,7 @@ export class TodoRightSidebarComponent implements OnInit {
   // Public
   public isDataEmpty;
   public todo: Todo;
+  public tache:Taches;
   public tags;
   public selectTags;
   public selectAssignee;
@@ -37,7 +45,9 @@ export class TodoRightSidebarComponent implements OnInit {
    * 
    * @param {CoreSidebarService} _coreSidebarService
    */
-  constructor( private _coreSidebarService: CoreSidebarService) {}
+  constructor( private _coreSidebarService: CoreSidebarService,private router:Router,private PS:TachesService,private us:AuthenticationService) {
+    this.tache=new Taches();
+  }
 
   // Public Methods
   // -----------------------------------------------------------------------------------------------------
@@ -45,6 +55,37 @@ export class TodoRightSidebarComponent implements OnInit {
   /**
    * Close Sidebar
    */
+ 
+   AjouterTache() {
+    this.tache.file="Not Yet Ready";
+    this.tache.image="Not Yet Ready";
+    this.tache.soustache_id="Does Not Have Sous Tache";
+    this.tache.assignation=this.tache.assignation.id;
+    console.log(this.tache)
+    this.PS.save(this.tache).subscribe(
+      (data: any) => {
+        Swal.fire({
+          title: '<strong>Success!</strong>',
+          icon: 'success',
+          html:
+            '<b>Congratulations !</b> You Added The Task '
+        }
+        )
+        console.log(data)
+        this.router.navigateByUrl('/taches/all')
+      },
+      (error) => {
+        Swal.fire({
+          title: '<strong>Error!</strong>',
+          icon: 'error',
+          html:
+            '<b>Something Is Wrong !</b> Check '
+        }
+        )
+        console.log(error)
+      }
+    );
+  }
   closeSidebar() {
     this._coreSidebarService.getSidebarRegistry('todo-sidebar-right').toggleOpen();
   }
@@ -115,25 +156,13 @@ export class TodoRightSidebarComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
-    this.selectAssignee=[{id:1,name:'John Doe'},{id:2,name:'Jane Doe'}];
-    /*this._todoService.onCurrentTodoChange.subscribe(response => {
-      if (Object.keys(response).length > 0) {
-        this.todo = response;
-        this.isDataEmpty = false;
-      } else {
-        this.todo = new Todo();
-
-        this.isDataEmpty = true;
-      }
-    });
-    this._todoService.onTagsChange.subscribe(response => {
-      this.selectTags = response.map(tagRef => {
-        return tagRef.handle;
-      });
-    });
-
-    this._todoService.onAssigneeChange.subscribe(assigneeRef => {
-      this.selectAssignee = assigneeRef;
-    });*/
+this.us.FindAll().subscribe(
+  (data: any) => {
+    this.selectAssignee=data.users;
+    console.log("Liste des assignés")
+    console.log(this.selectAssignee)
+  }
+)
+    
   }
 }

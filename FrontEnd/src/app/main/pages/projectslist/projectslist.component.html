@@ -59,6 +59,62 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="odd" *ngFor="let p of ListProjects">
+                                <td>
+                                    <div class="d-flex justify-content-left align-items-center">
+                                        <div class="avatar  bg-light-warning  me-1"><span
+                                                class="avatar-content">{{p.Projectname}}</span></div>
+                                        <div class="d-flex flex-column"><span
+                                                class="emp_name text-truncate fw-bold">{{p.Projectname}}</span><small
+                                                class="emp_post text-truncate text-muted">Fedi Abdelkebir</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{p.dateCreation}}</td>
+                                <td>{{p.Deadline}}</td>
+                                <td>{{p.description}}</td>
+                                <td><span class="badge rounded-pill  badge-light-info" *ngIf="p.etats=='Affecté'">Affecté</span>
+                                    <span class="badge rounded-pill  badge-light-success" *ngIf="p.etats=='Créé'">Créé</span>
+                                    <span class="badge rounded-pill  badge-light-warning" *ngIf="p.etats=='En Cours'">En Cours</span>
+                                    <span class="badge rounded-pill  badge-light-danger" *ngIf="p.etats=='Terminé'">Términé</span>
+                                </td>
+                                <td>
+                                    <div _ngcontent-wfa-c219="" class="d-flex align-items-center col-actions"><a
+                                        _ngcontent-wfa-c219="" href="/client-edit" container="body" placement="top"
+                                        ngbtooltip="Edit" class="mr-1" style="color: green;"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-edit">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7">
+                                            </path>
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z">
+                                            </path>
+                                        </svg></a><a _ngcontent-wfa-c219="" (click)="DeleteProject(p.id)"
+                                        container="body" placement="top" ngbtooltip="Delete" class="mr-1"
+                                        style="color: red;"><svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-trash">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg></a>
+                                        <a style="color: red;" *ngIf="p.etats=='Terminé'"> 
+                                        <span><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-share font-small-4 me-50">
+                                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                            <polyline points="16 6 12 2 8 6"></polyline>
+                                            <line x1="12" y1="2" x2="12" y2="15"></line>
+                                        </svg></span>
+                                        </a></div>
+                                </td>
+                            </tr>
+                            <!-- static-->
                             <tr class="odd">
                                 <td>
                                     <div class="d-flex justify-content-left align-items-center">
@@ -72,7 +128,7 @@
                                 </td>
                                 <td>05/17/2022</td>
                                 <td>07/17/2022</td>
-                                <td>Description</td>
+                                <td>WorkMood is a Website inspired by the theme Well Being and specifically made for employees of a certain company to help them improve their relationships with each others and also express their feelings about the company or their fellow employees ,they can also choose to express it anonymously or with their information included . </td>
                                 <td><span class="badge rounded-pill  badge-light-info">Affecté</span></td>
                                 <td>
                                     <div _ngcontent-wfa-c219="" class="d-flex align-items-center col-actions"><a
@@ -115,7 +171,7 @@
                                 </td>
                                 <td>17/07/2022</td>
                                 <td>15/09/2022</td>
-                                <td>Description</td>
+                                <td>Creation MERN Application which is used to assign points to employees who have successfully completed their tasks that they can use to purchase items from the company store.</td>
                                 <td><span class="badge rounded-pill  badge-light-success">Créé</span></td>
                                 <td>
                                     <div _ngcontent-wfa-c219="" class="d-flex align-items-center col-actions"><a
@@ -157,7 +213,7 @@
                                 </td>
                                 <td>17/07/2022</td>
                                 <td>09/09/2022</td>
-                                <td>Description</td>
+                                <td>Creation of A website which is used for the Creation of All Kind of Camping Events + User can buy accesories from the online shop,user can also participate in a workshop ,he can also like dislike add to favorite comment and review the events he joined </td>
                                 <td><span class="badge rounded-pill  badge-light-warning">En Cours</span></td>
                                 <td>
                                     <div _ngcontent-wfa-c219="" class="d-flex align-items-center col-actions"><a
@@ -199,7 +255,7 @@
                                 </td>
                                 <td>01/01/2020</td>
                                 <td>22/06/2020</td>
-                                <td>Description</td>
+                                <td>Creation MERN Application which is used to Add and manage companies ,add users to companies , add tasks to employees ,assign points to employees who have successfully completed their tasks that they can use to purchase items from the company store and view statistique by each company.</td>
                                 <td><span class="badge rounded-pill  badge-light-danger">Términé</span></td>
                                 <td>
                                     <div _ngcontent-wfa-c219="" class="d-flex align-items-center col-actions"><a

@@ -1,0 +1,116 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- content-header component -->
+      <app-content-header [contentHeader]="contentHeader"></app-content-header>
+  
+      <!-- Examples -->
+      <section id="card-demo-example" style="margin-left: 200px;" >
+        <div class="row match-height">
+      <!-- Chat Card -->
+      <div class="col-lg-8 col-12">
+        <div class="card chat-widget">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <div class="avatar mr-2">
+                <img src="../../../../../assets/images/avatars/2.png" alt="Avatar" width="34" height="34" />
+                <span class="avatar-status-online"></span>
+              </div>
+              <h5 class="mb-0">test</h5>
+              <div class="badge badge-pill badge-light-primary">(E-commerce)</div>
+
+            </div>
+           <!-- <div class="custom-control custom-switch custom-switch-success">
+              <p class="mb-50">Info</p>
+              <input type="checkbox" class="custom-control-input" id="customSwitch111"  />
+              <label class="custom-control-label" for="customSwitch111">
+                <span class="switch-icon-left"><i data-feather="check"></i></span>
+                <span class="switch-icon-right"><i data-feather="refresh-ccw"></i></span>
+
+
+              </label>
+            </div>-->
+            <section id="checkbox-radio-group">
+              <div class="row">
+                <div class="col-12">
+                    <div class="card-body">
+                      <div class="row">
+                        <div >
+                          <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="radioModel">
+                            <label ngbButtonLabel class="btn-outline-primary" rippleEffect 
+                              ><input ngbButton type="radio" [value]="1" />In process</label
+                            ><label ngbButtonLabel class="btn-outline-primary" rippleEffect
+                              ><input ngbButton type="radio" value="middle" />treaty</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </section>
+        </div>
+          <!-- User Chat messages -->
+          <section class="chat-app-window">
+            <div class="user-chats" [perfectScrollbar] #scrollMe [scrollTop]="scrolltop">
+              <div class="chats">
+                <div
+                  class="chat"
+                >
+                  <div class="chat-body">
+                    <div class="chat-content" style="float: right;
+                    padding: 0.7rem 1rem;
+                    margin: 0 1rem 10px 0;
+                    clear: both;
+                    color: #fff;
+                    background-image: linear-gradient(80deg, #b8b8b8, #ece7e7);
+                    background-repeat: repeat-x;
+                    border-radius: 0.357rem;
+                    box-shadow: 0 4px 8px 0 rgb(34 41 47 / 12%);
+                    max-width: 75%;
+                    ">
+                      <p>j'ai une réclamation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Submit Chat form -->
+            <form class="chat-app-form justify-content-between" style="height: 65px;
+            padding: 0 1rem;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #ebe9f1;">
+              <div class="input-group input-group-merge mr-50 w-80 form-send-message">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <label for="attach-doc" class="attachment-icon mb-0">
+                      <i data-feather="image" class="cursor-pointer lighten-2 text-secondary"></i>
+                      <input type="file" id="attach-doc" hidden /> </label
+                  ></span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control message"
+                  placeholder="Type your message"
+                  name="chat-message"
+                  [(ngModel)]="chatMessage"
+                  (keydown.enter)="updateChat()"
+                
+                >
+              </div>
+              <button type="button" class="btn btn-primary send" rippleEffect (click)="updateChat()">
+                <i data-feather="send" size="18"></i>
+              </button>
+            </form>
+            <!--/ Submit Chat form -->
+          </section>
+          <!-- User Chat messages -->
+        </div>
+      </div>
+      <!--/ Chat Card -->
+      </div>
+      </section>
+      </div>
+      </div>

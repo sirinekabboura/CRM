@@ -6,7 +6,7 @@
     <section id="basic-horizontal-layouts">
       <div class="row match-height">
         <div class="col-md-6 col-12">
-          <ng-container #modals *ngTemplateOutlet="mymodal" > </ng-container>
+          <ng-container #modals *ngTemplateOutlet="mymodal"> </ng-container>
         </div>
         <div class="d-none d-lg-flex col-lg-6 align-items-center p-5">
           <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
@@ -14,30 +14,68 @@
           </div>
         </div>
       </div>
-      
+
     </section>
-    <button class="btn btn-primary"(click)="open(mymodal)">Modal</button>
     <ng-template #mymodal class="modal-dialog ">
-      
+
       <div class="container">
         <div id="plizman" class="bs-stepper">
           <div class="bs-stepper-header">
-           <div class="step active" data-target="#test-l-1" role="tab">
-            <button type="button" class="step-trigger py-75" aria-selected="false">
-              <span class="bs-stepper-box">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book font-medium-3"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              </span>
-              <span class="bs-stepper-label">
-                <span class="bs-stepper-title">Details</span>
-                <span class="bs-stepper-subtitle">Enter username</span>
-              </span>
-            </button>
-          </div>
+            <div class="step active" data-target="#ProjectName" >
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-package font-medium-3">
+                    <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">ProjectName</span>
+                  <span class="bs-stepper-subtitle">Enter Name</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#test-l-1">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-package font-medium-3">
+                    <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">Type Projet</span>
+                  <span class="bs-stepper-subtitle">Enter Information</span>
+                </span>
+              </button>
+            </div>
             <div class="line"></div>
             <div class="step" data-target="#test-l-2">
               <button type="button" class="step-trigger py-75" aria-selected="false">
                 <span class="bs-stepper-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package font-medium-3"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-package font-medium-3">
+                    <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
                 </span>
                 <span class="bs-stepper-label">
                   <span class="bs-stepper-title">Frameworks</span>
@@ -49,7 +87,13 @@
             <div class="step" data-target="#test-l-3">
               <button type="button" class="step-trigger py-75" aria-selected="false">
                 <span class="bs-stepper-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command font-medium-3"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-command font-medium-3">
+                    <path
+                      d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                    </path>
+                  </svg>
                 </span>
                 <span class="bs-stepper-label">
                   <span class="bs-stepper-title">Database</span>
@@ -61,11 +105,67 @@
             <div class="step" data-target="#test-l-4">
               <button type="button" class="step-trigger py-75" aria-selected="false">
                 <span class="bs-stepper-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card font-medium-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-credit-card font-medium-3">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
                 </span>
                 <span class="bs-stepper-label">
-                  <span class="bs-stepper-title">Billing</span>
-                  <span class="bs-stepper-subtitle">Payment details</span>
+                  <span class="bs-stepper-title">Description</span>
+                  <span class="bs-stepper-subtitle">Enter information</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#deadline">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-credit-card font-medium-3">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">Deadline</span>
+                  <span class="bs-stepper-subtitle">Date</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#DateCreation">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-credit-card font-medium-3">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">DateCreation</span>
+                  <span class="bs-stepper-subtitle">Date</span>
+                </span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#Etat">
+              <button type="button" class="step-trigger py-75" aria-selected="false">
+                <span class="bs-stepper-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-credit-card font-medium-3">
+                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                  </svg>
+                </span>
+                <span class="bs-stepper-label">
+                  <span class="bs-stepper-title">Etat</span>
+                  <span class="bs-stepper-subtitle">Enter information</span>
                 </span>
               </button>
             </div>
@@ -73,7 +173,11 @@
             <div class="step" data-target="#test-l-5">
               <button type="button" class="step-trigger py-75" aria-selected="false">
                 <span class="bs-stepper-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check font-medium-3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-check font-medium-3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
                 </span>
                 <span class="bs-stepper-label">
                   <span class="bs-stepper-title">Submit</span>
@@ -83,158 +187,305 @@
             </div>
           </div>
           <div class="bs-stepper-content">
-            <form >
-              <div id="test-l-1" class="active content dstepper-block ">
-                  <h5>Application Name</h5>
-                  <input class="form-control" type="text" placeholder="Vuexy Admin">
-    
-                  <h5 class="mt-2 pt-1">Category</h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppCrm" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-info me-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase font-medium-5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                        </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">CRM Application</span>
-                            <span>Scales with Any Business</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppCrm" type="radio" name="categoryRadio">
-                          </span>
-                        </span>
-                      </label>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppEcommerce" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-success me-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart font-medium-5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                        </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">Ecommerce Platforms</span>
-                            <span>Grow Your Business With App</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppEcommerce" type="radio" name="categoryRadio" checked="">
-                          </span>
-                        </span>
-                      </label>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppOnlineLearning" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-danger me-1">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award font-medium-5"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-                        </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">Online Learning platform</span>
-                            <span>Start learning today</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppOnlineLearning" type="radio" name="categoryRadio">
-                          </span>
-                        </span>
-                      </label>
-                    </li>
-                  </ul>
-                  <div class="d-flex justify-content-between mt-2">
-                    <button type="button"class="btn btn-outline-secondary btn-prev waves-effect" disabled="" (click)="previous()">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                    </button>
-                    <button type="button"class="btn btn-primary btn-next waves-effect waves-float waves-light"(click)="next()">
-                      <span class="align-middle d-sm-inline-block d-none">Next</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
+            <form (ngSubmit)="AjouterProject()">
+              <div id="ProjectName" class="content text-center">
+                <div id="create-app-ProjectName" class="content text-center dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-submit-trigger">
+                  <h3>Project Name 🥳</h3>
+                  <p>Choose a name for your project .</p>
+                  <img src="assets/images/pages/ProjectName.jpg" alt="illustration" height="218">
+                  <div class="d-flex justify-content-between mt-3">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Project Name" name="ProjectName" required [(ngModel)]="project.Projectname">
+                    </div>
+
+                    <div class="form-group">
+
+                      <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                        (click)="next()">
+                        <span class="align-middle d-sm-inline-block d-none">Next</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div id="test-l-1" class="content dstepper-block ">
+
+                <h5 class="mt-2 pt-1">Category</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="WebApplication" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Web Application</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="WebApplication" type="radio" name="categoryRadio" (click)="ProjectType('Appweb')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="CrossPlatforme" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">CrossPlatforme</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="CrossPlatforme" type="radio" name="categoryRadio" (click)="ProjectType('CrossPlatforme')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="sitevitrine" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Site Vitrine</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="sitevitrine" type="radio" name="categoryRadio" (click)="ProjectType('Sitevetrine')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="ApplicationMobile" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Application Mobile</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="ApplicationMobile" type="radio" name="categoryRadio" (click)="ProjectType('Appmobile')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="ApplicationECommerce" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Application ECommerce</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="ApplicationECommerce" type="radio" name="categoryRadio" (click)="ProjectType('Ecommerce')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="GestionReseauxSociaux" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Gestion Reseaux Sociaux</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="GestionReseauxSociaux" type="radio" name="categoryRadio" (click)="ProjectType('Gestion Rsociaux')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0" >
+                    <label for="DesigneGraphique" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-briefcase font-medium-5">
+                          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Designe Graphique</span>
+                          <span>Scales with Any Business</span>
+                        </span>
+                        <span>
+                          <input class="form-check-input" id="DesigneGraphique" type="radio" name="categoryRadio" (click)="ProjectType('DesigneGraphique')">
+                        </span>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-between mt-2">
+                  <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light" (click)="previous()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                      <line x1="19" y1="12" x2="5" y2="12"></line>
+                      <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                    (click)="next()">
+                    <span class="align-middle d-sm-inline-block d-none">Next</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
               <div id="test-l-2" class="content dstepper-block">
-                  <h5>Select Framework</h5>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppReactNative" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-info me-1">
-                          <img src="../../../../assets/images/icons/technologies/react.png" alt="react" height="25">
+                <h5>Select Framework</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item border-0 px-0">
+                    <label for="createAppReactNative" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-info me-1">
+                        <img src="../../../../assets/images/icons/technologies/react.png" alt="react" height="25">
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">React Native</span>
+                          <span>Create truly native apps</span>
                         </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">React Native</span>
-                            <span>Create truly native apps</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio">
-                          </span>
+                        <span>
+                          <input class="form-check-input" id="createAppReactNative" type="radio" name="frameworkRadio" (click)="Framework('React Native')">
                         </span>
-                      </label>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppAngular" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-danger me-1">
-                          <img src="../../../../assets/images/icons/technologies/angular.png" alt="angular" height="25">
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0">
+                    <label for="createAppAngular" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-danger me-1">
+                        <img src="../../../../assets/images/icons/technologies/angular.png" alt="angular" height="25">
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Angular</span>
+                          <span>Most suited to your application</span>
                         </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">Angular</span>
-                            <span>Most suited to your application</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio" checked="">
-                          </span>
+                        <span>
+                          <input class="form-check-input" id="createAppAngular" type="radio" name="frameworkRadio" (click)="Framework('Angular')"
+                            checked="">
                         </span>
-                      </label>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppVue" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-success me-1">
-                          <img src="../../../../assets/images/icons/technologies/vue.png" alt="vue" height="25">
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0">
+                    <label for="createAppVue" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-success me-1">
+                        <img src="../../../../assets/images/icons/technologies/vue.png" alt="vue" height="25">
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Vue</span>
+                          <span>Progressive framework.</span>
                         </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">Vue</span>
-                            <span>Progressive framework.</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio">
-                          </span>
+                        <span>
+                          <input class="form-check-input" id="createAppVue" type="radio" name="frameworkRadio" (click)="Framework('Vue')">
                         </span>
-                      </label>
-                    </li>
-                    <li class="list-group-item border-0 px-0">
-                      <label for="createAppLaravel" class="d-flex cursor-pointer">
-                        <span class="avatar avatar-tag bg-light-warning me-1">
-                          <img src="../../../../assets/images/icons/technologies/laravel.png" alt="laravel" height="25">
+                      </span>
+                    </label>
+                  </li>
+                  <li class="list-group-item border-0 px-0">
+                    <label for="createAppLaravel" class="d-flex cursor-pointer">
+                      <span class="avatar avatar-tag bg-light-warning me-1">
+                        <img src="../../../../assets/images/icons/technologies/laravel.png" alt="laravel" height="25">
+                      </span>
+                      <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                        <span class="me-1">
+                          <span class="h5 d-block fw-bolder">Laravel</span>
+                          <span>PHP web framework</span>
                         </span>
-                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
-                          <span class="me-1">
-                            <span class="h5 d-block fw-bolder">Laravel</span>
-                            <span>PHP web framework</span>
-                          </span>
-                          <span>
-                            <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio">
-                          </span>
+                        <span>
+                          <input class="form-check-input" id="createAppLaravel" type="radio" name="frameworkRadio"(click)="Framework('Laravel')">
                         </span>
-                      </label>
-                    </li>
-                  </ul>
-                  <div class="d-flex justify-content-between mt-2">
-                    <button type="button"class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                    </button>
-                    <button type="button"class="btn btn-primary btn-next waves-effect waves-float waves-light" (click)="next()">
-                      <span class="align-middle d-sm-inline-block d-none">Next</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
-                  </div>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-between mt-2">
+                  <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light"
+                    (click)="previous()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                      <line x1="19" y1="12" x2="5" y2="12"></line>
+                      <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                    (click)="next()">
+                    <span class="align-middle d-sm-inline-block d-none">Next</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
                 </div>
+              </div>
               <div id="test-l-3" class="content text-center">
-                <div id="create-app-database" class="content dstepper-block active" role="tabpanel" aria-labelledby="create-app-database-trigger">
-                  <h5>Database Name</h5>
-    
-                  <input class="form-control" type="text" name="database" placeholder="app_database">
-    
+                <div id="create-app-database" class="content dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-database-trigger">
                   <h5 class="mt-2 pt-1">Select Database Engine</h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0 px-0">
@@ -248,7 +499,7 @@
                             <span>Cloud Firestore</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio">
+                            <input class="form-check-input" id="createAppFirebase" type="radio" name="databaseRadio" (click)="Database('Firebase')">
                           </span>
                         </span>
                       </label>
@@ -264,7 +515,8 @@
                             <span>Amazon Fast NoSQL Database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio" checked="">
+                            <input class="form-check-input" id="createAppDynamoDB" type="radio" name="databaseRadio" (click)="Database('DynamoDB')"
+                              checked="">
                           </span>
                         </span>
                       </label>
@@ -272,7 +524,8 @@
                     <li class="list-group-item border-0 px-0">
                       <label for="createAppMysql" class="d-flex cursor-pointer">
                         <span class="avatar avatar-tag bg-light-info me-1">
-                          <img src="../../../../assets/images/icons/technologies/database.png" alt="database" height="25">
+                          <img src="../../../../assets/images/icons/technologies/database.png" alt="database"
+                            height="25">
                         </span>
                         <span class="d-flex align-items-center justify-content-between flex-grow-1">
                           <span class="me-1">
@@ -280,96 +533,244 @@
                             <span>Basic MySQL database</span>
                           </span>
                           <span>
-                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio">
+                            <input class="form-check-input" id="createAppMysql" type="radio" name="databaseRadio" (click)="Database('MySQL')">
                           </span>
                         </span>
                       </label>
                     </li>
                   </ul>
                   <div class="d-flex justify-content-between mt-2">
-                    <button type="button"class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light"
+                      (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button type="button"class="btn btn-primary btn-next waves-effect waves-float waves-light" (click)="next()">
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
                       <span class="align-middle d-sm-inline-block d-none">Next</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </button>
                   </div>
                 </div>
               </div>
               <div id="test-l-4" class="content text-center">
-                <div id="create-app-billing" class="content dstepper-block active" role="tabpanel" aria-labelledby="create-app-billing-trigger">
-                  <h5 class="mb-1">Category</h5>
-    
-                  <!-- form -->
-                  <form id="createAppBillingForm" class="row gy-1 gx-2" onsubmit="return false">
-                    <div class="col-12">
-                      <label class="form-label" for="cardNumberBilling">Card Number</label>
-                      <div class="input-group input-group-merge">
-                        <input id="cardNumberBilling" name="cardNumberBillingModal" class="form-control create-app-card-mask" type="text" value="5637817212901451" placeholder="1356 3215 6548 7898" aria-describedby="cardNumberBillingModal1">
-                        <span class="input-group-text cursor-pointer p-25" id="cardNumberBillingModal1">
-                          <span class="credit-app-card-type"><img src="../../../../assets/images/icons/technologies/payments/maestro-cc.png" height="24"></span>
-                        </span>
-                      </div>
-                    </div>
-    
-                    <div class="col-md-6">
-                      <label class="form-label" for="nameOnCardBilling">Name On Card</label>
-                      <input type="text" id="nameOnCardBilling" class="form-control" placeholder="John Doe">
-                    </div>
-    
-                    <div class="col-6 col-md-3">
-                      <label class="form-label" for="expDateBilling">Exp. Date</label>
-                      <input type="text" id="expDateBilling" class="form-control create-app-expiry-date-mask" placeholder="MM/YY">
-                    </div>
-    
-                    <div class="col-6 col-md-3">
-                      <label class="form-label" for="cvvBilling">CVV</label>
-                      <input type="text" id="cvvBilling" class="form-control create-app-cvv-code-mask" maxlength="3" placeholder="654">
-                    </div>
-    
-                    <div class="col-12">
-                      <div class="d-flex align-items-center">
-                        <div class="form-check form-switch form-check-primary me-25">
-                          <input type="checkbox" class="form-check-input" id="saveCardBilling" checked="">
-                          <label class="form-check-label" for="saveCardBilling">
-                            <span class="switch-icon-left"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                            <span class="switch-icon-right"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
-                          </label>
-                        </div>
-                        <label class="form-check-label fw-bolder" for="saveCardBilling">
-                          Save Card for future billing?
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-    
+                <div id="create-app-billing" class="content dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-billing-trigger">
+                  <h5 class="mb-1">Description</h5>
+                  
+                  <img src="assets/images/pages/ProjectDetails.jpg" alt="illustration" height="218">
+                  <textarea class="form-control" name="description" rows="8" placeholder="Enter description" required [(ngModel)]="project.description"></textarea>
+
                   <div class="d-flex justify-content-between mt-5 pt-1">
-                    <button type="button"class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light"
+                      (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button type="button"class="btn btn-primary btn-next waves-effect waves-float waves-light" (click)="next()">
-                      <span class="align-middle d-sm-inline-block d-none" >Next</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right align-middle ms-sm-25 ms-0"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </button>
                   </div>
                 </div>
               </div>
               <div id="test-l-5" class="content text-center">
-                <div id="create-app-submit" class="content text-center dstepper-block active" role="tabpanel" aria-labelledby="create-app-submit-trigger">
+                <div id="create-app-submit" class="content text-center dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-submit-trigger">
                   <h3>Submit 🥳</h3>
                   <p>Submit your app to kickstart your project.</p>
                   <img src="assets/images/pages/All.jpg" alt="illustration" height="218">
                   <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left align-middle me-sm-25 me-0"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
                       <span class="align-middle d-sm-inline-block d-none">Previous</span>
                     </button>
-                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light">
+                    <button class="btn btn-success btn-submit waves-effect waves-float waves-light" type="submit">
                       <span class="align-middle d-sm-inline-block d-none">Submit</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check align-middle ms-sm-25 ms-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-check align-middle ms-sm-25 ms-0">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="DateCreation" class="content text-center">
+                <div id="create-app-datecreation" class="content text-center dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-submit-trigger">
+                  <h3>DateCreation 🥳</h3>
+                  <p>Enter DateCreation.</p>
+                  <img src="assets/images/pages/CreationDate.jpg" alt="illustration" height="218">
+                    <input type="date" name="dateCreation" class="new-todo-item-title form-control"
+                    required [(ngModel)]="project.dateCreation" required />
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
+                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="deadline" class="content text-center">
+                <div id="create-app-deadline" class="content text-center dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-submit-trigger">
+                  <h3>DeadLine 🥳</h3>
+                  <p>Enter DeadLine</p>
+                  <img src="assets/images/pages/Deadline.jpg" alt="illustration" height="218">
+                  <input type="date" name="deadline" class="new-todo-item-title form-control"
+                  required [(ngModel)]="project.Deadline" required />
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
+                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="Etat" class="content text-center">
+                <div id="create-app-Etat" class="content text-center dstepper-block active" role="tabpanel"
+                  aria-labelledby="create-app-submit-trigger">
+                  <h3>Etat 🥳</h3>
+                  <p>Enter Etat Project.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppFirebase" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-warning me-1">
+                          <i class ="fa fa-user-plus"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Affecté</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio" (click)="ProjectEtat('Affecté')">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppFirebase" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-danger me-1">
+                          <i class ="fa fa-star"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Créé</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input" type="radio" name="databaseRadio" (click)="ProjectEtat('Créé')">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppDynamoDB" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-secondary me-1">
+                          <i class ="fa fa-refresh"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">En Cours</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio"(click)="ProjectEtat('En Cours')"
+                              checked="">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                    <li class="list-group-item border-0 px-0">
+                      <label for="createAppMysql" class="d-flex cursor-pointer">
+                        <span class="avatar avatar-tag bg-light-info me-1">
+                          <i class ="fa fa-check"></i>
+                        </span>
+                        <span class="d-flex align-items-center justify-content-between flex-grow-1">
+                          <span class="me-1">
+                            <span class="h5 d-block fw-bolder">Terminé</span>
+                          </span>
+                          <span>
+                            <input class="form-check-input"  type="radio" name="databaseRadio" (click)="ProjectEtat('Terminé')">
+                          </span>
+                        </span>
+                      </label>
+                    </li>
+                  </ul>
+                  <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-primary btn-prev waves-effect waves-float waves-light" (click)="previous()">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-left align-middle me-sm-25 me-0">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                      </svg>
+                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-next waves-effect waves-float waves-light"
+                      (click)="next()">
+                      <span class="align-middle d-sm-inline-block d-none">Next</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-arrow-right align-middle ms-sm-25 ms-0">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </button>
                   </div>
                 </div>
@@ -378,6 +779,6 @@
           </div>
         </div>
       </div>
-      </ng-template>
-        
+    </ng-template>
+
   </div>
