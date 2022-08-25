@@ -1,6 +1,5 @@
-<div class="content-wrapper container-xxl p-0">
+<!--<div class="content-wrapper container-xxl p-0">
     <div class="content-body">
-      <!-- users edit start -->
       <section class="app-user-edit">
         <div class="card">
           <div class="card-body">
@@ -10,9 +9,7 @@
                   <i data-feather="info" class="mr-sm-50"></i><span class="d-none d-sm-block">Information</span></a
                 >
                 <ng-template ngbNavContent>
-                  <!-- Information Tab starts -->
                   <div class="tab-pane" id="information" aria-labelledby="information-tab" role="tabpanel">
-                    <!-- users edit Info form start  -->
                     <form class="form-validate">
                       <div class="row mt-1">
                         <div class="modal-body flex-grow-1">
@@ -83,9 +80,7 @@
                         
                       </div>
                     </form>
-                    <!-- users edit Info form ends -->
                   </div>
-                  <!-- Information Tab ends -->
                 </ng-template>
               </li>
             </ul>
@@ -93,7 +88,83 @@
           </div>
         </div>
       </section>
+    </div>
+  </div>-->
+
+  <div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- users edit start -->
+      <section class="app-user-edit">
+        <div class="card">
+          <div class="card-body">
+                    <form class="form-validate">
+     <!-- Information Tab starts -->
+                      <div class="row mt-1">
+                        <div class="modal-body flex-grow-1">
+                          <div class="form-group col-md-8">
+                              <label for="name">Full name</label>
+                              <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="personnel.user.name"/>
+                          </div>
+                          <div class="form-group col-md-8">
+                              <label for="email">Email</label>
+                              <input type="text" #email="ngModel" name="email" class="form-control" [(ngModel)]="personnel.user.email" />
+                              
+                          </div>
+
+
+
+                          <div class="form-group col-md-8">
+                              <label for="Numtelephone">Phone number</label>
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">+ 216 </span>
+                                  <input type="number" name="Numtelephone"  #Numtelephone="ngModel" class="form-control" [(ngModel)]="personnel.user.Numtelephone" />
+                                </div>
+                          </div>
+
+
+                          
+
+
+                          <div class="form-group col-md-8">
+                              <label for="CarteID">ID card</label>
+                              <input type="text" #CarteID="ngModel"  name="CarteID" class="form-control" [(ngModel)]="personnel.personnel.CarteID"/>
+                          </div>
+
+                          <div class="form-group col-md-8">
+                              <label for="Role">Role</label>
+                              <input type="text" #Role="ngModel" name="Role"  class="form-control" [(ngModel)]="personnel.personnel.Role"/>
+                              
+                          </div>
+                          
+                          <div class="form-group col-md-8">
+                              <label for="Salaire">Salary</label>
+                              <input type="number" #Salaire="ngModel" name="Salaire" class="form-control" [(ngModel)]="personnel.personnel.Salaire"/>
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="Adresse">Address</label>
+                            <input type="text" #Adresse="ngModel" name="Adresse" class="form-control" [(ngModel)]="personnel.personnel.Adresse"/>
+                        </div>
+
+                      <div class="text-center" style="margin-left: 300px;">
+                          <button class="btn btn-primary mr-1" (click)="update(name.value,email.value,Numtelephone.value,CarteID.value,Role.value,Salaire.value,Adresse.value)" >Save changes</button>
+                      </div>
+                  
+              </div>
+              <div class="col-md-6" style="margin-top: 100px;">
+                <h4 class="mb-1">
+                  <img src="assets/images/pages/newpersonel.png" class="col-10"/>
+                </h4>
+              </div>
+                </div>
+              </form>
+                  <!-- Information Tab ends -->
+
+          </div>
+        </div>
+      </section>
       <!-- users edit ends -->
     </div>
   </div>
   
+  
+  <!--(click)="update(name.value,email.value,Numtelephone.value,CarteID.value,Role.value,Salaire.value,Adresse.value)"-->

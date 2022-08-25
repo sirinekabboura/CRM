@@ -16,8 +16,39 @@
                 <span class="avatar-status-online"></span>
               </div>
               <h5 class="mb-0">test</h5>
+              <div class="badge badge-pill badge-light-primary">(E-commerce)</div>
+
             </div>
-            <div class="badge badge-pill badge-light-primary">E-commerce</div>
+           <!-- <div class="custom-control custom-switch custom-switch-success">
+              <p class="mb-50">Info</p>
+              <input type="checkbox" class="custom-control-input" id="customSwitch111"  />
+              <label class="custom-control-label" for="customSwitch111">
+                <span class="switch-icon-left"><i data-feather="check"></i></span>
+                <span class="switch-icon-right"><i data-feather="refresh-ccw"></i></span>
+
+
+              </label>
+            </div>-->
+            <section id="checkbox-radio-group">
+              <div class="row">
+                <div class="col-12">
+                    <div class="card-body">
+                      <div class="row">
+                        <div >
+                          <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="radioModel">
+                            <label ngbButtonLabel class="btn-outline-primary" rippleEffect 
+                              ><input ngbButton type="radio" [value]="1" />In process</label
+                            ><label ngbButtonLabel class="btn-outline-primary" rippleEffect
+                              ><input ngbButton type="radio" value="middle" />treaty</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                </div>
+              </div>
+            </section>
         </div>
           <!-- User Chat messages -->
           <section class="chat-app-window">

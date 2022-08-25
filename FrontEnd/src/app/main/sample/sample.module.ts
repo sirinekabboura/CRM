@@ -7,6 +7,7 @@ import { CoreSidebarModule, CoreThemeCustomizerModule } from '@core/components';
 import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.module';
 import { coreConfig } from 'app/app-config';
 
+import { ToastrModule } from 'ngx-toastr';
 
 import { ContentHeaderModule } from 'app/layout/components/content-header/content-header.module';
 
@@ -22,7 +23,7 @@ import { ClientEditComponent } from './client/client-edit/client-edit.component'
 import { NewClientSidebarComponent } from './client/new-client-sidebar/new-client-sidebar.component';
 import { DevisComponent } from './devis/devis.component';
 import { DevisAddComponent } from './devis/devis-add/devis-add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CorePipesModule } from '@core/pipes/pipes.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -66,7 +67,7 @@ const routes = [
     data: { animation: 'client' }
   },
   {
-    path: 'client-edit',
+    path: 'client-edit/:clientId',
     component: ClientEditComponent,
     data: { animation: 'client-edit' }
   },
@@ -124,7 +125,7 @@ const routes = [
 
 @NgModule({
   declarations: [SampleComponent, HomeComponent, PersonnelsComponent, NewPersonnelSidebarComponent, PersonnelsEditComponent, ClientComponent, NewClientSidebarComponent, ClientEditComponent, DevisComponent, DevisAddComponent, DevisPreviewComponent, DevisEditComponent, FactureComponent, FactureAddComponent, FacturePreviewComponent, FactureEditComponent, TicketComponent, TicketDetailsComponent],
-  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,
+  imports: [RouterModule.forChild(routes), ContentHeaderModule, TranslateModule,NgbNavModule,ToastrModule,
     CoreCommonModule,
     CoreModule.forRoot(coreConfig),
     CoreSidebarModule,
@@ -133,10 +134,14 @@ const routes = [
     PerfectScrollbarModule,
     Ng2FlatpickrModule,
     NgxDatatableModule,
+    ReactiveFormsModule,
     FormsModule,
     CorePipesModule,
+    CardSnippetModule,
+    NgSelectModule,
     NgbModule,
     NgSelectModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
   exports: [SampleComponent, HomeComponent,PersonnelsComponent,PersonnelsEditComponent]

@@ -50,18 +50,18 @@
       <th scope="col">Actions</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let u of users;let pers of personnels;let i=index" >
-        <td *ngIf="u.role==1">{{u.name}}</td>
-        <td *ngIf="u.role==1">{{u.email}}</td>
-        <td *ngIf="u.role==1">{{u.Numtelephone}}</td>
-        <td *ngIf="u.role==1">{{personnels[1].Role}}</td>
-        <td *ngIf="u.role==1">
+    <tbody *ngIf="personnels.length">
+    <tr *ngFor="let pers of personnels">
+        <td>{{pers.user.name}}</td>
+        <td>{{pers.user.email}}</td>
+        <td>{{pers.user.Numtelephone}}</td>
+        <td>{{pers.Role}}</td>
+        <td>
           <div class="d-flex align-items-center col-actions">
             <a class="mr-1" href="/personnels-edit/{{pers.id}}" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
               ><i size="18" data-feather="edit"></i
             ></a>
-            <a class="mr-1" href="javascript:void(0);" container="body" placement="top" ngbTooltip="Delete"  style="color:red;"
+            <a class="mr-1" container="body" placement="top" ngbTooltip="Delete" (click)="delete(pers.id)" style="color:red;"
               ><i size="18" data-feather="trash"></i
             ></a>
           </div>

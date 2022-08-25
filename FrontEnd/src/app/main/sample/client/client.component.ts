@@ -9,7 +9,9 @@ import { CoreConfigService } from '@core/services/config.service';
 import { CoreSidebarService } from '@core/components/core-sidebar/core-sidebar.service';
 
 //import { PersonnelsService } from 'app/main/sample/personnels/personnels.service';
-import {PersonnelsService} from 'app/services/personnels.service';
+import {ClientsService} from 'app/services/clients.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 declare var window:any;
 
@@ -19,21 +21,23 @@ declare var window:any;
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit {
-  personnels: any;
   public sidebarToggleRef = false;
   private _unsubscribeAll: Subject<any>;
   public contentHeader: object 
   @ViewChild(DatatableComponent) table: DatatableComponent;
+  clients: any;
 
 /**
 * Constructor
 *
 * @param {CoreConfigService} _coreConfigService
-* @param {PersonnelsService} _personnelService
+* @param {ClientsService} _clientService
 * @param {CoreSidebarService} _coreSidebarService
 */
 constructor(
-private _personnelService: PersonnelsService,
+  private router: Router, 
+    private toastr: ToastrService,
+private _clientService: ClientsService,
 private _coreSidebarService: CoreSidebarService,
 private _coreConfigService: CoreConfigService
 ) {
@@ -52,13 +56,8 @@ this._coreSidebarService.getSidebarRegistry(name).toggleOpen();
 
 
 ngOnInit(): void {
-  this.personnels = this._personnelService.listPersonnels().subscribe(
-    personnel=>{
-      this.personnels= personnel;
-      console.log(this.personnels);
-    }
-  );
 
+  this.fetchData();
   this.contentHeader = {
     headerTitle: 'Clients',
     actionButton: true,
@@ -88,6 +87,24 @@ ngOnDestroy(): void {
 this._unsubscribeAll.next();
 this._unsubscribeAll.complete();
 }
+fetchData() {
+  this.clients = this._clientService.listClients().subscribe(
+    client=>{
+      this.clients= client;
+      console.log(this.clients);
+    }
+  );
+}
 
+delete(id:any)
+  {
+    this.clients=this._clientService.delete(id).subscribe(
+      res=>{
+        var r :any=res;
+        this.toastr.info(r.message,'Client removed with success');
+    this.clients= this.fetchData();
+    }
+    );
+  }
 
 }

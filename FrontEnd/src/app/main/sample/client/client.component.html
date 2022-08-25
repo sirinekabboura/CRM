@@ -53,28 +53,28 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="table-primary">
+          <tbody *ngIf="clients.length">
+            <tr *ngFor="let cl of clients"  class="table-primary">
           <td>
             <img src="assets/images/portrait/small/avatar-s-5.jpg" class="avatar pull-up my-0"  alt="Avatar" height="26" width="26" /><span
               class="font-weight-bold"
-              >RonnieShane</span
+              >{{cl.user.name}}</span
             >
           </td>
-          <td>RonnieShane@gmail.com</td>
+          <td>{{cl.user.email}}</td>
           <td>
-            Grombalia
+            {{cl.Adresse}}
           </td>
-          <td><span class="badge badge-pill badge-light-primary mr-1">Confirmé</span></td>
-          <td>53 437 303</td>
+          <td><span class="badge badge-pill badge-light-primary mr-1">non Confirmé</span></td>
+          <td>{{cl.user.Numtelephone}}</td>
           <td>
             <div class="d-flex align-items-center col-actions">
-              <a class="mr-1" href="/client-edit" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
+              <a class="mr-1" href="/client-edit/{{cl.id}}" container="body" placement="top" ngbTooltip="Edit" style="color: green;"
                 ><i size="18" data-feather="edit"></i
               ></a>
-              <a class="mr-1" href="javascript:void(0);" container="body" placement="top" ngbTooltip="Delete"  style="color:red;"
-                ><i size="18" data-feather="trash"></i
-              ></a>
+              <a class="mr-1" container="body" placement="top" ngbTooltip="Delete" (click)="delete(cl.id)" style="color:red;"
+              ><i size="18" data-feather="trash"></i
+            ></a>
             </div>
           </td>
         </tr>

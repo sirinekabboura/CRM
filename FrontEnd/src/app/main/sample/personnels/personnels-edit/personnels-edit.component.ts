@@ -10,6 +10,7 @@ import { cloneDeep } from 'lodash';
 import { PersonnelsEditService } from 'app/main/sample/personnels/personnels-edit/personnels-edit.service';
 import { PersonnelsService } from 'app/services/personnels.service';
 import { data } from 'jquery';
+import { Toast, ToastrModule, ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-personnels-edit',
   templateUrl: './personnels-edit.component.html',
@@ -26,6 +27,7 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
  public tempRow;
  public avatarImage: string;
 
+
  @ViewChild('accountForm') accountForm: NgForm;
 
  public birthDateOptions: FlatpickrOptions = {
@@ -37,22 +39,27 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
 
  // Private
  private _unsubscribeAll: Subject<any>;
+  personnels: any;
 
  /**
   * Constructor
   *
   * @param {Router} router
-  * @param {PersonnelsEditService} _userEditService
   */
  constructor(
+  private toastr: ToastrService,
   private route: ActivatedRoute,
     private router: Router, 
-    private _userEditService: PersonnelsEditService,
     private personnelsEdit: PersonnelsService) {
    this._unsubscribeAll = new Subject();
    this.urlLastValue = this.url.substr(this.url.lastIndexOf('/') + 1);
+   //this.showSuccess();
  }
 
+
+ showSuccess(){
+  this.toastr.success('hi','great');
+ }
  // Public Methods
  // -----------------------------------------------------------------------------------------------------
 
@@ -101,10 +108,12 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
   this.personnelId = Number(routeParams.get('personnelId'));
    console.log(this.personnelId); 
   
-   this.personnelsEdit.find(this.personnelId).subscribe((data: any)=>{
+   this.personnel=this.personnelsEdit.find(this.personnelId).subscribe((data: any)=>{
     this.personnel= data;
     console.log(this.personnel);
+
    });
+
  }
 
  /**
@@ -115,4 +124,33 @@ export class PersonnelsEditComponent implements OnInit, OnDestroy {
    this._unsubscribeAll.next();
    this._unsubscribeAll.complete();
  }
+
+ update(name: string,email: string,Numtelephone: string,CarteID: number,Role: string,Salaire:number,Adresse: string)
+ {
+  this.personnel= {
+    'name':name,
+    'email':email,
+    'Numtelephone':Numtelephone,
+    'CarteID':CarteID,
+    'Role':Role,
+    'Salaire':Salaire,
+    'Adresse':Adresse
+  }
+    this.personnelsEdit.update(this.personnelId,this.personnel).subscribe((res)=>{
+      var r :any=res;
+      this.toastr.success(r.message,'personnal modified with Success');
+      this.router.navigateByUrl('/personnels');
+      //this.fetchData();
+    });
+ }
+
+ fetchData() {
+  this.personnel = this.personnelsEdit.listPersonnels().subscribe(
+    personnel=>{
+      
+      this.personnel= personnel;
+      console.log(this.personnel);
+    }
+  );
+}
 }

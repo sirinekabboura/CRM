@@ -2,6 +2,8 @@ import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import { colors } from 'app/colors.const';
 import { Subject } from 'rxjs';
 import { TicketDetailsService } from './ticket-details.service';
+import * as snippet from './buttons.snippetcode';
+
 
 @Component({
   selector: 'app-ticket-details',
@@ -40,7 +42,27 @@ export class TicketDetailsComponent implements OnInit {
 
   private _unsubscribeAll: Subject<any>;
 
-  
+  public radioModel = 1;
+  public checkboxModel = {
+    left: true,
+    middle: false,
+    right: false
+  };
+
+  // snippet code variables
+  public _snippetCodeFilled = snippet.snippetCodeFilled;
+  public _snippetCodeBorder = snippet.snippetCodeBorder;
+  public _snippetCodeFlat = snippet.snippetCodeFlat;
+  public _snippetCodeGradient = snippet.snippetCodeGradient;
+  public _snippetCodeRelief = snippet.snippetCodeRelief;
+  public _snippetCodeRoundbuttons = snippet.snippetCodeRoundbuttons;
+  public _snippetCodeIcon = snippet.snippetCodeIcon;
+  public _snippetCodeIconOnly = snippet.snippetCodeIconOnly;
+  public _snippetCodeBasicButtongroup = snippet.snippetCodeBasicButtongroup;
+  public _snippetCodeRadioButtonStyle = snippet.snippetCodeRadioButtonStyle;
+  public _snippetCodeSizes = snippet.snippetCodeSizes;
+  public _snippetCodeBlocklevelbuttons = snippet.snippetCodeBlocklevelbuttons;
+  public _snippetCodeButtontags = snippet.snippetCodeButtontags;
 /**
    *
    * @param {TicketDetailsService} _cardAdvanceService
