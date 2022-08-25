@@ -10,4 +10,9 @@ class Client extends Model
     protected $table='clients';
     protected $primaryKey = 'id';
     protected $fillable = ['RaisonSociale', 'Logo', 'Etats', 'RNE', 'Personnephysique', 'Adresse'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

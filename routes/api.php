@@ -27,29 +27,28 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 ////////////////////////////////////////////////////////////////////////////// Client API SERVICE
-Route::middleware(['auth','isAdmin'])->group(function(){
 Route :: get('/Clients/show/{id}', [ClientController :: class, 'show']);
 Route :: post('/Clients', [ClientController :: class, 'store']);
 Route :: put('/Clients/{id}', [ClientController :: class, 'update']);
 Route :: delete('/Clients/delete/{id}', [ClientController :: class, 'destroy']);
-});
+
 Route :: get('/Clients/index', [ClientController :: class, 'index']);
 
 
 ////////////////////////////////////////////////////////////////////////////// Personnel API SERVICE
 
-Route::middleware(['auth','isAdmin'])->group(function(){
+//Route::middleware(['auth','isAdmin'])->group(function(){
 Route :: get('/Personnels/show/{id}', [PersonnelController :: class, 'show']);
 Route :: post('/Personnels', [PersonnelController :: class, 'store']);
 Route :: put('/Personnels/{id}', [PersonnelController :: class, 'update']);
 Route :: delete('/Personnels/delete/{id}', [PersonnelController :: class, 'destroy']);
-});
+//});
 Route :: get('/Personnels/index', [PersonnelController :: class, 'index']);
 
 
 ////////////////////////////////////////////////////////////////////////////// User  API SERVICE
 
-
+Route :: get('/User/index', [LoginController :: class, 'index']);
 Route :: post('/user/register', [RegisterController :: class, 'create']);
 Route :: post('/user/loginuser',[LoginController :: class, 'LoginUser']);
 

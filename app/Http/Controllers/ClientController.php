@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\User;
+
 
 class ClientController extends Controller
 {
@@ -14,8 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
-        //   return view ('clients.index')->with('clients', $clients);
+        $clients = Client::with('user')->get();
         return $clients->toJson(JSON_PRETTY_PRINT);
     }
 
@@ -27,11 +28,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create($request->all());        
-       /* $input = $request->all();
-        Client::create($input); 
-         return redirect('client')->with('flash_message', 'Client Addedd!'); 
-         */ 
+        Client::create($request->all());   
+        User::create($request->all()); 
+        return response()->json([
+            'success' => 'Client  Ajouté avec succès '
+            ], 200);      
     }
 
     /**
@@ -40,15 +41,15 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client , $id)
+    public function show($id)
     {
         $client = Client::find($id);
-        return $client->toJson(JSON_PRETTY_PRINT);
+        $user=User::find($id);
+        return response()->json([
+            'client'=>$client,
+            'user'=>$user
+            ], 200); 
 
-        /*
-        $client = Client::find($id);
-        return view('clients.show')->with('clients', $client);
-        */
     }
 
     /**
@@ -64,18 +65,21 @@ class ClientController extends Controller
         $input = $request->all();
         $client->update($input);
      
-        return $client->toJson(JSON_PRETTY_PRINT);
+
+        $user= User::find($id);
+        $input = $request->all();
+        $user->update($input);
+     
+    
+           return response()->json([
+            'client'=>$client,
+            'user'=>$user,
+            'success' => 'Client updated with success '
+            ], 200);     
     }
 
 
 
-        /*
-        $client = Client::find($id);
-        $input = $request->all();
-        $client->update($input);
-        return redirect('client')->with('flash_message', 'client Updated!'); 
-        */
-    
 
     /**
      * Remove the specified resource from storage.
@@ -83,50 +87,13 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client , $id)
+    public function destroy(Request $request)
     {
-        $client= Client::destroy($id);
+        $client= Client::where('id',$request->id)->delete();
+
         return response()->json([
          'success' => 'Client supprimé avec succès '
          ], 200);
-
-        /*
-        Client::destroy($id);
-        return redirect('client')->with('flash_message', 'client deleted!'); 
-        */ 
     }
 
-    
-///////////////////////////////////////////
-    
- 
-  
-  /*
-    
-    public function show($id)
-    {
-        $client = Client::find($id);
-        return view('clients.show')->with('clients', $client);
-    }
-    
-    public function edit($id)
-    {
-        $client = Client::find($id);
-        return view('clients.edit')->with('clients', $client);
-    }
-  
-    public function update(Request $request, $id)
-    {
-        $client = Client::find($id);
-        $input = $request->all();
-        $client->update($input);
-        return redirect('client')->with('flash_message', 'client Updated!');  
-    }
-  
-    public function destroy($id)
-    {
-        Client::destroy($id);
-        return redirect('client')->with('flash_message', 'client deleted!');  
-    }
-    */
 }

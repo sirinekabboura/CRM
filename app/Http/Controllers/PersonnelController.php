@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Personnel;
 use Illuminate\Http\Request;
+
 
 class PersonnelController extends Controller
 {
@@ -14,7 +15,8 @@ class PersonnelController extends Controller
      */
     public function index()
     {
-        $personnels = Personnel::all();
+
+        $personnels = Personnel::with('user')->get();
         return $personnels->toJson(JSON_PRETTY_PRINT);
 
     }
@@ -27,11 +29,15 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        Personnel::create($request->all());    
-        User::create($request->all()); 
+        $user=User::create($request->all()); 
+        $personnel=Personnel::create($request->all());
+        
+
         return response()->json([
-            'success' => 'Personnel  Ajouté avec succès '
-            ], 200);    
+            'user'=>$user,
+            'personnel'=>$personnel,
+            'success' => 'Personnel  Ajoute avec succes '
+            ], 200); 
     }
 
     /**
@@ -40,10 +46,16 @@ class PersonnelController extends Controller
      * @param  \App\Models\Personnel  $personnel
      * @return \Illuminate\Http\Response
      */
-    public function show(Personnel $personnel ,$id )
+    public function show($id)
     {
-        $personnel = Personnel::find($id);
-        return $personnel->toJson(JSON_PRETTY_PRINT);
+        $personnel1=Personnel::find($id);
+        $user=User::find($id);
+        return response()->json([
+            'personnel'=>$personnel1,
+            'user'=>$user
+            ], 200); 
+
+        
     }
 
     /**
@@ -53,16 +65,24 @@ class PersonnelController extends Controller
      * @param  \App\Models\Personnel  $personnel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personnel $personnel , $id)
+    public function update(Request $request,  $id)
     {
         
 
         $personnel = Personnel::find($id);
+        $user= User::find($id);
         $input = $request->all();
         $personnel->update($input);
+        $user->update($input);
      
-            return $personnel->toJson(JSON_PRETTY_PRINT);
-    }
+           // return $personnel->toJson(JSON_PRETTY_PRINT);
+    
+           return response()->json([
+            'personnel'=>$personnel,
+            'user'=>$user,
+            'success' => 'Personnel  updated with success '
+            ], 200);     
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -70,60 +90,14 @@ class PersonnelController extends Controller
      * @param  \App\Models\Personnel  $personnel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personnel $personnel , $id)
+    public function destroy(Request $request)
     {
-       $personnel= Personnel::destroy($id);
+       //$personnel= Personnel::destroy($id);
+       $personnel= Personnel::where('id',$request->id)->delete();
        return response()->json([
         'success' => 'Personnel supprimé avec succès '
         ], 200);
 
     }
 }
-
-    /*
-    public function index()
-    {
-        $personnels = Personnel::all();
-        return view ('personnels.index')->with('personnels', $personnels);
-    }
-    public function create()
-    {
-        return view('personnels.create');
-    }
-  
-    public function store(Request $request)
-    {
-        $input = $request->all();
-       
-        
-        Personnel::create($input); 
-        return redirect('personnel')->with('flash_message', 'Personnel Addedd!');  
-    }
-    
-    public function show($id)
-    {
-        $personnel = Personnel::find($id);
-        return view('personnels.show')->with('personnels', $personnel);
-    }
-    
-    public function edit($id)
-    {
-        $personnel = Personnel::find($id);
-        return view('personnels.edit')->with('personnels', $personnel);
-    }
-  
-    public function update(Request $request, $id)
-    {
-        $personnel = Personnel::find($id);
-        $input = $request->all();
-        $personnel->update($input);
-        return redirect('personnel')->with('flash_message', 'personnel Updated!');  
-    }
-  
-    public function destroy($id)
-    {
-        Personnel::destroy($id);
-        return redirect('personnel')->with('flash_message', 'personnel deleted!');  
-    }
-    */
 

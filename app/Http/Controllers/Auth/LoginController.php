@@ -32,6 +32,19 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $users = User::all();
+        //   return view ('clients.index')->with('clients', $clients);
+        return $users->toJson(JSON_PRETTY_PRINT);
+    }
+
+
+    /**
      * Where to redirect users after login.
      *
      * @var string
@@ -125,6 +138,7 @@ return $next($request);
             return response()->json([
                 'status'=> true,
                 'message'=>'User logged with succes ',
+                'User'=>$user,
              //   'token' => $user->createToken["API TOKEN"]->plainTextToken
             ] , 200);
 
