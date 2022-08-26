@@ -78,6 +78,7 @@ class LoginController extends Controller
      */
     protected function LoginUser(Request $request)
     {
+        
         try {
             $validatoruser = Validator::make($request->all(),
             [
@@ -93,18 +94,31 @@ class LoginController extends Controller
                 ] , 401);
             }
 
-            if (!Auth::attempt($request->only(['email','password']))){
+            /*if (!Auth::attempt($request->only(['email','password']))){
                 return response()->json([
                     'status'=> false ,
                     'message'=>'Email and password dont match with our record',
                 ] , 401);
-            }
-            $user = User::where('email',$request->email)->first();
-            return response()->json([
-                'status'=> true,
-                'message'=>'User logged with succes ',
-             //   'token' => $user->createToken["API TOKEN"]->plainTextToken
-            ] , 200);
+            }*/
+            //login api
+            $user = User::where('email',$request->email)
+                        ->where('password',$request->password)
+                        ->first();
+                        if($user==null){
+                            return response()->json([
+                                'status'=> false ,
+                                'message'=>'User Not Found',
+                            ] , 401);
+                        }
+                        else{
+                            return response()->json([
+                                'User'=>$user,
+                                'status'=> true,
+                                'message'=>'User logged with success ',
+                             //   'token' => $user->createToken["API TOKEN"]->plainTextToken
+                            ] , 200);
+                        }
+            
 
         } catch(\Throwable $th){
             return response()->json([
@@ -122,6 +136,18 @@ class LoginController extends Controller
         ]);
         */
        
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $users = User::all();
+        return response()->json([
+            'users'=>$users
+        ], 200);
     }
 
 }
