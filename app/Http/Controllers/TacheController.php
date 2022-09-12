@@ -154,8 +154,8 @@ class TacheController extends Controller
         ], 201);
     }
     // get tache
-    public function tache_comment($id){
-        $tachecmt = Tache::find($id)->with('comments')->get();
+    public function tache_comment(){
+        $tachecmt = Tache::with('comments')->get();
         return response()->json([
             $tachecmt
         ],400);
