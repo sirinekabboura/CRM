@@ -39,7 +39,8 @@ class TacheController extends Controller
                 "Deadline" => 'required|string',
                 "assignation" => 'required|string',
                 "description" => 'required|string|',
-                "soustache_id" => 'required|string'
+                "important" => 'required|boolean',
+                "etat" =>'required|boolean',
             ]);
             
             $tache = new Tache([
@@ -47,7 +48,9 @@ class TacheController extends Controller
                 "Deadline" => $request->Deadline,
                 "assignation" => $request->assignation,
                 "description" => $request->description,
-                "soustache_id" => $request->soustache_id
+                "important"=>$request->important,
+                "etat"=>$request->etat,
+                
                
                 
             ]);
@@ -114,6 +117,8 @@ class TacheController extends Controller
             $tache->Deadline = $request->Deadline;
             $tache->assignation = $request->assignation;
             $tache->description = $request->description;
+            $tache->important = $request->important;
+            $tache->etat = $request->etat;
             $tache->soustache_id = $request->soustache_id;
             $tache->comment_id = $request->comment_id;
 
@@ -147,5 +152,13 @@ class TacheController extends Controller
         return response()->json([
             'message' => $msg
         ], 201);
+    }
+    // get tache
+    public function tache_comment($id){
+        $tachecmt = Tache::find($id)->with('comments')->get();
+        return response()->json([
+            $tachecmt
+        ],400);
+
     }
 }

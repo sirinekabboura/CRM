@@ -20,6 +20,6 @@ class Soustache extends Model
     ];
 
     public function SousTache(){
-        return $this->hasOne('App\Models\Tache', 'tache_id');
+        return $this->hasMany(SousTache::class);
     }
 }

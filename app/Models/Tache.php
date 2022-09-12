@@ -20,9 +20,9 @@ class Tache extends Model
     ];
 
     public function SousTache(){
-        return $this->hasMany('App\Models\soustache', 'soustache_id');
+        return $this->hasMany(Tache::class);
     }
     public function comments(){
-        return $this->hasMany('App\Models\Comment', 'id_comment');
+        return $this->hasMany('App\Models\Comment','id_comment');
     }
 }

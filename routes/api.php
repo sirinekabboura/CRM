@@ -41,6 +41,7 @@ Route::group([
     Route::get('index', [App\Http\Controllers\TacheController::class, 'index'])->middleware(["auth:api","scope:index"]);
     Route::post('update/{id}', [App\Http\Controllers\TacheController::class, 'update']);
     Route::post('destroy/{id}', [App\Http\Controllers\TacheController::class, 'destroy']);
+    Route::get('tache_comment/{id}', [App\Http\Controllers\TacheController::class, 'tache_comment']);
 });
 
 //Sous Tache CRUD

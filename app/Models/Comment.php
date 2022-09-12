@@ -22,7 +22,7 @@ class Comment extends Model
         return $this->hasOne("App\Models\User", "id_user");
     }
     public function tache(){
-        return $this->hasOne("App\Models\Tache", "id_tache");
+        return $this->belongsTo(Tache::class);
     }
     public function createdBy(){
         return $this->belongsTo(User::class);
