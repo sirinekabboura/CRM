@@ -32,6 +32,8 @@ Route::group([
     Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
     Route::get('user', [App\Http\Controllers\AuthController::class,'user']);
     Route::get('getuser', [App\Http\Controllers\AuthController::class,'Get_all']);
+    Route::get('get_all_user', [App\Http\Controllers\AuthController::class,'get_all_user']);
+
  
   //tache CURD
   Route::group([
