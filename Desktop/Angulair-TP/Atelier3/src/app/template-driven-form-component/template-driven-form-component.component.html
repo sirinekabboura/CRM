@@ -1,0 +1,44 @@
+<div style="border: 1px solid black; padding: 10px; width: 130%;">
+    <h2 style="text-align: center; margin-top: 0;">Informations générales</h2>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" [(ngModel)]="model.nom" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="model.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      </div>
+  
+      <div style="border: 1px solid black; padding: 1px; width: 100%;">
+        <h2 style="text-align: center;">Informations de paiement</h2>
+        <form>
+          <table style="width: 70%;">
+            <tr>
+              <td style="width: 50%;">Type de carte</td>
+              <td><input type="text" id="typeCarte" name="typeCarte" [(ngModel)]="model.typeCarte" style="width: 100%;" required></td>
+            </tr>
+            <tr>
+              <td>Numéro de carte</td>
+              <td><input type="text" id="numeroCarte" name="numeroCarte" [(ngModel)]="model.numeroCarte" style="width: 100%;" required pattern="[0-9]{16}"></td>
+            </tr>
+            <tr>
+              <td>Date d'expiration</td>
+              <td><input type="text" id="dateExpiration" name="dateExpiration" [(ngModel)]="model.dateExpiration" style="width: 100%;" required></td>
+            </tr>
+            <tr >
+              <td>Code</td>
+              <td><input type="text" id="code" name="code" [(ngModel)]="model.code" style="width: 100%;" [hidden]="!form.controls['dateExpiration'].valid || !form.controls['numeroCarte'].valid || !form.controls['typeCarte'].valid"> </td>
+            </tr>
+            
+          </table>
+         
+        </form>
+  
+      </div>
+      <div style="text-align: left; margin-top: 10px;">
+        <button type="submit" [disabled]="form.invalid">Ajouter</button>
+      </div>
+    </form>
+  </div>
+  
